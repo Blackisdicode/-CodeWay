@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Klassik Frescobar | Official | Code Way Management</title>
+  <meta name="description" content="Klassik Frescobar — Dancehall, Soca &amp; Hip-Hop artist from Kingston, Jamaica. Stream DANSA and book for live performances."/>
+  <meta property="og:title" content="Klassik Frescobar | Official | Code Way Management"/>
+  <meta property="og:description" content="Klassik Frescobar — Dancehall, Soca &amp; Hip-Hop. Stream DANSA and book Klassik for concerts, festivals, and events worldwide."/>
+  <meta property="og:type" content="website"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --black:   #06060a;
+      --deep:    #0d0d14;
+      --purple:  #2a1a4e;
+      --violet:  #6b21d6;
+      --neon:    #c855ff;
+      --pink:    #ff3d8a;
+      --gold:    #ffd166;
+      --white:   #f0ecff;
+      --text:    #a09ab8;
+      --border:  #1e1a2e;
+      --display: 'Bebas Neue', sans-serif;
+      --serif:   'Instrument Serif', Georgia, serif;
+      --sans:    'Space Grotesk', sans-serif;
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      overflow-x: hidden;
+      animation: pageFadeIn 0.5s ease forwards;
+    }
+
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 20% 10%, rgba(107,33,214,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 80% 80%, rgba(255,61,138,0.10) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 60% at 70% 20%, rgba(200,85,255,0.08) 0%, transparent 50%);
+      pointer-events: none; z-index: 0;
+      animation: meshShift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes meshShift  { from { opacity:0.7; } to { opacity:1; } }
+    @keyframes pageFadeIn { from { opacity:0;   } to { opacity:1; } }
+    @keyframes pulse      { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.4; transform:scale(0.6); } }
+    @keyframes floatY     { from { transform:translate(-50%,-50%); } to { transform:translate(-50%,-53%); } }
+    @keyframes ticker     { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+
+    a { color:inherit; text-decoration:none; }
+
+    /* ─── NAV ─── */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:200;
+      padding:0 clamp(20px,4vw,60px); height:68px;
+      display:flex; align-items:center; justify-content:space-between;
+      transition:background 0.4s;
+    }
+    nav.scrolled {
+      background:rgba(6,6,10,0.92);
+      border-bottom:1px solid var(--border);
+      backdrop-filter:blur(16px);
+    }
+    .nav-logo {
+      font-family:var(--display); font-size:1.5rem;
+      letter-spacing:0.12em; color:var(--white);
+      position:relative; z-index:1;
+    }
+    .nav-logo .accent { color:var(--neon); }
+    .nav-links {
+      display:flex; gap:28px; list-style:none; align-items:center;
+      position:relative; z-index:1;
+    }
+    .nav-links a {
+      font-size:0.68rem; letter-spacing:0.12em;
+      text-transform:uppercase; color:var(--text); transition:color 0.2s;
+    }
+    .nav-links a:hover { color:var(--white); }
+    .nav-links a.active { color:var(--neon); }
+    .nav-right {
+      display:flex; align-items:center; gap:20px;
+      position:relative; z-index:1;
+    }
+    .nav-back {
+      font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase;
+      color:var(--text); display:flex; align-items:center; gap:6px; transition:color 0.2s;
+    }
+    .nav-back:hover { color:var(--white); }
+    .nav-cta {
+      background:linear-gradient(135deg, var(--violet), var(--pink));
+      color:var(--white); padding:9px 22px; border-radius:40px;
+      font-size:0.72rem; font-weight:500; letter-spacing:0.08em;
+      transition:opacity 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { opacity:0.85; transform:translateY(-1px); }
+
+    /* ─── HAMBURGER ─── */
+    .hamburger {
+      display:none; flex-direction:column; justify-content:center; gap:5px;
+      width:36px; height:36px; cursor:pointer; background:none; border:none;
+      padding:4px; z-index:201; flex-shrink:0;
+    }
+    .hamburger span {
+      display:block; width:22px; height:1.5px; background:var(--white);
+      transition:transform 0.3s ease, opacity 0.3s ease; transform-origin:center;
+    }
+    .hamburger.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+    /* ─── MOBILE NAV ─── */
+    .mobile-nav {
+      position:fixed; inset:0; z-index:200;
+      background:rgba(6,6,10,0.97); backdrop-filter:blur(20px);
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:22px;
+      transform:translateY(-100%);
+      transition:transform 0.4s cubic-bezier(0.77,0,0.175,1);
+    }
+    .mobile-nav.open { transform:translateY(0); }
+    .mobile-nav a {
+      font-family:var(--display); font-size:clamp(2rem,8vw,3rem);
+      letter-spacing:0.06em; color:var(--white); transition:color 0.2s;
+    }
+    .mobile-nav a:hover { color:var(--neon); }
+    .mobile-nav .mobile-back {
+      font-family:var(--sans); font-size:0.7rem;
+      letter-spacing:0.12em; text-transform:uppercase; color:var(--text);
+    }
+    .mobile-nav .mobile-cta {
+      margin-top:6px;
+      background:linear-gradient(135deg, var(--violet), var(--pink));
+      color:var(--white); padding:13px 36px; border-radius:40px;
+      font-family:var(--sans); font-size:0.78rem; font-weight:500; letter-spacing:0.1em;
+    }
+    .mobile-nav .mobile-divider { width:40px; height:1px; background:var(--border); }
+
+    @media(max-width:900px) {
+      .hamburger { display:flex; }
+      .nav-links  { display:none; }
+      .nav-back   { display:none; }
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height:100vh;
+      display:flex; flex-direction:column; justify-content:flex-end;
+      padding:0 clamp(20px,4vw,60px) clamp(48px,7vw,90px);
+      padding-top:68px;
+      position:relative; overflow:hidden;
+    }
+
+    .hero-bg-text {
+      position:absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      font-family:var(--display);
+      font-size:clamp(14vw,22vw,28vw);
+      letter-spacing:0.04em; color:transparent;
+      -webkit-text-stroke:1px rgba(107,33,214,0.15);
+      white-space:nowrap; pointer-events:none; user-select:none;
+      z-index:0; animation:floatY 8s ease-in-out infinite alternate;
+    }
+
+    .ticker-wrap {
+      position:absolute; top:44%; left:0; right:0;
+      transform:translateY(-50%) rotate(-2deg);
+      overflow:hidden; padding:12px 0;
+      background:linear-gradient(135deg, var(--violet), var(--pink));
+      z-index:1; pointer-events:none;
+    }
+    .ticker-inner { display:flex; gap:0; animation:ticker 22s linear infinite; width:max-content; }
+    .ticker-item {
+      font-family:var(--display); font-size:1rem;
+      letter-spacing:0.18em; color:rgba(240,236,255,0.9);
+      padding:0 36px; white-space:nowrap;
+    }
+    .ticker-item .dot { color:var(--gold); margin-left:36px; }
+
+    .hero-content { position:relative; z-index:2; }
+
+    .hero-eyebrow {
+      display:inline-flex; align-items:center; gap:10px;
+      background:rgba(107,33,214,0.25); border:1px solid rgba(200,85,255,0.3);
+      border-radius:40px; padding:6px 16px;
+      font-size:0.68rem; font-weight:500; letter-spacing:0.15em;
+      text-transform:uppercase; color:var(--neon); margin-bottom:24px;
+    }
+    .hero-eyebrow .dot {
+      width:6px; height:6px; background:var(--neon);
+      border-radius:50%; animation:pulse 2s ease-in-out infinite;
+    }
+
+    .hero-title {
+      font-family:var(--display);
+      font-size:clamp(5rem,15vw,15rem);
+      line-height:0.87; letter-spacing:0.02em; color:var(--white);
+    }
+    .hero-title .line-gradient {
+      display:block;
+      background:linear-gradient(90deg, var(--neon), var(--pink));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+    .hero-title .line-outline {
+      display:block;
+      -webkit-text-stroke:1px rgba(240,236,255,0.4); color:transparent;
+    }
+
+    .hero-meta { margin-top:20px; display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
+    .hero-tag { font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--text); }
+    .hero-tag .sep { color:var(--neon); margin:0 6px; }
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:28px; }
+
+    /* ─── BUTTONS ─── */
+    .btn-neon {
+      background:linear-gradient(135deg, var(--violet) 0%, var(--pink) 100%);
+      color:var(--white); padding:14px 36px; border-radius:40px;
+      font-family:var(--sans); font-size:0.8rem; font-weight:500; letter-spacing:0.08em;
+      border:none; cursor:pointer; transition:transform 0.2s, box-shadow 0.2s;
+      display:inline-block; box-shadow:0 0 30px rgba(107,33,214,0.4);
+    }
+    .btn-neon:hover { transform:translateY(-2px); box-shadow:0 0 50px rgba(200,85,255,0.5); }
+    .btn-outline-neon {
+      background:transparent; color:var(--white); padding:14px 36px; border-radius:40px;
+      font-family:var(--sans); font-size:0.8rem; font-weight:500; letter-spacing:0.08em;
+      border:1px solid rgba(200,85,255,0.4); cursor:pointer;
+      transition:border-color 0.2s, color 0.2s; display:inline-block;
+    }
+    .btn-outline-neon:hover { border-color:var(--neon); color:var(--neon); }
+
+    /* ─── SHARED SECTION STYLES ─── */
+    .section-pad { padding:clamp(80px,10vw,120px) clamp(20px,4vw,60px); position:relative; z-index:1; }
+
+    .section-eyebrow {
+      font-size:0.65rem; font-weight:500; letter-spacing:0.22em;
+      text-transform:uppercase; color:var(--neon); margin-bottom:16px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .section-eyebrow::before { content:''; display:block; width:22px; height:1px; background:var(--neon); }
+    .section-eyebrow.centered { justify-content:center; }
+    .section-eyebrow.centered::before { display:none; }
+
+    .section-title {
+      font-family:var(--display);
+      font-size:clamp(2.5rem,6vw,5.5rem);
+      letter-spacing:0.03em; color:var(--white); line-height:0.95;
+      margin-bottom:clamp(36px,6vw,60px);
+    }
+
+    /* ─── VIDEO / RELEASE ─── */
+    #release { background:var(--deep); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+
+    .release-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+
+    .video-wrap {
+      position:relative; padding-bottom:56.25%;
+      border-radius:10px; overflow:hidden;
+      border:1px solid var(--border);
+      box-shadow:0 0 60px rgba(107,33,214,0.25);
+    }
+    .video-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; }
+
+    .release-info .track-title {
+      font-family:var(--display); font-size:clamp(3rem,7vw,6.5rem);
+      letter-spacing:0.06em; color:var(--white); line-height:0.88; margin-bottom:12px;
+    }
+    .release-info .track-sub {
+      font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase;
+      color:var(--text); margin-bottom:24px;
+    }
+    .release-info p { font-size:0.9rem; line-height:1.85; color:var(--text); margin-bottom:28px; }
+
+    /* ─── BIO ─── */
+    .bio-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+
+    .bio-visual {
+      aspect-ratio:3/4; max-height:560px;
+      background:linear-gradient(160deg, var(--purple) 0%, #1a0a2e 50%, var(--black) 100%);
+      border-radius:8px; border:1px solid rgba(107,33,214,0.4);
+      display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative;
+    }
+    .bio-visual-text {
+      font-family:var(--display); font-size:clamp(3rem,8vw,7rem);
+      color:transparent; -webkit-text-stroke:1px rgba(200,85,255,0.5);
+      text-align:center; line-height:0.9; letter-spacing:0.04em;
+    }
+    .bio-visual-badge {
+      position:absolute; bottom:24px; left:24px;
+      background:rgba(6,6,10,0.85); border:1px solid var(--border);
+      border-radius:6px; padding:12px 16px; backdrop-filter:blur(8px);
+    }
+    .bio-visual-badge .badge-flag { font-size:1.8rem; line-height:1; }
+    .bio-visual-badge .badge-label {
+      font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase;
+      color:var(--text); margin-top:4px;
+    }
+
+    .bio-text p { font-size:0.92rem; line-height:1.95; color:var(--text); margin-bottom:20px; }
+    .bio-link {
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase;
+      color:var(--neon); border-bottom:1px solid rgba(200,85,255,0.3);
+      padding-bottom:3px; transition:all 0.2s;
+    }
+    .bio-link:hover { border-color:var(--neon); gap:14px; }
+
+    /* ─── STREAMING ─── */
+    #music { background:var(--deep); border-top:1px solid var(--border); }
+
+    .platforms-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+
+    .platform-btn {
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      gap:14px; padding:36px 20px;
+      background:rgba(255,255,255,0.03); border:1px solid var(--border);
+      border-radius:10px; transition:border-color 0.3s, background 0.3s, transform 0.2s;
+      cursor:pointer;
+    }
+    .platform-btn:hover {
+      border-color:rgba(200,85,255,0.5);
+      background:rgba(107,33,214,0.1);
+      transform:translateY(-4px);
+    }
+    .platform-icon { font-size:2.2rem; }
+    .platform-name {
+      font-family:var(--display); font-size:1.1rem; letter-spacing:0.1em; color:var(--white);
+    }
+    .platform-label { font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text); }
+    .platform-btn.spotify  .platform-name { color:#1db954; }
+    .platform-btn.apple    .platform-name { color:#fc3c44; }
+    .platform-btn.soundcld .platform-name { color:var(--gold); }
+    .platform-btn.youtube  .platform-name { color:#ff4444; }
+
+    /* ─── PRESS ─── */
+    #press { border-top:1px solid var(--border); }
+
+    .press-grid { display:flex; flex-wrap:wrap; gap:12px; }
+
+    .press-tag {
+      display:inline-block; padding:10px 22px;
+      border:1px solid var(--border); border-radius:40px;
+      font-size:0.78rem; font-weight:500; letter-spacing:0.08em;
+      color:var(--text); transition:border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .press-tag:hover { border-color:var(--neon); color:var(--neon); background:rgba(200,85,255,0.06); }
+
+    /* ─── BOOKING ─── */
+    #booking {
+      background:var(--deep); border-top:1px solid var(--border);
+      overflow:hidden;
+    }
+    #booking::before {
+      content:'BOOK';
+      position:absolute; font-family:var(--display); font-size:22vw;
+      color:rgba(107,33,214,0.04); top:50%; left:50%;
+      transform:translate(-50%,-50%); pointer-events:none; white-space:nowrap;
+    }
+
+    .booking-inner { position:relative; max-width:720px; margin:0 auto; text-align:center; }
+    .booking-inner .section-title { margin-bottom:12px; }
+    .booking-sub { font-size:0.9rem; line-height:1.8; margin-bottom:44px; }
+
+    .booking-form { display:flex; flex-direction:column; gap:16px; text-align:left; }
+    .bf-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .bf-group { display:flex; flex-direction:column; gap:8px; }
+    .bf-group label {
+      font-size:0.65rem; font-weight:500; letter-spacing:0.15em;
+      text-transform:uppercase; color:var(--neon);
+    }
+    .bf-group input,
+    .bf-group select,
+    .bf-group textarea {
+      background:rgba(255,255,255,0.04); border:1px solid var(--border);
+      color:var(--white); padding:13px 16px; font-family:var(--sans);
+      font-size:0.88rem; font-weight:300; border-radius:6px; outline:none;
+      transition:border-color 0.2s, background 0.2s; appearance:none;
+    }
+    .bf-group input:focus,
+    .bf-group select:focus,
+    .bf-group textarea:focus { border-color:rgba(200,85,255,0.6); background:rgba(107,33,214,0.08); }
+    .bf-group select option { background:var(--deep); }
+    .bf-group textarea { resize:vertical; min-height:110px; }
+    /* date input color fix */
+    .bf-group input[type="date"]::-webkit-calendar-picker-indicator { filter:invert(0.6); }
+
+    .bf-submit {
+      width:100%;
+      background:linear-gradient(135deg, var(--violet), var(--pink));
+      color:var(--white); border:none; padding:16px;
+      font-family:var(--sans); font-size:0.82rem; font-weight:500;
+      letter-spacing:0.12em; text-transform:uppercase; cursor:pointer;
+      border-radius:6px; transition:opacity 0.2s, transform 0.2s; margin-top:8px;
+      box-shadow:0 8px 30px rgba(107,33,214,0.3);
+    }
+    .bf-submit:hover { opacity:0.88; transform:translateY(-1px); }
+
+    /* ─── FIELD ERRORS ─── */
+    .field-error { display:block; font-size:0.68rem; color:#ff4444; margin-top:5px; letter-spacing:0.03em; }
+
+    /* ─── TOAST ─── */
+    .toast {
+      position:fixed; bottom:32px; right:32px;
+      background:linear-gradient(135deg, var(--violet), var(--pink));
+      color:var(--white); padding:14px 24px;
+      font-size:0.8rem; font-weight:500; border-radius:8px;
+      transform:translateY(80px); opacity:0; transition:all 0.3s ease;
+      z-index:999; box-shadow:0 8px 30px rgba(107,33,214,0.4);
+    }
+    .toast.show { transform:translateY(0); opacity:1; }
+
+    /* ─── REVEAL ─── */
+    .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding:40px clamp(20px,4vw,60px);
+      border-top:1px solid var(--border);
+      display:flex; align-items:center; justify-content:space-between;
+      flex-wrap:wrap; gap:16px; position:relative; z-index:1;
+    }
+    .footer-logo { font-family:var(--display); font-size:1.2rem; letter-spacing:0.1em; color:var(--white); }
+    .footer-logo .accent { color:var(--neon); }
+    .footer-links { display:flex; gap:24px; list-style:none; flex-wrap:wrap; }
+    .footer-links a { font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); transition:color 0.2s; }
+    .footer-links a:hover { color:var(--white); }
+    .footer-copy { font-size:0.7rem; color:var(--text); opacity:0.5; }
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width:900px) {
+      .release-grid { grid-template-columns:1fr; gap:40px; }
+      .bio-grid { grid-template-columns:1fr; }
+      .bio-visual { display:none; }
+      .platforms-grid { grid-template-columns:1fr 1fr; }
+      .bf-row { grid-template-columns:1fr; }
+    }
+    @media(max-width:520px) {
+      .hero-actions { flex-direction:column; align-items:flex-start; }
+      .platforms-grid { grid-template-columns:1fr 1fr; gap:10px; }
+      .platform-btn { padding:24px 12px; gap:10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toast" id="toast">Booking request received. We'll be in touch within 24 hours.</div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="codeway-management.html" class="nav-logo">CW<span class="accent">.</span>MGMT</a>
+    <ul class="nav-links">
+      <li><a href="#release">Music</a></li>
+      <li><a href="#bio">Bio</a></li>
+      <li><a href="#music">Stream</a></li>
+      <li><a href="#press">Press</a></li>
+      <li><a href="#booking">Booking</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="codeway-management.html" class="nav-back">← Management</a>
+      <a href="#booking" class="nav-cta">Book Klassik</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#release">Music</a>
+    <a href="#bio">Biography</a>
+    <a href="#music">Stream</a>
+    <a href="#press">Press</a>
+    <a href="#booking">Booking</a>
+    <div class="mobile-divider"></div>
+    <a href="codeway-management.html" class="mobile-back">← Management</a>
+    <a href="codeway.html" class="mobile-back">← Code Way INC</a>
+    <a href="#booking" class="mobile-cta">Book Klassik</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-text">KLASSIK</div>
+
+    <div class="ticker-wrap">
+      <div class="ticker-inner">
+        <span class="ticker-item">DANCEHALL <span class="dot">✦</span></span>
+        <span class="ticker-item">SOCA <span class="dot">✦</span></span>
+        <span class="ticker-item">HIP-HOP <span class="dot">✦</span></span>
+        <span class="ticker-item">KINGSTON JA <span class="dot">✦</span></span>
+        <span class="ticker-item">MIAMI FL <span class="dot">✦</span></span>
+        <span class="ticker-item">NOW STREAMING <span class="dot">✦</span></span>
+        <span class="ticker-item">DANCEHALL <span class="dot">✦</span></span>
+        <span class="ticker-item">SOCA <span class="dot">✦</span></span>
+        <span class="ticker-item">HIP-HOP <span class="dot">✦</span></span>
+        <span class="ticker-item">KINGSTON JA <span class="dot">✦</span></span>
+        <span class="ticker-item">MIAMI FL <span class="dot">✦</span></span>
+        <span class="ticker-item">NOW STREAMING <span class="dot">✦</span></span>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Official Artist Page · Code Way Management
+      </div>
+      <h1 class="hero-title">
+        <span class="line-gradient">KLASSIK</span>
+        <span class="line-outline">FRESCOBAR</span>
+      </h1>
+      <div class="hero-meta">
+        <span class="hero-tag">Kingston, Jamaica<span class="sep">·</span>Miami, FL</span>
+        <span class="hero-tag">Dancehall<span class="sep">·</span>Soca<span class="sep">·</span>Hip-Hop</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#release" class="btn-neon">Watch DANSA</a>
+        <a href="#booking" class="btn-outline-neon">Book Klassik</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST RELEASE -->
+  <section id="release" class="section-pad">
+    <div class="release-grid reveal">
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/kGp3T5zWDdE"
+          title="Klassik Frescobar — DANSA Visualizer"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="release-info">
+        <div class="section-eyebrow">Latest Release</div>
+        <div class="track-title">DANSA</div>
+        <div class="track-sub">Official Visualizer · Klassik Frescobar</div>
+        <p>The follow-up to his breakout "Too Much" with Marzville, DANSA showcases everything that makes Klassik singular — commanding Dancehall energy fused with irresistible Soca rhythm. A record built to move rooms and earn replay after replay.</p>
+        <a href="#music" class="btn-neon" style="font-size:0.75rem; padding:12px 28px;">Stream Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIOGRAPHY -->
+  <section id="bio" class="section-pad">
+    <div class="bio-grid">
+      <div class="bio-visual reveal">
+        <div class="bio-visual-text">KLASSIK<br/>FRESCO<br/>BAR</div>
+        <div class="bio-visual-badge">
+          <div class="badge-flag">🇯🇲</div>
+          <div class="badge-label">Kingston · Miami</div>
+        </div>
+      </div>
+      <div class="bio-text reveal">
+        <div class="section-eyebrow">Biography</div>
+        <h2 class="section-title">THE<br/>ARTIST</h2>
+        <p>Klassik Frescobar's musical influence began in the early '90s in Kingston, Jamaica's Constant Spring Gardens. As a child, his mother's cassette player and early records from Bounty Killa, Sean Paul, and Beenie Man shaped everything that was to come.</p>
+        <p>After migrating to the Bronx, Klassik built his craft in New York's Dancehall scene — forging relationships with DJs and producers, including Brooklyn-based producer Ricky Blaze. A second migration to Miami brought him into the orbit of Red Cafe, who opened doors to the city's party circuit and music infrastructure.</p>
+        <p>His sound — Jamaican Dancehall fused with Soca, Calypso, and Hip-Hop — is singular. Commanding vocals over sweet soca energy. His breakout record "Too Much" with Marzville was followed by "Dansa," a record poised to go even further.</p>
+        <a href="https://www.klassikfrescobar.com" target="_blank" class="bio-link">Visit Official Site →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STREAMING -->
+  <section id="music" class="section-pad">
+    <div class="reveal">
+      <div class="section-eyebrow">Stream Klassik</div>
+      <h2 class="section-title">AVAILABLE<br/>EVERYWHERE</h2>
+    </div>
+    <div class="platforms-grid reveal">
+      <a href="#" class="platform-btn spotify">
+        <span class="platform-icon">🎵</span>
+        <div class="platform-name">Spotify</div>
+        <div class="platform-label">Stream Now</div>
+      </a>
+      <a href="#" class="platform-btn apple">
+        <span class="platform-icon">🎧</span>
+        <div class="platform-name">Apple Music</div>
+        <div class="platform-label">Stream Now</div>
+      </a>
+      <a href="#" class="platform-btn soundcld">
+        <span class="platform-icon">☁️</span>
+        <div class="platform-name">SoundCloud</div>
+        <div class="platform-label">Stream Now</div>
+      </a>
+      <a href="#" class="platform-btn youtube">
+        <span class="platform-icon">▶️</span>
+        <div class="platform-name">YouTube</div>
+        <div class="platform-label">Watch Now</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- PRESS -->
+  <section id="press" class="section-pad">
+    <div class="reveal">
+      <div class="section-eyebrow">As Seen In</div>
+      <h2 class="section-title">PRESS &amp;<br/>FEATURES</h2>
+    </div>
+    <div class="press-grid reveal">
+      <a href="https://www.billboard.com"       target="_blank" class="press-tag">Billboard</a>
+      <a href="https://thesource.com"           target="_blank" class="press-tag">The Source</a>
+      <a href="https://www.hot97.com"           target="_blank" class="press-tag">Hot 97</a>
+      <a href="https://flaunt.com"              target="_blank" class="press-tag">Flaunt</a>
+      <a href="https://www.euroweeklynews.com"  target="_blank" class="press-tag">Euro Weekly News</a>
+      <a href="https://www.influencive.com"     target="_blank" class="press-tag">Influencive</a>
+      <a href="https://muziquemagazine.com"     target="_blank" class="press-tag">Musique Magazine</a>
+      <a href="https://www.musictimes.com"      target="_blank" class="press-tag">Music Times</a>
+      <a href="https://jamaica-gleaner.com"     target="_blank" class="press-tag">Jamaica Gleaner</a>
+      <a href="https://jamaica-star.com"        target="_blank" class="press-tag">Jamaica Star</a>
+      <a href="https://hiphopsince1987.com"     target="_blank" class="press-tag">HipHopSince1987</a>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="booking" class="section-pad">
+    <div class="booking-inner">
+      <div class="section-eyebrow centered reveal">Bookings &amp; Inquiries</div>
+      <h2 class="section-title reveal">BOOK<br/>KLASSIK</h2>
+      <p class="booking-sub reveal">Concerts, festivals, private events, TV appearances, and brand collaborations. Fill in the form and our team will respond within 24 hours.</p>
+
+      <div class="booking-form reveal">
+        <div class="bf-row">
+          <div class="bf-group">
+            <label>Your Name</label>
+            <input type="text" id="bf-name" placeholder="Full name or organization"/>
+          </div>
+          <div class="bf-group">
+            <label>Email Address</label>
+            <input type="email" id="bf-email" placeholder="your@email.com"/>
+          </div>
+        </div>
+        <div class="bf-row">
+          <div class="bf-group">
+            <label>Phone Number</label>
+            <input type="tel" id="bf-phone" placeholder="+1 (000) 000-0000"/>
+          </div>
+          <div class="bf-group">
+            <label>Event Type</label>
+            <select id="bf-type">
+              <option value="">— Select event type —</option>
+              <option>Concert / Festival</option>
+              <option>Private Event</option>
+              <option>Corporate Event</option>
+              <option>Radio / TV Appearance</option>
+              <option>Collaboration / Feature</option>
+              <option>Brand Partnership</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="bf-row">
+          <div class="bf-group">
+            <label>Event Date</label>
+            <input type="date" id="bf-date"/>
+          </div>
+          <div class="bf-group">
+            <label>Location / Venue</label>
+            <input type="text" id="bf-location" placeholder="City, State or Venue name"/>
+          </div>
+        </div>
+        <div class="bf-group">
+          <label>Additional Details</label>
+          <textarea id="bf-message" placeholder="Expected attendance, budget range, vision for the performance…"></textarea>
+        </div>
+        <button class="bf-submit" onclick="handleBookingSubmit()">Send Booking Request →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">CW<span class="accent">.</span>MGMT</div>
+    <ul class="footer-links">
+      <li><a href="#release">Music</a></li>
+      <li><a href="#bio">Bio</a></li>
+      <li><a href="#press">Press</a></li>
+      <li><a href="#booking">Booking</a></li>
+      <li><a href="codeway-management.html">Management →</a></li>
+      <li><a href="codeway.html">Code Way INC →</a></li>
+    </ul>
+    <div class="footer-copy">© 2025 Code Way Management · A Code Way INC Company</div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 100); revealObserver.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // Active nav state
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    const activeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const link = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+    ['release', 'bio', 'music', 'press', 'booking'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) activeObserver.observe(el);
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileNav.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileNav.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Form error helpers
+    function showError(id, msg) {
+      const el = document.getElementById(id);
+      let err = el.parentNode.querySelector('.field-error');
+      if (!err) { err = document.createElement('span'); err.className = 'field-error'; el.parentNode.appendChild(err); }
+      err.textContent = msg;
+      el.style.borderColor = 'rgba(255,68,68,0.8)';
+    }
+    function clearError(id) {
+      const el = document.getElementById(id);
+      const err = el.parentNode.querySelector('.field-error');
+      if (err) err.remove();
+      el.style.borderColor = '';
+    }
+
+    // Booking form validation
+    function handleBookingSubmit() {
+      const fields = [
+        { id: 'bf-name',     label: 'Your name' },
+        { id: 'bf-email',    label: 'Email address' },
+        { id: 'bf-phone',    label: 'Phone number' },
+        { id: 'bf-type',     label: 'Event type' },
+        { id: 'bf-date',     label: 'Event date' },
+        { id: 'bf-location', label: 'Location / Venue' },
+        { id: 'bf-message',  label: 'Additional details' }
+      ];
+      let valid = true;
+      fields.forEach(f => {
+        const val = document.getElementById(f.id).value.trim();
+        if (!val) { showError(f.id, f.label + ' is required.'); valid = false; }
+        else clearError(f.id);
+      });
+      const emailVal = document.getElementById('bf-email').value.trim();
+      if (emailVal && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+        showError('bf-email', 'Please enter a valid email address.');
+        valid = false;
+      }
+      if (!valid) return;
+      document.getElementById('toast').classList.add('show');
+      setTimeout(() => document.getElementById('toast').classList.remove('show'), 5000);
+      fields.forEach(f => { document.getElementById(f.id).value = ''; clearError(f.id); });
+    }
+  </script>
+
+</body>
+</html>

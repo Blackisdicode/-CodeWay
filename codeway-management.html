@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Code Way Management — Where Creatives Become Icons</title>
+  <meta name="description" content="Code Way Management — the creative arm of Code Way INC. Artist management, IP protection, brand strategy, and career development for visionary creatives."/>
+  <meta property="og:title" content="Where Creatives Become Icons | Code Way Management"/>
+  <meta property="og:description" content="Code Way Management represents visionary creatives — protecting their IP, building their brand, and positioning them for long-term legacy in the industry."/>
+  <meta property="og:type" content="website"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+
+    :root {
+      --black:  #06060a;
+      --deep:   #0d0d14;
+      --purple: #2a1a4e;
+      --violet: #6b21d6;
+      --neon:   #c855ff;
+      --pink:   #ff3d8a;
+      --gold:   #ffd166;
+      --white:  #f0ecff;
+      --text:   #a09ab8;
+      --border: #1e1a2e;
+
+      --display: 'Bebas Neue', sans-serif;
+      --serif:   'Instrument Serif', Georgia, serif;
+      --sans:    'Space Grotesk', sans-serif;
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      overflow-x: hidden;
+      animation: pageFadeIn 0.5s ease forwards;
+    }
+
+    /* moving gradient mesh bg */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 20% 10%, rgba(107,33,214,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 80% 80%, rgba(255,61,138,0.10) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 60% at 70% 20%, rgba(200,85,255,0.08) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+      animation: meshShift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes meshShift {
+      from { opacity: 0.7; }
+      to   { opacity: 1; }
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      position: fixed; top:0; left:0; right:0; z-index:200;
+      padding: 0 clamp(20px,4vw,60px);
+      height: 68px;
+      display: flex; align-items:center; justify-content:space-between;
+      transition: background 0.4s;
+    }
+
+    nav.scrolled {
+      background: rgba(6,6,10,0.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-logo {
+      font-family: var(--display);
+      font-size: 1.5rem;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      position: relative;
+      z-index:1;
+    }
+
+    .nav-logo .accent { color: var(--neon); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      position: relative;
+      z-index:1;
+    }
+
+    .nav-back {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--white); }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--violet), var(--pink));
+      color: var(--white);
+      padding: 9px 22px;
+      border-radius: 40px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .nav-cta:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 clamp(20px,4vw,60px) clamp(40px,6vw,80px);
+      padding-top: 68px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* big background text */
+    .hero-bg-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-52%);
+      font-family: var(--display);
+      font-size: clamp(12vw, 18vw, 22vw);
+      letter-spacing: 0.04em;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(107,33,214,0.2);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      animation: floatY 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatY {
+      from { transform: translate(-50%,-52%); }
+      to   { transform: translate(-50%,-50%); }
+    }
+
+    /* ticker tape */
+    .ticker-wrap {
+      position: absolute;
+      top: 50%;
+      left: 0; right: 0;
+      transform: translateY(-50%) rotate(-3deg);
+      overflow: hidden;
+      padding: 14px 0;
+      background: var(--violet);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .ticker-inner {
+      display: flex;
+      gap: 0;
+      animation: ticker 28s linear infinite;
+      width: max-content;
+    }
+
+    .ticker-item {
+      font-family: var(--display);
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+      color: rgba(240,236,255,0.9);
+      padding: 0 40px;
+      white-space: nowrap;
+    }
+
+    .ticker-item .dot {
+      color: var(--neon);
+      margin-left: 40px;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(107,33,214,0.25);
+      border: 1px solid rgba(200,85,255,0.3);
+      border-radius: 40px;
+      padding: 6px 16px;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--neon);
+      margin-bottom: 28px;
+    }
+
+    .hero-eyebrow .dot {
+      width: 6px; height: 6px;
+      background: var(--neon);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:0.4; transform:scale(0.6); }
+    }
+
+    .hero-title {
+      font-family: var(--display);
+      font-size: clamp(4rem, 11vw, 11rem);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 0;
+    }
+
+    .hero-title .line-2 {
+      display: block;
+      background: linear-gradient(90deg, var(--neon), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-title .line-3 {
+      display: block;
+      -webkit-text-stroke: 1px rgba(240,236,255,0.4);
+      color: transparent;
+    }
+
+    .hero-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-sub {
+      max-width: 420px;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-neon {
+      background: linear-gradient(135deg, var(--violet) 0%, var(--pink) 100%);
+      color: var(--white);
+      padding: 14px 36px;
+      border-radius: 40px;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-block;
+      box-shadow: 0 0 30px rgba(107,33,214,0.4);
+    }
+
+    .btn-neon:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 50px rgba(200,85,255,0.5);
+    }
+
+    .btn-outline-neon {
+      background: transparent;
+      color: var(--white);
+      padding: 14px 36px;
+      border-radius: 40px;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(200,85,255,0.4);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline-neon:hover { border-color: var(--neon); color: var(--neon); }
+
+    /* WHAT WE DO */
+    #what {
+      padding: clamp(80px,10vw,120px) clamp(20px,4vw,60px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .what-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: clamp(48px,8vw,80px);
+    }
+
+    .what-header h2 {
+      font-family: var(--display);
+      font-size: clamp(3rem, 6vw, 6rem);
+      letter-spacing: 0.03em;
+      color: var(--white);
+      line-height: 0.95;
+    }
+
+    .what-header p {
+      max-width: 340px;
+      font-size: 0.88rem;
+      line-height: 1.8;
+      margin-top: 8px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .service-card {
+      background: var(--deep);
+      padding: 40px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      cursor: default;
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(107,33,214,0.1), rgba(255,61,138,0.05));
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .service-card:hover { background: #0f0f1a; }
+    .service-card:hover::after { opacity: 1; }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .service-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .service-body {
+      font-size: 0.82rem;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    /* ROSTER MARQUEE */
+    #roster {
+      padding: clamp(60px,8vw,100px) 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      z-index:1;
+      overflow: hidden;
+    }
+
+    .roster-label {
+      text-align: center;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--neon);
+      margin-bottom: 40px;
+    }
+
+    .marquee-wrap {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .marquee-wrap::before,
+    .marquee-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+    }
+
+    .marquee-wrap::before { left:0; background:linear-gradient(to right, var(--black), transparent); }
+    .marquee-wrap::after  { right:0; background:linear-gradient(to left, var(--black), transparent); }
+
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 30s linear infinite;
+      width: max-content;
+    }
+
+    .marquee-track:hover { animation-play-state: paused; }
+
+    .artist-pill {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 48px;
+      border-right: 1px solid var(--border);
+    }
+
+    .artist-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), var(--violet));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--display);
+      font-size: 1.2rem;
+      color: var(--white);
+      flex-shrink: 0;
+      border: 1px solid rgba(200,85,255,0.3);
+    }
+
+    .artist-info { min-width: 120px; }
+
+    .artist-name {
+      font-family: var(--display);
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    .artist-genre {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* WHY JOIN */
+    #join {
+      padding: clamp(80px,10vw,120px) clamp(20px,4vw,60px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index:1;
+    }
+
+    .join-left {
+      position: relative;
+    }
+
+    .join-visual {
+      aspect-ratio: 3/4;
+      max-height: 580px;
+      background: linear-gradient(160deg, var(--purple) 0%, #1a0a2e 50%, var(--black) 100%);
+      border-radius: 8px;
+      border: 1px solid rgba(107,33,214,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .join-visual-text {
+      font-family: var(--display);
+      font-size: clamp(3rem,8vw,7rem);
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(200,85,255,0.5);
+      text-align: center;
+      line-height: 0.9;
+      letter-spacing: 0.04em;
+      animation: glowPulse 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes glowPulse {
+      from { -webkit-text-stroke-color: rgba(200,85,255,0.3); text-shadow: none; }
+      to   { -webkit-text-stroke-color: rgba(200,85,255,0.8); text-shadow: 0 0 60px rgba(200,85,255,0.15); }
+    }
+
+    .join-visual-badge {
+      position: absolute;
+      bottom: 28px;
+      left: 28px;
+      background: rgba(6,6,10,0.85);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      backdrop-filter: blur(8px);
+    }
+
+    .badge-num {
+      font-family: var(--display);
+      font-size: 2rem;
+      letter-spacing: 0.04em;
+      color: var(--neon);
+      line-height: 1;
+    }
+
+    .badge-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-top: 3px;
+    }
+
+    .join-right {}
+
+    .join-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--neon);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .join-eyebrow::before { content:''; display:block; width:24px; height:1px; background:var(--neon); }
+
+    .join-title {
+      font-family: var(--display);
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      letter-spacing: 0.02em;
+      color: var(--white);
+      line-height: 0.95;
+      margin-bottom: 24px;
+    }
+
+    .join-title .grd {
+      background: linear-gradient(90deg, var(--neon), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .join-body {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      margin-bottom: 36px;
+    }
+
+    .perks {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .perk {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .perk-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 6px;
+      background: rgba(107,33,214,0.2);
+      border: 1px solid rgba(107,33,214,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .perk-text { font-size: 0.84rem; line-height: 1.6; }
+    .perk-text strong { color: var(--white); font-weight: 500; display:block; margin-bottom:2px; }
+
+    /* CONTACT */
+    #contact {
+      padding: clamp(80px,10vw,120px) clamp(20px,4vw,60px);
+      background: var(--deep);
+      border-top: 1px solid var(--border);
+      position: relative;
+      z-index:1;
+      overflow: hidden;
+    }
+
+    #contact::before {
+      content: 'SUBMIT';
+      position: absolute;
+      font-family: var(--display);
+      font-size: 20vw;
+      color: rgba(107,33,214,0.04);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .contact-inner {
+      position: relative;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--neon);
+      margin-bottom: 16px;
+    }
+
+    .contact-title {
+      font-family: var(--display);
+      font-size: clamp(2.8rem, 6vw, 6rem);
+      letter-spacing: 0.02em;
+      color: var(--white);
+      line-height: 0.95;
+      margin-bottom: 16px;
+    }
+
+    .contact-sub {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: left;
+    }
+
+    .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .cf-group { display: flex; flex-direction: column; gap: 8px; }
+
+    .cf-group label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--neon);
+    }
+
+    .cf-group input,
+    .cf-group select,
+    .cf-group textarea {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      color: var(--white);
+      padding: 13px 16px;
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      font-weight: 300;
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      appearance: none;
+    }
+
+    .cf-group input:focus,
+    .cf-group select:focus,
+    .cf-group textarea:focus {
+      border-color: rgba(200,85,255,0.6);
+      background: rgba(107,33,214,0.08);
+    }
+
+    .cf-group select option { background: var(--deep); }
+    .cf-group textarea { resize: vertical; min-height: 100px; }
+
+    .cf-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--violet), var(--pink));
+      color: var(--white);
+      border: none;
+      padding: 16px;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: opacity 0.2s, transform 0.2s;
+      margin-top: 8px;
+      box-shadow: 0 8px 30px rgba(107,33,214,0.3);
+    }
+
+    .cf-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* FOOTER */
+    footer {
+      padding: 40px clamp(20px,4vw,60px);
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      position: relative;
+      z-index:1;
+    }
+
+    .footer-logo {
+      font-family: var(--display);
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+      color: var(--white);
+    }
+
+    .footer-logo .accent { color: var(--neon); }
+
+    .footer-links { display:flex; gap:24px; list-style:none; }
+    .footer-links a { font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); transition:color 0.2s; }
+    .footer-links a:hover { color:var(--white); }
+    .footer-copy { font-size:0.7rem; color:var(--muted,#3a3a3a); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(30px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    .reveal {
+      opacity:0;
+      transform:translateY(28px);
+      transition:opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible { opacity:1; transform:none; }
+
+    .toast {
+      position:fixed; bottom:32px; right:32px;
+      background:linear-gradient(135deg,var(--violet),var(--pink));
+      color:var(--white);
+      padding:14px 24px;
+      font-size:0.8rem; font-weight:500;
+      border-radius:8px;
+      transform:translateY(80px); opacity:0;
+      transition:all 0.3s ease;
+      z-index:999;
+      box-shadow:0 8px 30px rgba(107,33,214,0.4);
+    }
+
+    .toast.show { transform:translateY(0); opacity:1; }
+
+    /* PRESS TAGS */
+    .press-tag {
+      display: inline-block;
+      padding: 8px 18px;
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .press-tag:hover { border-color: var(--neon); color: var(--neon); }
+
+    @media(max-width:900px) {
+      #spotlight > div:nth-child(2) { grid-template-columns: 1fr !important; }
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:900px) {
+      .services-grid { grid-template-columns:1fr; }
+      #join { grid-template-columns:1fr; }
+      .join-left { display:none; }
+      .cf-row { grid-template-columns:1fr; }
+    }
+
+    @media(max-width:600px) {
+      .hero-title { font-size:clamp(3.5rem,16vw,6rem); }
+      .services-grid { grid-template-columns:1fr; }
+    }
+
+    /* PAGE FADE-IN */
+    @keyframes pageFadeIn { from { opacity:0; } to { opacity:1; } }
+
+    /* ACTIVE NAV */
+    .nav-links a.active { color: var(--neon) !important; }
+
+    /* FIELD ERRORS */
+    .field-error { display:block; font-size:0.68rem; color:#ff4444; margin-top:5px; letter-spacing:0.03em; }
+
+    /* NAV SECTION LINKS */
+    .nav-links {
+      display:flex; gap:28px; list-style:none; align-items:center;
+      position:relative; z-index:1;
+    }
+    .nav-links a {
+      font-size:0.68rem; letter-spacing:0.12em;
+      text-transform:uppercase; color:var(--text); transition:color 0.2s;
+    }
+    .nav-links a:hover { color:var(--white); }
+
+    /* HAMBURGER BUTTON */
+    .hamburger {
+      display:none; flex-direction:column; justify-content:center; gap:5px;
+      width:36px; height:36px; cursor:pointer; background:none; border:none;
+      padding:4px; z-index:201; flex-shrink:0;
+    }
+    .hamburger span {
+      display:block; width:22px; height:1.5px; background:var(--white);
+      transition:transform 0.3s ease, opacity 0.3s ease; transform-origin:center;
+    }
+    .hamburger.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+    /* MOBILE NAV OVERLAY */
+    .mobile-nav {
+      position:fixed; inset:0; z-index:200;
+      background:rgba(6,6,10,0.97); backdrop-filter:blur(20px);
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:22px;
+      transform:translateY(-100%);
+      transition:transform 0.4s cubic-bezier(0.77,0,0.175,1);
+    }
+    .mobile-nav.open { transform:translateY(0); }
+    .mobile-nav a {
+      font-family:var(--display); font-size:clamp(2rem,8vw,3rem);
+      letter-spacing:0.06em; color:var(--white); transition:color 0.2s;
+    }
+    .mobile-nav a:hover { color:var(--neon); }
+    .mobile-nav .mobile-back {
+      font-family:var(--sans); font-size:0.7rem;
+      letter-spacing:0.12em; text-transform:uppercase; color:var(--text);
+    }
+    .mobile-nav .mobile-cta {
+      margin-top:6px;
+      background:linear-gradient(135deg, var(--violet), var(--pink));
+      color:var(--white); padding:13px 36px; border-radius:40px;
+      font-family:var(--sans); font-size:0.78rem; font-weight:500; letter-spacing:0.1em;
+    }
+    .mobile-nav .mobile-divider { width:40px; height:1px; background:var(--border); }
+
+    @media(max-width:900px) {
+      .hamburger { display:flex; }
+      .nav-links { display:none; }
+      .nav-back { display:none; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="toast" id="toast">🎤 We'll be in touch. Let's build something legendary.</div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-logo">CW<span class="accent">.</span>MGMT</div>
+    <ul class="nav-links">
+      <li><a href="#what">Services</a></li>
+      <li><a href="#roster">Roster</a></li>
+      <li><a href="#spotlight">Artists</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="codeway.html" class="nav-back">← Code Way INC</a>
+      <a href="#contact" class="nav-cta">Submit Your Work</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#what">Services</a>
+    <a href="#roster">Roster</a>
+    <a href="#spotlight">Artists</a>
+    <a href="#contact">Contact</a>
+    <div class="mobile-divider"></div>
+    <a href="klassik-frescobar.html">Klassik Frescobar</a>
+    <a href="codeway.html" class="mobile-back">← Code Way INC</a>
+    <a href="#contact" class="mobile-cta">Submit Your Work</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-text">CREATIVE</div>
+
+    <div class="ticker-wrap">
+      <div class="ticker-inner">
+        <span class="ticker-item">ARTIST MANAGEMENT <span class="dot">✦</span></span>
+        <span class="ticker-item">IP PROTECTION <span class="dot">✦</span></span>
+        <span class="ticker-item">BRAND DEVELOPMENT <span class="dot">✦</span></span>
+        <span class="ticker-item">PORTFOLIO STRATEGY <span class="dot">✦</span></span>
+        <span class="ticker-item">CONTRACT NEGOTIATION <span class="dot">✦</span></span>
+        <span class="ticker-item">TOUR & EVENTS <span class="dot">✦</span></span>
+        <span class="ticker-item">CREATIVE DIRECTION <span class="dot">✦</span></span>
+        <span class="ticker-item">ARTIST MANAGEMENT <span class="dot">✦</span></span>
+        <span class="ticker-item">IP PROTECTION <span class="dot">✦</span></span>
+        <span class="ticker-item">BRAND DEVELOPMENT <span class="dot">✦</span></span>
+        <span class="ticker-item">PORTFOLIO STRATEGY <span class="dot">✦</span></span>
+        <span class="ticker-item">CONTRACT NEGOTIATION <span class="dot">✦</span></span>
+        <span class="ticker-item">TOUR & EVENTS <span class="dot">✦</span></span>
+        <span class="ticker-item">CREATIVE DIRECTION <span class="dot">✦</span></span>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Now Accepting New Talent
+      </div>
+      <h1 class="hero-title">
+        WHERE<br/>
+        <span class="line-2">CREATIVES</span><br/>
+        <span class="line-3">BECOME ICONS</span>
+      </h1>
+      <div class="hero-bottom">
+        <p class="hero-sub">
+          Code Way Management is the creative arm of Code Way INC — built for artists, musicians, directors, and visionaries who are ready to take their career to a level their talent deserves.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-neon">Submit Your Work</a>
+          <a href="#what" class="btn-outline-neon">See What We Do</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section id="what">
+    <div class="what-header reveal">
+      <h2>WHAT<br/>WE<br/>DO</h2>
+      <p>We don't just manage careers — we architect legacies. Every creative we work with gets a full-stack strategy built around their art and their future.</p>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <span class="service-icon">🎯</span>
+        <div class="service-title">Artist Representation</div>
+        <p class="service-body">Full-service management for recording artists, performers, and entertainers. We handle business so you can focus on the craft.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔐</span>
+        <div class="service-title">IP Management & Licensing</div>
+        <p class="service-body">Your music, image, and ideas are assets. We protect them, license them, and make sure every dollar earned comes back to you.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">📐</span>
+        <div class="service-title">Brand Strategy</div>
+        <p class="service-body">From visual identity to public positioning — we build the brand behind the artist that commands respect and recognition.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">📜</span>
+        <div class="service-title">Contract Negotiation</div>
+        <p class="service-body">Label deals, show bookings, endorsements. We negotiate from a position of strength to make sure your terms reflect your value.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🚀</span>
+        <div class="service-title">Career Development</div>
+        <p class="service-body">We build the roadmap — release strategy, performance opportunities, industry relationships, and long-term positioning.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🌍</span>
+        <div class="service-title">Portfolio & Catalog Strategy</div>
+        <p class="service-body">Your catalog is your legacy. We manage, grow, and monetize it to create income that outlives any single release.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTIST ROSTER MARQUEE -->
+  <section id="roster">
+    <div class="roster-label">Current Roster</div>
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <!-- First set -->
+        <div class="artist-pill">
+          <div class="artist-avatar">KF</div>
+          <div class="artist-info"><div class="artist-name">KLASSIK FRESCOBAR</div><div class="artist-genre">Dancehall · Soca · Hip-Hop</div></div>
+        </div>
+        <div class="artist-pill">
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#3d1a6e,#c855ff)">✦</div>
+          <div class="artist-info"><div class="artist-name">COMING SOON</div><div class="artist-genre">Stay Tuned</div></div>
+        </div>
+        <div class="artist-pill">
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#6e1a4a,#ff3d8a)">✦</div>
+          <div class="artist-info"><div class="artist-name">COMING SOON</div><div class="artist-genre">Stay Tuned</div></div>
+        </div>
+        <div class="artist-pill">
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#1a3d6e,#55b8ff)">✦</div>
+          <div class="artist-info"><div class="artist-name">COMING SOON</div><div class="artist-genre">Stay Tuned</div></div>
+        </div>
+        <!-- Duplicate for seamless loop -->
+        <div class="artist-pill">
+          <div class="artist-avatar">KF</div>
+          <div class="artist-info"><div class="artist-name">KLASSIK FRESCOBAR</div><div class="artist-genre">Dancehall · Soca · Hip-Hop</div></div>
+        </div>
+        <div class="artist-pill">
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#3d1a6e,#c855ff)">✦</div>
+          <div class="artist-info"><div class="artist-name">COMING SOON</div><div class="artist-genre">Stay Tuned</div></div>
+        </div>
+        <div class="artist-pill">
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#6e1a4a,#ff3d8a)">✦</div>
+          <div class="artist-info"><div class="artist-name">COMING SOON</div><div class="artist-genre">Stay Tuned</div></div>
+        </div>
+        <div class="artist-pill">
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#1a3d6e,#55b8ff)">✦</div>
+          <div class="artist-info"><div class="artist-name">COMING SOON</div><div class="artist-genre">Stay Tuned</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED ARTIST SPOTLIGHT — KLASSIK FRESCOBAR -->
+  <section id="spotlight" style="padding:clamp(80px,10vw,120px) clamp(20px,4vw,60px); position:relative; z-index:1; background:var(--deep); border-top:1px solid var(--border);">
+
+    <div style="text-align:center; margin-bottom:60px;" class="reveal">
+      <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:var(--neon); margin-bottom:12px;">Featured Artist</div>
+      <h2 style="font-family:var(--display); font-size:clamp(2.5rem,6vw,5rem); letter-spacing:0.04em; color:var(--white); line-height:0.95;">KLASSIK FRESCOBAR</h2>
+      <div style="font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text); margin-top:10px;">Kingston, Jamaica · Miami, FL &nbsp;·&nbsp; Dancehall · Soca · Hip-Hop</div>
+    </div>
+
+    <!-- Bio + Video -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; margin-bottom:64px;" class="reveal">
+      <div>
+        <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--neon); margin-bottom:18px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:20px; height:1px; background:var(--neon);"></span>Biography</div>
+        <p style="font-size:0.92rem; line-height:1.95; color:var(--text); margin-bottom:18px;">
+          Klassik Frescobar's musical influence began in the early '90s in Kingston, Jamaica's Constant Spring Gardens. As a child, his mother's cassette player and early records from Bounty Killa, Sean Paul, and Beenie Man shaped everything that was to come.
+        </p>
+        <p style="font-size:0.92rem; line-height:1.95; color:var(--text); margin-bottom:18px;">
+          After migrating to the Bronx, Klassik built his craft in New York's Dancehall scene — forging relationships with DJs and producers, including Brooklyn-based producer Ricky Blaze. A second migration to Miami brought him into the orbit of Red Cafe, who opened doors to the city's party circuit and music infrastructure.
+        </p>
+        <p style="font-size:0.92rem; line-height:1.95; color:var(--text); margin-bottom:28px;">
+          His sound — Jamaican Dancehall fused with Soca, Calypso, and Hip-Hop — is singular. Commanding vocals over sweet soca energy. His breakout record "Too Much" with Marzville was followed by "Dansa," a record poised to go even further.
+        </p>
+        <a href="https://www.klassikfrescobar.com" target="_blank" style="display:inline-flex; align-items:center; gap:8px; font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--neon); border-bottom:1px solid rgba(200,85,255,0.3); padding-bottom:3px; transition:all 0.2s;">
+          Visit Official Site →
+        </a>
+      </div>
+
+      <!-- YouTube embed -->
+      <div>
+        <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--neon); margin-bottom:18px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:20px; height:1px; background:var(--neon);"></span>Latest Release</div>
+        <div style="position:relative; padding-bottom:56.25%; border-radius:8px; overflow:hidden; border:1px solid var(--border);">
+          <iframe
+            style="position:absolute; top:0; left:0; width:100%; height:100%;"
+            src="https://www.youtube.com/embed/kGp3T5zWDdE"
+            title="Klassik Frescobar — DANSA Visualizer"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div style="margin-top:16px; font-family:var(--display); font-size:1.4rem; letter-spacing:0.08em; color:var(--white);">DANSA</div>
+        <div style="font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text);">Official Visualizer · Klassik Frescobar</div>
+      </div>
+    </div>
+
+    <!-- Press -->
+    <div class="reveal">
+      <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--neon); margin-bottom:28px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:20px; height:1px; background:var(--neon);"></span>Press &amp; Features</div>
+      <div style="display:flex; flex-wrap:wrap; gap:12px;">
+        <a href="https://www.billboard.com" target="_blank" class="press-tag">Billboard</a>
+        <a href="https://thesource.com" target="_blank" class="press-tag">The Source</a>
+        <a href="https://www.hot97.com" target="_blank" class="press-tag">Hot 97</a>
+        <a href="https://flaunt.com" target="_blank" class="press-tag">Flaunt</a>
+        <a href="https://www.euroweeklynews.com" target="_blank" class="press-tag">Euro Weekly News</a>
+        <a href="https://www.influencive.com" target="_blank" class="press-tag">Influencive</a>
+        <a href="https://muziquemagazine.com" target="_blank" class="press-tag">Musique Magazine</a>
+        <a href="https://www.musictimes.com" target="_blank" class="press-tag">Music Times</a>
+        <a href="https://jamaica-gleaner.com" target="_blank" class="press-tag">Jamaica Gleaner</a>
+        <a href="https://jamaica-star.com" target="_blank" class="press-tag">Jamaica Star</a>
+        <a href="https://hiphopsince1987.com" target="_blank" class="press-tag">HipHopSince1987</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- WHY JOIN -->
+  <section id="join">
+    <div class="join-left reveal">
+      <div class="join-visual">
+        <div class="join-visual-text">KLASSIK<br/>FRESCO<br/>BAR</div>
+        <div class="join-visual-badge">
+          <div class="badge-num">🇯🇲</div>
+          <div class="badge-label">Kingston · Miami</div>
+        </div>
+      </div>
+    </div>
+    <div class="join-right reveal">
+      <div class="join-eyebrow">Why Code Way</div>
+      <h2 class="join-title">We Don't<br/>Just Manage.<br/><span class="grd">We Build.</span></h2>
+      <p class="join-body">Most managers take a percentage and make phone calls. Code Way Management builds the entire infrastructure around you — your brand, your business, your legacy. We're operators, not passengers.</p>
+      <div class="perks">
+        <div class="perk">
+          <div class="perk-icon">🔧</div>
+          <div class="perk-text"><strong>Full Operational Support</strong>We handle every moving part so you're free to create at your highest level.</div>
+        </div>
+        <div class="perk">
+          <div class="perk-icon">🤖</div>
+          <div class="perk-text"><strong>AI-Powered Advantage</strong>Our tech stack gives your career capabilities most artists don't have access to.</div>
+        </div>
+        <div class="perk">
+          <div class="perk-icon">🌐</div>
+          <div class="perk-text"><strong>Global Network</strong>Real relationships across the industry — labels, promoters, brands, and media.</div>
+        </div>
+        <div class="perk">
+          <div class="perk-icon">💎</div>
+          <div class="perk-text"><strong>Ownership-First Philosophy</strong>We fight for your rights and your equity. You built it — you should own it.</div>
+        </div>
+      </div>
+      <a href="#contact" class="btn-neon">Apply to the Roster</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="contact-eyebrow">Submit Your Work</div>
+      <h2 class="contact-title">READY TO<br/>LEVEL UP?</h2>
+      <p class="contact-sub">Whether you're an emerging artist or an established name looking for better representation — let's have a conversation.</p>
+
+      <div class="contact-form">
+        <div class="cf-row">
+          <div class="cf-group"><label>Name / Artist Name</label><input type="text" id="cf-name" placeholder="Your name or stage name"/></div>
+          <div class="cf-group"><label>Email</label><input type="email" id="cf-email" placeholder="your@email.com"/></div>
+        </div>
+        <div class="cf-row">
+          <div class="cf-group">
+            <label>Genre / Discipline</label>
+            <select id="cf-genre">
+              <option value="">— Select your craft —</option>
+              <option>Music — Reggae / Dancehall</option>
+              <option>Music — Hip-Hop / Rap</option>
+              <option>Music — Afrobeats / Soca</option>
+              <option>Music — R&B / Soul</option>
+              <option>Music — Pop</option>
+              <option>Music — Other</option>
+              <option>Film / Video Direction</option>
+              <option>Photography / Visual Art</option>
+              <option>DJ / Producer</option>
+              <option>Other Creative</option>
+            </select>
+          </div>
+          <div class="cf-group"><label>Social / Music Link</label><input type="text" id="cf-link" placeholder="Instagram, Spotify, SoundCloud…"/></div>
+        </div>
+        <div class="cf-group">
+          <label>Tell us about yourself</label>
+          <textarea id="cf-message" placeholder="Where you're at, where you want to go, and what you're looking for in management…"></textarea>
+        </div>
+        <button class="cf-submit" onclick="handleCFSubmit()">Submit Your Work →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">CW<span class="accent">.</span>MGMT</div>
+    <ul class="footer-links">
+      <li><a href="#what">Services</a></li>
+      <li><a href="#roster">Roster</a></li>
+      <li><a href="#join">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="klassik-frescobar.html">Klassik Frescobar →</a></li>
+      <li><a href="codeway.html">Code Way INC →</a></li>
+    </ul>
+    <div class="footer-copy">© 2025 Code Way Management · A Code Way INC Company</div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 100); revealObserver.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // Active nav state
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    const activeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const link = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+    ['what', 'roster', 'spotlight', 'join', 'contact'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) activeObserver.observe(el);
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileNav.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileNav.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Form error helpers
+    function showError(id, msg) {
+      const el = document.getElementById(id);
+      let err = el.parentNode.querySelector('.field-error');
+      if (!err) { err = document.createElement('span'); err.className = 'field-error'; el.parentNode.appendChild(err); }
+      err.textContent = msg;
+      el.style.borderColor = 'rgba(255,68,68,0.8)';
+    }
+    function clearError(id) {
+      const el = document.getElementById(id);
+      const err = el.parentNode.querySelector('.field-error');
+      if (err) err.remove();
+      el.style.borderColor = '';
+    }
+
+    // Form submit with full validation
+    function handleCFSubmit() {
+      const fields = [
+        { id: 'cf-name',    label: 'Name / Artist name' },
+        { id: 'cf-email',   label: 'Email address' },
+        { id: 'cf-genre',   label: 'Genre / Discipline' },
+        { id: 'cf-link',    label: 'Social / Music link' },
+        { id: 'cf-message', label: 'About yourself' }
+      ];
+      let valid = true;
+      fields.forEach(f => {
+        const val = document.getElementById(f.id).value.trim();
+        if (!val) { showError(f.id, f.label + ' is required.'); valid = false; }
+        else clearError(f.id);
+      });
+      const emailVal = document.getElementById('cf-email').value.trim();
+      if (emailVal && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+        showError('cf-email', 'Please enter a valid email address.');
+        valid = false;
+      }
+      if (!valid) return;
+      document.getElementById('toast').classList.add('show');
+      setTimeout(() => document.getElementById('toast').classList.remove('show'), 5000);
+      fields.forEach(f => { document.getElementById(f.id).value = ''; clearError(f.id); });
+    }
+  </script>
+
+</body>
+</html>
