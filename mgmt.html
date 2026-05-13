@@ -123,6 +123,62 @@
 
     .nav-cta:hover { opacity: 0.85; transform: translateY(-1px); }
 
+    /* ─── ROSTER BANNER ─── */
+    #roster-banner {
+      position: relative; width: 100%; height: 85vh; min-height: 520px;
+      overflow: hidden; background: var(--black);
+    }
+    .rb-slide {
+      position: absolute; inset: 0; opacity: 0;
+      transition: opacity 0.9s ease; pointer-events: none;
+    }
+    .rb-slide.active { opacity: 1; pointer-events: auto; }
+    .rb-slide video, .rb-slide img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
+    }
+    .rb-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(6,6,10,0.25) 0%, transparent 40%, transparent 60%, rgba(6,6,10,0.85) 100%);
+      z-index: 1;
+    }
+    .rb-label {
+      position: absolute; bottom: 48px; left: clamp(24px,5vw,72px);
+      z-index: 2; opacity: 0; transform: translateY(10px);
+      transition: opacity 0.5s ease 0.4s, transform 0.5s ease 0.4s;
+    }
+    .rb-slide.active .rb-label { opacity: 1; transform: translateY(0); }
+    .rb-label-name {
+      font-family: var(--display); font-size: clamp(2.5rem,6vw,5rem);
+      letter-spacing: 0.05em; color: var(--white); line-height: 0.9;
+    }
+    .rb-label-role {
+      font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--neon); margin-top: 10px;
+    }
+    .rb-dots {
+      position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 8px; z-index: 3;
+    }
+    .rb-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.3); cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .rb-dot.active { background: var(--neon); transform: scale(1.4); }
+    .rb-arrows {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 100%; display: flex; justify-content: space-between;
+      padding: 0 20px; z-index: 3; pointer-events: none;
+    }
+    .rb-arrow {
+      pointer-events: auto; background: rgba(6,6,10,0.5); border: 1px solid rgba(200,85,255,0.3);
+      color: var(--white); width: 44px; height: 44px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; cursor: pointer; transition: background 0.2s, border-color 0.2s;
+      backdrop-filter: blur(8px);
+    }
+    .rb-arrow:hover { background: rgba(107,33,214,0.5); border-color: var(--neon); }
+
     /* HERO */
     #hero {
       min-height: 100vh;
@@ -918,7 +974,7 @@
 
   <!-- NAV -->
   <nav id="navbar">
-    <div class="nav-logo">CW<span class="accent">.</span>MGMT</div>
+    <div class="nav-logo"><img src="CW logo.PNG" alt="Code Way Management" style="height:26px; filter:brightness(0) invert(1); vertical-align:middle;"/></div>
     <ul class="nav-links">
       <li><a href="#what">Services</a></li>
       <li><a href="#roster">Roster</a></li>
@@ -946,6 +1002,80 @@
     <a href="codeway.html" class="mobile-back">← Code Way INC</a>
     <a href="#roster" class="mobile-cta">Booking</a>
   </div>
+
+  <!-- ROSTER BANNER -->
+  <section id="roster-banner">
+
+    <!-- Slide 1: Boom video -->
+    <div class="rb-slide active" data-type="video">
+      <video src="boom.mp4" muted playsinline preload="metadata" id="rbv-boom"></video>
+      <div class="rb-overlay"></div>
+      <div class="rb-label">
+        <div class="rb-label-name">CODE WAY<br/>MGMT</div>
+        <div class="rb-label-role">Where Creatives Become Icons</div>
+      </div>
+    </div>
+
+    <!-- Slide 2: DANSA video -->
+    <div class="rb-slide" data-type="video">
+      <video src="dansa.mp4" muted playsinline preload="metadata" id="rbv-dansa"></video>
+      <div class="rb-overlay"></div>
+      <div class="rb-label">
+        <div class="rb-label-name">KLASSIK<br/>FRESCOBAR</div>
+        <div class="rb-label-role">DANSA · Worldwide Hit</div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Klassik photo -->
+    <div class="rb-slide" data-type="image">
+      <img src="klassik.jpg" alt="Klassik Frescobar"/>
+      <div class="rb-overlay"></div>
+      <div class="rb-label">
+        <div class="rb-label-name">KLASSIK<br/>FRESCOBAR</div>
+        <div class="rb-label-role">Artist · Dancehall · Soca · Hip-Hop</div>
+      </div>
+    </div>
+
+    <!-- Slide 4: DJ Kali -->
+    <div class="rb-slide" data-type="image">
+      <img src="kali1.jpg" alt="DJ Kali"/>
+      <div class="rb-overlay"></div>
+      <div class="rb-label">
+        <div class="rb-label-name">DJ KALI</div>
+        <div class="rb-label-role">DJ · Producer</div>
+      </div>
+    </div>
+
+    <!-- Slide 5: Sal Infrared -->
+    <div class="rb-slide" data-type="image">
+      <img src="sal1.jpg" alt="Sal Infrared"/>
+      <div class="rb-overlay"></div>
+      <div class="rb-label">
+        <div class="rb-label-name">SAL<br/>INFRARED</div>
+        <div class="rb-label-role">DJ · Producer</div>
+      </div>
+    </div>
+
+    <!-- Slide 6: DJ Prime -->
+    <div class="rb-slide" data-type="image">
+      <img src="prime1.jpg" alt="DJ Prime"/>
+      <div class="rb-overlay"></div>
+      <div class="rb-label">
+        <div class="rb-label-name">DJ PRIME</div>
+        <div class="rb-label-role">DJ · Performer</div>
+      </div>
+    </div>
+
+    <!-- Navigation arrows -->
+    <div class="rb-arrows">
+      <button class="rb-arrow" id="rb-prev">&#8592;</button>
+      <button class="rb-arrow" id="rb-next">&#8594;</button>
+    </div>
+
+    <!-- Dot indicators -->
+    <div class="rb-dots" id="rb-dots"></div>
+
+  </section>
 
   <!-- HERO -->
   <section id="hero">
@@ -1319,6 +1449,65 @@
   </footer>
 
   <script>
+    // ─── ROSTER BANNER ───
+    (function() {
+      const slides = Array.from(document.querySelectorAll('.rb-slide'));
+      const dotsEl = document.getElementById('rb-dots');
+      let current = 0;
+      let photoTimer = null;
+
+      // Build dots
+      slides.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'rb-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Slide ' + (i + 1));
+        d.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(d);
+      });
+
+      function getDots() { return Array.from(dotsEl.querySelectorAll('.rb-dot')); }
+
+      function goTo(index) {
+        clearTimeout(photoTimer);
+        // Pause any playing videos
+        slides.forEach(s => {
+          const v = s.querySelector('video');
+          if (v) { v.pause(); v.currentTime = 0; }
+          s.classList.remove('active');
+        });
+        getDots().forEach(d => d.classList.remove('active'));
+
+        current = (index + slides.length) % slides.length;
+        const slide = slides[current];
+        slide.classList.add('active');
+        getDots()[current].classList.add('active');
+
+        const type = slide.dataset.type;
+        if (type === 'video') {
+          const v = slide.querySelector('video');
+          v.currentTime = 0;
+          v.play().catch(() => {});
+          const onTime = () => {
+            if (v.currentTime >= 5) {
+              v.removeEventListener('timeupdate', onTime);
+              goTo(current + 1);
+            }
+          };
+          v.addEventListener('timeupdate', onTime);
+          // Fallback if video can't play
+          photoTimer = setTimeout(() => goTo(current + 1), 6000);
+        } else {
+          photoTimer = setTimeout(() => goTo(current + 1), 4500);
+        }
+      }
+
+      document.getElementById('rb-next').addEventListener('click', () => goTo(current + 1));
+      document.getElementById('rb-prev').addEventListener('click', () => goTo(current - 1));
+
+      // Start
+      goTo(0);
+    })();
+
     // Nav scroll
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
