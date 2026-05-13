@@ -133,8 +133,11 @@
       transition: opacity 0.9s ease; pointer-events: none;
     }
     .rb-slide.active { opacity: 1; pointer-events: auto; }
-    .rb-slide video, .rb-slide img {
+    .rb-slide video {
       width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
+    }
+    .rb-slide img {
+      width: 100%; height: 100%; object-fit: contain; object-position: center; display: block;
     }
     .rb-overlay {
       position: absolute; inset: 0;
