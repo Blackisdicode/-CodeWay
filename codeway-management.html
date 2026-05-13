@@ -895,6 +895,7 @@
       .hamburger { display:flex; }
       .nav-links { display:none; }
       .nav-back { display:none; }
+      .dj-roster-grid { grid-template-columns: 1fr !important; }
     }
 
   </style>
@@ -909,6 +910,7 @@
     <ul class="nav-links">
       <li><a href="#what">Services</a></li>
       <li><a href="#roster">Roster</a></li>
+      <li><a href="#djs">DJs</a></li>
       <li><a href="#spotlight">Artists</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -924,6 +926,7 @@
   <div class="mobile-nav" id="mobile-nav">
     <a href="#what">Services</a>
     <a href="#roster">Roster</a>
+    <a href="#djs">DJs</a>
     <a href="#spotlight">Artists</a>
     <a href="#contact">Contact</a>
     <div class="mobile-divider"></div>
@@ -1028,16 +1031,16 @@
           <div class="artist-info"><div class="artist-name">KLASSIK FRESCOBAR</div><div class="artist-genre">Dancehall · Soca · Hip-Hop</div></div>
         </div>
         <div class="artist-pill">
-          <div class="artist-avatar" style="background:linear-gradient(135deg,#3d1a6e,#c855ff)">✦</div>
-          <div class="artist-info"><div class="artist-name">COMING SOON</div><div class="artist-genre">Stay Tuned</div></div>
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#3d1a6e,#c855ff)">DK</div>
+          <div class="artist-info"><div class="artist-name">DJ KALLI</div><div class="artist-genre">DJ · Performer</div></div>
         </div>
         <div class="artist-pill">
-          <div class="artist-avatar" style="background:linear-gradient(135deg,#6e1a4a,#ff3d8a)">✦</div>
-          <div class="artist-info"><div class="artist-name">COMING SOON</div><div class="artist-genre">Stay Tuned</div></div>
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#6e1a4a,#ff3d8a)">SI</div>
+          <div class="artist-info"><div class="artist-name">SALINFRARED</div><div class="artist-genre">DJ · Producer</div></div>
         </div>
         <div class="artist-pill">
-          <div class="artist-avatar" style="background:linear-gradient(135deg,#1a3d6e,#55b8ff)">✦</div>
-          <div class="artist-info"><div class="artist-name">COMING SOON</div><div class="artist-genre">Stay Tuned</div></div>
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#1a3d6e,#55b8ff)">P1</div>
+          <div class="artist-info"><div class="artist-name">DJ PRIME 1</div><div class="artist-genre">DJ · Performer</div></div>
         </div>
         <!-- Duplicate for seamless loop -->
         <div class="artist-pill">
@@ -1045,18 +1048,59 @@
           <div class="artist-info"><div class="artist-name">KLASSIK FRESCOBAR</div><div class="artist-genre">Dancehall · Soca · Hip-Hop</div></div>
         </div>
         <div class="artist-pill">
-          <div class="artist-avatar" style="background:linear-gradient(135deg,#3d1a6e,#c855ff)">✦</div>
-          <div class="artist-info"><div class="artist-name">COMING SOON</div><div class="artist-genre">Stay Tuned</div></div>
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#3d1a6e,#c855ff)">DK</div>
+          <div class="artist-info"><div class="artist-name">DJ KALLI</div><div class="artist-genre">DJ · Performer</div></div>
         </div>
         <div class="artist-pill">
-          <div class="artist-avatar" style="background:linear-gradient(135deg,#6e1a4a,#ff3d8a)">✦</div>
-          <div class="artist-info"><div class="artist-name">COMING SOON</div><div class="artist-genre">Stay Tuned</div></div>
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#6e1a4a,#ff3d8a)">SI</div>
+          <div class="artist-info"><div class="artist-name">SALINFRARED</div><div class="artist-genre">DJ · Producer</div></div>
         </div>
         <div class="artist-pill">
-          <div class="artist-avatar" style="background:linear-gradient(135deg,#1a3d6e,#55b8ff)">✦</div>
-          <div class="artist-info"><div class="artist-name">COMING SOON</div><div class="artist-genre">Stay Tuned</div></div>
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#1a3d6e,#55b8ff)">P1</div>
+          <div class="artist-info"><div class="artist-name">DJ PRIME 1</div><div class="artist-genre">DJ · Performer</div></div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- DJ ROSTER -->
+  <section id="djs" style="padding:clamp(80px,10vw,120px) clamp(20px,4vw,60px); position:relative; z-index:1; background:var(--black); border-top:1px solid var(--border);">
+    <div class="reveal" style="margin-bottom:clamp(40px,6vw,64px);">
+      <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--neon); margin-bottom:16px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:22px; height:1px; background:var(--neon);"></span>Performing DJs</div>
+      <h2 style="font-family:var(--display); font-size:clamp(2.5rem,6vw,5.5rem); letter-spacing:0.03em; color:var(--white); line-height:0.95;">DJ<br/>ROSTER</h2>
+    </div>
+    <div class="dj-roster-grid reveal" style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+
+      <!-- DJ Kalli -->
+      <div style="background:var(--deep); border:1px solid var(--border); border-radius:10px; padding:40px 32px; transition:border-color 0.3s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(200,85,255,0.5)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+        <div style="font-family:var(--display); font-size:4rem; color:transparent; -webkit-text-stroke:1px rgba(200,85,255,0.35); line-height:1; margin-bottom:24px;">DK</div>
+        <div style="font-family:var(--display); font-size:1.9rem; letter-spacing:0.06em; color:var(--white); margin-bottom:6px;">DJ KALLI</div>
+        <div style="font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--neon); margin-bottom:16px;">DJ · Performer</div>
+        <a href="https://www.instagram.com/djkalli__" target="_blank" style="display:inline-flex; align-items:center; gap:6px; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); margin-bottom:28px; transition:color 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--text)'">↗ @djkalli__</a>
+        <br/>
+        <a href="#contact" style="display:inline-block; background:linear-gradient(135deg,var(--violet),var(--pink)); color:var(--white); padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.1em; margin-top:4px; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Book DJ Kalli</a>
+      </div>
+
+      <!-- Salinfrared -->
+      <div style="background:var(--deep); border:1px solid var(--border); border-radius:10px; padding:40px 32px; transition:border-color 0.3s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(200,85,255,0.5)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+        <div style="font-family:var(--display); font-size:4rem; color:transparent; -webkit-text-stroke:1px rgba(255,61,138,0.35); line-height:1; margin-bottom:24px;">SI</div>
+        <div style="font-family:var(--display); font-size:1.9rem; letter-spacing:0.06em; color:var(--white); margin-bottom:6px;">SALINFRARED</div>
+        <div style="font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--neon); margin-bottom:16px;">DJ · Producer</div>
+        <a href="https://www.instagram.com/salinfrared" target="_blank" style="display:inline-flex; align-items:center; gap:6px; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); margin-bottom:28px; transition:color 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--text)'">↗ @salinfrared</a>
+        <br/>
+        <a href="#contact" style="display:inline-block; background:linear-gradient(135deg,var(--violet),var(--pink)); color:var(--white); padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.1em; margin-top:4px; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Book Salinfrared</a>
+      </div>
+
+      <!-- DJ Prime 1 -->
+      <div style="background:var(--deep); border:1px solid var(--border); border-radius:10px; padding:40px 32px; transition:border-color 0.3s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(200,85,255,0.5)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+        <div style="font-family:var(--display); font-size:4rem; color:transparent; -webkit-text-stroke:1px rgba(255,209,102,0.35); line-height:1; margin-bottom:24px;">P1</div>
+        <div style="font-family:var(--display); font-size:1.9rem; letter-spacing:0.06em; color:var(--white); margin-bottom:6px;">DJ PRIME 1</div>
+        <div style="font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--neon); margin-bottom:16px;">DJ · Performer</div>
+        <a href="https://www.instagram.com/dj_prime_1" target="_blank" style="display:inline-flex; align-items:center; gap:6px; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); margin-bottom:28px; transition:color 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--text)'">↗ @dj_prime_1</a>
+        <br/>
+        <a href="#contact" style="display:inline-block; background:linear-gradient(135deg,var(--violet),var(--pink)); color:var(--white); padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.1em; margin-top:4px; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Book DJ Prime 1</a>
+      </div>
+
     </div>
   </section>
 
@@ -1208,6 +1252,7 @@
     <ul class="footer-links">
       <li><a href="#what">Services</a></li>
       <li><a href="#roster">Roster</a></li>
+      <li><a href="#djs">DJ Roster</a></li>
       <li><a href="#join">Why Us</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="klassik-frescobar.html">Klassik Frescobar →</a></li>
@@ -1241,7 +1286,7 @@
         }
       });
     }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
-    ['what', 'roster', 'spotlight', 'join', 'contact'].forEach(id => {
+    ['what', 'roster', 'djs', 'spotlight', 'join', 'contact'].forEach(id => {
       const el = document.getElementById(id);
       if (el) activeObserver.observe(el);
     });
