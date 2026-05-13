@@ -460,6 +460,7 @@
   <form name="booking-inquiry" data-netlify="true" hidden>
     <input name="bf-name"/><input name="bf-email"/><input name="bf-phone"/>
     <input name="bf-type"/><input name="bf-date"/><input name="bf-location"/>
+    <input name="bf-capacity"/><input name="bf-sponsors"/>
     <textarea name="bf-message"></textarea>
   </form>
 
@@ -698,9 +699,27 @@
             <input type="text" id="bf-location" placeholder="City, State or Venue name"/>
           </div>
         </div>
+        <div class="bf-row">
+          <div class="bf-group">
+            <label>Event Capacity</label>
+            <select id="bf-capacity">
+              <option value="">— Expected attendance —</option>
+              <option>Under 100</option>
+              <option>100 – 500</option>
+              <option>500 – 1,000</option>
+              <option>1,000 – 5,000</option>
+              <option>5,000 – 10,000</option>
+              <option>10,000+</option>
+            </select>
+          </div>
+          <div class="bf-group">
+            <label>Event Sponsors</label>
+            <input type="text" id="bf-sponsors" placeholder="List any sponsors (or write 'None')"/>
+          </div>
+        </div>
         <div class="bf-group">
           <label>Additional Details</label>
-          <textarea id="bf-message" placeholder="Expected attendance, budget range, vision for the performance…"></textarea>
+          <textarea id="bf-message" placeholder="Budget range, vision for the performance, any other details…"></textarea>
         </div>
         <button class="bf-submit" onclick="handleBookingSubmit()">Send Booking Request →</button>
       </div>
@@ -791,6 +810,8 @@
         { id: 'bf-type',     label: 'Event type' },
         { id: 'bf-date',     label: 'Event date' },
         { id: 'bf-location', label: 'Location / Venue' },
+        { id: 'bf-capacity', label: 'Event capacity' },
+        { id: 'bf-sponsors', label: 'Event sponsors' },
         { id: 'bf-message',  label: 'Additional details' }
       ];
       let valid = true;
@@ -816,6 +837,8 @@
           'bf-type': document.getElementById('bf-type').value,
           'bf-date': document.getElementById('bf-date').value,
           'bf-location': document.getElementById('bf-location').value,
+          'bf-capacity': document.getElementById('bf-capacity').value,
+          'bf-sponsors': document.getElementById('bf-sponsors').value,
           'bf-message': document.getElementById('bf-message').value
         }).toString()
       }).finally(() => {

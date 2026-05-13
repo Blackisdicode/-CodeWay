@@ -907,7 +907,9 @@
   <!-- Netlify form detection -->
   <form name="management-inquiry" data-netlify="true" hidden>
     <input name="cf-name"/><input name="cf-email"/>
-    <input name="cf-genre"/><input name="cf-link"/><textarea name="cf-message"></textarea>
+    <input name="cf-genre"/><input name="cf-link"/>
+    <input name="cf-capacity"/><input name="cf-sponsors"/>
+    <textarea name="cf-message"></textarea>
   </form>
 
   <!-- NAV -->
@@ -1243,6 +1245,25 @@
           </div>
           <div class="cf-group"><label>Social / Music Link</label><input type="text" id="cf-link" placeholder="Instagram, Spotify, SoundCloud…"/></div>
         </div>
+        <div class="cf-row">
+          <div class="cf-group">
+            <label>Event Capacity <span style="color:var(--text);font-size:0.6rem;">(Promoters)</span></label>
+            <select id="cf-capacity">
+              <option value="">— If booking, select capacity —</option>
+              <option>Under 100</option>
+              <option>100 – 500</option>
+              <option>500 – 1,000</option>
+              <option>1,000 – 5,000</option>
+              <option>5,000 – 10,000</option>
+              <option>10,000+</option>
+              <option>N/A — Artist submission</option>
+            </select>
+          </div>
+          <div class="cf-group">
+            <label>Event Sponsors <span style="color:var(--text);font-size:0.6rem;">(Promoters)</span></label>
+            <input type="text" id="cf-sponsors" placeholder="List sponsors or write 'None' / 'N/A'"/>
+          </div>
+        </div>
         <div class="cf-group">
           <label>Tell us about yourself</label>
           <textarea id="cf-message" placeholder="Where you're at, where you want to go, and what you're looking for in management…"></textarea>
@@ -1358,6 +1379,8 @@
           'cf-email': document.getElementById('cf-email').value,
           'cf-genre': document.getElementById('cf-genre').value,
           'cf-link': document.getElementById('cf-link').value,
+          'cf-capacity': document.getElementById('cf-capacity').value,
+          'cf-sponsors': document.getElementById('cf-sponsors').value,
           'cf-message': document.getElementById('cf-message').value
         }).toString()
       }).finally(() => {
