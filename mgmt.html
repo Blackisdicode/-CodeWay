@@ -572,6 +572,21 @@
       position: relative;
     }
 
+    .join-slideshow {
+      position: absolute; inset: 0;
+    }
+    .join-slideshow img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      opacity: 0;
+      animation: joinFade 20s infinite;
+    }
+    @keyframes joinFade {
+      0%, 18%  { opacity: 1; }
+      23%, 100% { opacity: 0; }
+    }
+
     .join-visual-text {
       font-family: var(--display);
       font-size: clamp(3rem,8vw,7rem);
@@ -1050,7 +1065,7 @@
       <div class="rb-overlay"></div>
       <div class="rb-label">
         <div class="rb-label-name">KLASSIK<br/>FRESCOBAR</div>
-        <div class="rb-label-role">DANSA · Worldwide Hit</div>
+        <div class="rb-label-role">DANSA</div>
       </div>
     </div>
 
@@ -1060,7 +1075,7 @@
       <div class="rb-overlay"></div>
       <div class="rb-label">
         <div class="rb-label-name">KLASSIK<br/>FRESCOBAR</div>
-        <div class="rb-label-role">Artist · Dancehall · Soca · Hip-Hop</div>
+        <div class="rb-label-role">International Artist</div>
       </div>
     </div>
 
@@ -1080,7 +1095,7 @@
       <div class="rb-overlay"></div>
       <div class="rb-label">
         <div class="rb-label-name">SAL<br/>INFRARED</div>
-        <div class="rb-label-role">DJ · Producer</div>
+        <div class="rb-label-role">DJ · Performer</div>
       </div>
     </div>
 
@@ -1090,7 +1105,7 @@
       <div class="rb-overlay"></div>
       <div class="rb-label">
         <div class="rb-label-name">DJ PRIME</div>
-        <div class="rb-label-role">DJ · Performer</div>
+        <div class="rb-label-role">DJ · Media Personality</div>
       </div>
     </div>
 
@@ -1131,7 +1146,7 @@
     <div class="hero-content">
       <div class="hero-eyebrow">
         <span class="dot"></span>
-        Now Accepting New Talent
+        Code Way Management
       </div>
       <h1 class="hero-title">
         WHERE<br/>
@@ -1198,36 +1213,36 @@
         <!-- First set -->
         <div class="artist-pill">
           <div class="artist-avatar">KF</div>
-          <div class="artist-info"><div class="artist-name">KLASSIK FRESCOBAR</div><div class="artist-genre">Dancehall · Soca · Hip-Hop</div></div>
+          <div class="artist-info"><div class="artist-name">KLASSIK FRESCOBAR</div><div class="artist-genre">International Artist</div></div>
         </div>
         <div class="artist-pill">
           <div class="artist-avatar" style="background:linear-gradient(135deg,#3d1a6e,#c855ff)">DK</div>
-          <div class="artist-info"><div class="artist-name">DJ KALLI</div><div class="artist-genre">DJ · Performer</div></div>
+          <div class="artist-info"><div class="artist-name">DJ KALI</div><div class="artist-genre">DJ · Producer</div></div>
         </div>
         <div class="artist-pill">
           <div class="artist-avatar" style="background:linear-gradient(135deg,#6e1a4a,#ff3d8a)">SI</div>
-          <div class="artist-info"><div class="artist-name">SALINFRARED</div><div class="artist-genre">DJ · Producer</div></div>
+          <div class="artist-info"><div class="artist-name">SAL INFRARED</div><div class="artist-genre">DJ · Performer</div></div>
         </div>
         <div class="artist-pill">
           <div class="artist-avatar" style="background:linear-gradient(135deg,#1a3d6e,#55b8ff)">P1</div>
-          <div class="artist-info"><div class="artist-name">DJ PRIME 1</div><div class="artist-genre">DJ · Performer</div></div>
+          <div class="artist-info"><div class="artist-name">DJ PRIME</div><div class="artist-genre">DJ · Media Personality</div></div>
         </div>
         <!-- Duplicate for seamless loop -->
         <div class="artist-pill">
           <div class="artist-avatar">KF</div>
-          <div class="artist-info"><div class="artist-name">KLASSIK FRESCOBAR</div><div class="artist-genre">Dancehall · Soca · Hip-Hop</div></div>
+          <div class="artist-info"><div class="artist-name">KLASSIK FRESCOBAR</div><div class="artist-genre">International Artist</div></div>
         </div>
         <div class="artist-pill">
           <div class="artist-avatar" style="background:linear-gradient(135deg,#3d1a6e,#c855ff)">DK</div>
-          <div class="artist-info"><div class="artist-name">DJ KALLI</div><div class="artist-genre">DJ · Performer</div></div>
+          <div class="artist-info"><div class="artist-name">DJ KALI</div><div class="artist-genre">DJ · Producer</div></div>
         </div>
         <div class="artist-pill">
           <div class="artist-avatar" style="background:linear-gradient(135deg,#6e1a4a,#ff3d8a)">SI</div>
-          <div class="artist-info"><div class="artist-name">SALINFRARED</div><div class="artist-genre">DJ · Producer</div></div>
+          <div class="artist-info"><div class="artist-name">SAL INFRARED</div><div class="artist-genre">DJ · Performer</div></div>
         </div>
         <div class="artist-pill">
           <div class="artist-avatar" style="background:linear-gradient(135deg,#1a3d6e,#55b8ff)">P1</div>
-          <div class="artist-info"><div class="artist-name">DJ PRIME 1</div><div class="artist-genre">DJ · Performer</div></div>
+          <div class="artist-info"><div class="artist-name">DJ PRIME</div><div class="artist-genre">DJ · Media Personality</div></div>
         </div>
       </div>
     </div>
@@ -1342,7 +1357,7 @@
         </div>
         <div style="padding:28px 32px 36px;">
           <div style="font-family:var(--display); font-size:1.9rem; letter-spacing:0.06em; color:var(--white); margin-bottom:6px;">SAL INFRARED</div>
-          <div style="font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--neon); margin-bottom:16px;">DJ · Producer</div>
+          <div style="font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--neon); margin-bottom:16px;">DJ · Performer</div>
           <a href="https://www.instagram.com/salinfrared" target="_blank" style="display:inline-flex; align-items:center; gap:6px; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); margin-bottom:28px; transition:color 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--text)'">↗ @salinfrared</a>
           <br/>
           <a href="#contact" style="display:inline-block; background:linear-gradient(135deg,var(--violet),var(--pink)); color:var(--white); padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.1em; margin-top:4px; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Book Sal Infrared</a>
@@ -1356,7 +1371,7 @@
         </div>
         <div style="padding:28px 32px 36px;">
           <div style="font-family:var(--display); font-size:1.9rem; letter-spacing:0.06em; color:var(--white); margin-bottom:6px;">DJ PRIME</div>
-          <div style="font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--neon); margin-bottom:16px;">DJ · Performer</div>
+          <div style="font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--neon); margin-bottom:16px;">DJ · Media Personality</div>
           <a href="https://www.instagram.com/dj_prime_1" target="_blank" style="display:inline-flex; align-items:center; gap:6px; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); margin-bottom:28px; transition:color 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--text)'">↗ @dj_prime_1</a>
           <br/>
           <a href="#contact" style="display:inline-block; background:linear-gradient(135deg,var(--violet),var(--pink)); color:var(--white); padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.1em; margin-top:4px; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Book DJ Prime</a>
@@ -1370,10 +1385,12 @@
   <section id="join">
     <div class="join-left reveal">
       <div class="join-visual">
-        <img src="klassik.jpg" alt="Klassik Frescobar performing live" style="width:100%; height:100%; object-fit:cover; object-position:center top;"/>
-        <div class="join-visual-badge">
-          <div class="badge-num">🇯🇲</div>
-          <div class="badge-label">Kingston · Miami</div>
+        <div class="join-slideshow">
+          <img src="klassik.jpg"  alt="Klassik Frescobar" style="animation-delay:0s"/>
+          <img src="kali1.jpg"    alt="DJ Kali"           style="animation-delay:4s"/>
+          <img src="sal1.jpg"     alt="Sal Infrared"      style="animation-delay:8s"/>
+          <img src="prime1.jpg"   alt="DJ Prime"          style="animation-delay:12s"/>
+          <img src="klassik2.jpg" alt="Klassik Frescobar" style="animation-delay:16s"/>
         </div>
       </div>
     </div>
