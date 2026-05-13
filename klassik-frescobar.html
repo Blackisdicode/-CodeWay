@@ -435,7 +435,10 @@
     .footer-copy { font-size:0.7rem; color:var(--text); opacity:0.5; }
 
     /* ─── RESPONSIVE ─── */
+    .videos-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+
     @media(max-width:900px) {
+      .videos-grid { grid-template-columns:1fr; }
       .release-grid { grid-template-columns:1fr; gap:40px; }
       .bio-grid { grid-template-columns:1fr; }
       .bio-visual { display:none; }
@@ -525,25 +528,47 @@
     </div>
   </section>
 
-  <!-- LATEST RELEASE -->
+  <!-- LATEST RELEASES -->
   <section id="release" class="section-pad">
-    <div class="release-grid reveal">
-      <div class="video-wrap">
-        <iframe
-          src="https://www.youtube.com/embed/kGp3T5zWDdE"
-          title="Klassik Frescobar — DANSA Visualizer"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
+    <div class="reveal" style="margin-bottom:clamp(32px,5vw,52px);">
+      <div class="section-eyebrow">Latest Releases</div>
+      <h2 class="section-title">MUSIC<br/>VIDEOS</h2>
+    </div>
+    <div class="videos-grid reveal">
+
+      <!-- DANSA -->
+      <div>
+        <div class="video-wrap" style="margin-bottom:18px;">
+          <iframe
+            src="https://www.youtube.com/embed/kGp3T5zWDdE"
+            title="Klassik Frescobar — DANSA Visualizer"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div style="font-family:var(--display); font-size:2rem; letter-spacing:0.06em; color:var(--white); line-height:1; margin-bottom:5px;">DANSA</div>
+        <div style="font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text);">Official Visualizer · Klassik Frescobar</div>
       </div>
-      <div class="release-info">
-        <div class="section-eyebrow">Latest Release</div>
-        <div class="track-title">DANSA</div>
-        <div class="track-sub">Official Visualizer · Klassik Frescobar</div>
-        <p>The follow-up to his breakout "Too Much" with Marzville, DANSA showcases everything that makes Klassik singular — commanding Dancehall energy fused with irresistible Soca rhythm. A record built to move rooms and earn replay after replay.</p>
-        <a href="#music" class="btn-neon" style="font-size:0.75rem; padding:12px 28px;">Stream Now</a>
+
+      <!-- TET LA -->
+      <div>
+        <div class="video-wrap" style="margin-bottom:18px;">
+          <iframe
+            src="https://www.youtube.com/embed/dglR1wY2khI"
+            title="Klassik Frescobar — Tet La Visualizer"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div style="font-family:var(--display); font-size:2rem; letter-spacing:0.06em; color:var(--white); line-height:1; margin-bottom:5px;">TET LA</div>
+        <div style="font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text);">Official Visualizer · Klassik Frescobar</div>
       </div>
+
+    </div>
+    <div class="reveal" style="margin-top:40px; text-align:center;">
+      <a href="#music" class="btn-neon" style="font-size:0.75rem; padding:12px 32px;">Stream All Music</a>
     </div>
   </section>
 
