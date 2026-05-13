@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/"
-  to = "/codeway.html"
+  to = "/mgmt.html"
   status = 200
 
 [[redirects]]
@@ -10,5 +10,5 @@
 
 [[redirects]]
   from = "/codeway-management"
-  to = "/mgmt"
+  to = "/mgmt.html"
   status = 301
