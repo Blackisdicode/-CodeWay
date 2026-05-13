@@ -126,7 +126,7 @@
     /* ─── ROSTER BANNER ─── */
     #roster-banner {
       position: relative; width: 100%; height: 85vh; min-height: 520px;
-      overflow: hidden; background: var(--black);
+      margin-top: 68px; overflow: hidden; background: var(--black);
     }
     .rb-slide {
       position: absolute; inset: 0; opacity: 0;
@@ -186,7 +186,6 @@
       flex-direction: column;
       justify-content: flex-end;
       padding: 0 clamp(20px,4vw,60px) clamp(40px,6vw,80px);
-      padding-top: 68px;
       position: relative;
       overflow: hidden;
     }
@@ -883,11 +882,21 @@
       #join { grid-template-columns:1fr; }
       .join-left { display:none; }
       .cf-row { grid-template-columns:1fr; }
+      .dj-roster-grid { grid-template-columns: 1fr !important; }
+      #roster-banner { height: 70vh; }
+      .rb-label-name { font-size: clamp(2rem,9vw,3.5rem); }
+      .rb-label { bottom: 36px; left: 24px; }
+      .rb-arrows { padding: 0 12px; }
+      .rb-arrow { width: 36px; height: 36px; font-size: 0.9rem; }
     }
 
     @media(max-width:600px) {
       .hero-title { font-size:clamp(3.5rem,16vw,6rem); }
       .services-grid { grid-template-columns:1fr; }
+      #roster-banner { height: 60vh; min-height: 380px; }
+      .rb-label-name { font-size: clamp(1.8rem,10vw,3rem); }
+      .rb-dots { bottom: 14px; }
+      .rb-dot { width: 5px; height: 5px; }
     }
 
     /* PAGE FADE-IN */
@@ -1018,7 +1027,7 @@
 
     <!-- Slide 2: DANSA video -->
     <div class="rb-slide" data-type="video">
-      <video src="dansa.mp4" muted playsinline preload="metadata" id="rbv-dansa"></video>
+      <video src="dansa.mp4" muted playsinline preload="none" id="rbv-dansa"></video>
       <div class="rb-overlay"></div>
       <div class="rb-label">
         <div class="rb-label-name">KLASSIK<br/>FRESCOBAR</div>
@@ -1028,7 +1037,7 @@
 
     <!-- Slide 3: Klassik photo -->
     <div class="rb-slide" data-type="image">
-      <img src="klassik.jpg" alt="Klassik Frescobar"/>
+      <img src="klassik2.jpg" alt="Klassik Frescobar"/>
       <div class="rb-overlay"></div>
       <div class="rb-label">
         <div class="rb-label-name">KLASSIK<br/>FRESCOBAR</div>
@@ -1435,17 +1444,17 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-logo">CW<span class="accent">.</span>MGMT</div>
+    <div class="footer-logo"><img src="CW logo.PNG" alt="Code Way Management" style="height:22px; filter:brightness(0) invert(1); vertical-align:middle; opacity:0.85;"/></div>
     <ul class="footer-links">
       <li><a href="#what">Services</a></li>
       <li><a href="#roster">Roster</a></li>
-      <li><a href="#djs">DJ Roster</a></li>
-      <li><a href="#join">Why Us</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#spotlight">Artists</a></li>
+      <li><a href="#djs">DJs</a></li>
+      <li><a href="#contact">Book a Performer</a></li>
       <li><a href="klassik-frescobar.html">Klassik Frescobar →</a></li>
       <li><a href="codeway.html">Code Way INC →</a></li>
     </ul>
-    <div class="footer-copy">© 2025 Code Way Management · A Code Way INC Company</div>
+    <div class="footer-copy">© 2026 Code Way Management · A Code Way INC Company</div>
   </footer>
 
   <script>
