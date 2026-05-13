@@ -814,6 +814,9 @@
     }
     .press-tag:hover { border-color: var(--neon); color: var(--neon); }
 
+    #bio-modal { display:none; }
+    #bio-modal.open { display:flex; }
+
     @media(max-width:900px) {
       #spotlight > div:nth-child(2) { grid-template-columns: 1fr !important; }
     }
@@ -918,8 +921,8 @@
     <ul class="nav-links">
       <li><a href="#what">Services</a></li>
       <li><a href="#roster">Roster</a></li>
-      <li><a href="#djs">DJs</a></li>
       <li><a href="#spotlight">Artists</a></li>
+      <li><a href="#djs">DJs</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
@@ -934,8 +937,8 @@
   <div class="mobile-nav" id="mobile-nav">
     <a href="#what">Services</a>
     <a href="#roster">Roster</a>
-    <a href="#djs">DJs</a>
     <a href="#spotlight">Artists</a>
+    <a href="#djs">DJs</a>
     <a href="#contact">Contact</a>
     <div class="mobile-divider"></div>
     <a href="klassik-frescobar.html">Klassik Frescobar</a>
@@ -1071,6 +1074,84 @@
     </div>
   </section>
 
+  <!-- FEATURED ARTIST SPOTLIGHT — KLASSIK FRESCOBAR -->
+  <section id="spotlight" style="padding:clamp(80px,10vw,120px) clamp(20px,4vw,60px); position:relative; z-index:1; background:var(--deep); border-top:1px solid var(--border);">
+
+    <div style="text-align:center; margin-bottom:60px;" class="reveal">
+      <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:var(--neon); margin-bottom:12px;">Featured Artist</div>
+      <h2 style="font-family:var(--display); font-size:clamp(2.5rem,6vw,5rem); letter-spacing:0.04em; color:var(--white); line-height:0.95;">KLASSIK FRESCOBAR</h2>
+      <div style="font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text); margin-top:10px;">Dancehall · Soca · Hip-Hop</div>
+    </div>
+
+    <!-- Photo + Videos -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; margin-bottom:64px;" class="reveal">
+
+      <!-- Left: Photo + Buttons -->
+      <div>
+        <div style="border-radius:10px; overflow:hidden; border:1px solid rgba(107,33,214,0.4); margin-bottom:24px; box-shadow:0 0 60px rgba(107,33,214,0.25);">
+          <img src="klassik.jpg" alt="Klassik Frescobar" style="width:100%; display:block; object-fit:cover;"/>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <button onclick="document.getElementById('bio-modal').classList.add('open')" style="display:flex; align-items:center; justify-content:center; gap:8px; background:rgba(107,33,214,0.15); border:1px solid rgba(107,33,214,0.5); color:var(--white); padding:13px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; cursor:pointer; width:100%; transition:background 0.2s, border-color 0.2s;" onmouseover="this.style.background='rgba(107,33,214,0.3)';this.style.borderColor='var(--violet)'" onmouseout="this.style.background='rgba(107,33,214,0.15)';this.style.borderColor='rgba(107,33,214,0.5)'">About Klassik</button>
+          <a href="klassik-frescobar.html#music" style="display:flex; align-items:center; justify-content:center; gap:8px; background:linear-gradient(135deg,var(--violet),var(--pink)); color:var(--white); padding:13px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; width:100%; box-sizing:border-box; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">▶ Listen — Sal Gason EP 2</a>
+        </div>
+      </div>
+
+      <!-- Right: Two Videos -->
+      <div style="display:flex; flex-direction:column; gap:32px;">
+        <div>
+          <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--neon); margin-bottom:14px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:20px; height:1px; background:var(--neon);"></span>Latest Release</div>
+          <div style="position:relative; padding-bottom:56.25%; border-radius:8px; overflow:hidden; border:1px solid var(--border);">
+            <iframe style="position:absolute; top:0; left:0; width:100%; height:100%;" src="https://www.youtube.com/embed/dglR1wY2khI" title="Klassik Frescobar — Tet La" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div style="margin-top:12px; font-family:var(--display); font-size:1.3rem; letter-spacing:0.08em; color:var(--white);">TET LA</div>
+          <div style="font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text);">Klassik Frescobar</div>
+        </div>
+        <div>
+          <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--neon); margin-bottom:14px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:20px; height:1px; background:var(--neon);"></span>Worldwide Hit</div>
+          <div style="position:relative; padding-bottom:56.25%; border-radius:8px; overflow:hidden; border:1px solid var(--border);">
+            <iframe style="position:absolute; top:0; left:0; width:100%; height:100%;" src="https://www.youtube.com/embed/kGp3T5zWDdE" title="Klassik Frescobar — DANSA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div style="margin-top:12px; font-family:var(--display); font-size:1.3rem; letter-spacing:0.08em; color:var(--white);">DANSA</div>
+          <div style="font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text);">Klassik Frescobar</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Press -->
+    <div class="reveal">
+      <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--neon); margin-bottom:28px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:20px; height:1px; background:var(--neon);"></span>Press &amp; Features</div>
+      <div style="display:flex; flex-wrap:wrap; gap:12px;">
+        <a href="https://www.billboard.com" target="_blank" class="press-tag">Billboard</a>
+        <a href="https://thesource.com" target="_blank" class="press-tag">The Source</a>
+        <a href="https://www.hot97.com" target="_blank" class="press-tag">Hot 97</a>
+        <a href="https://flaunt.com" target="_blank" class="press-tag">Flaunt</a>
+        <a href="https://www.euroweeklynews.com" target="_blank" class="press-tag">Euro Weekly News</a>
+        <a href="https://www.influencive.com" target="_blank" class="press-tag">Influencive</a>
+        <a href="https://muziquemagazine.com" target="_blank" class="press-tag">Musique Magazine</a>
+        <a href="https://www.musictimes.com" target="_blank" class="press-tag">Music Times</a>
+        <a href="https://jamaica-gleaner.com" target="_blank" class="press-tag">Jamaica Gleaner</a>
+        <a href="https://jamaica-star.com" target="_blank" class="press-tag">Jamaica Star</a>
+        <a href="https://hiphopsince1987.com" target="_blank" class="press-tag">HipHopSince1987</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- BIO MODAL -->
+  <div id="bio-modal" style="display:none; position:fixed; inset:0; z-index:9000; align-items:center; justify-content:center; padding:24px;">
+    <div onclick="document.getElementById('bio-modal').classList.remove('open')" style="position:absolute; inset:0; background:rgba(6,6,10,0.85); backdrop-filter:blur(6px);"></div>
+    <div style="position:relative; background:var(--deep); border:1px solid rgba(107,33,214,0.5); border-radius:12px; max-width:600px; width:100%; padding:48px 44px; max-height:90vh; overflow-y:auto;">
+      <button onclick="document.getElementById('bio-modal').classList.remove('open')" style="position:absolute; top:20px; right:24px; background:none; border:none; color:var(--text); font-size:1.4rem; cursor:pointer; line-height:1;" aria-label="Close">✕</button>
+      <div style="font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--neon); margin-bottom:16px;">Biography</div>
+      <div style="font-family:var(--display); font-size:2rem; letter-spacing:0.06em; color:var(--white); line-height:1; margin-bottom:28px;">KLASSIK<br/>FRESCOBAR</div>
+      <p style="font-size:0.92rem; line-height:1.95; color:var(--text); margin-bottom:16px;">Klassik Frescobar's musical influence began in the early '90s in Kingston, Jamaica's Constant Spring Gardens. As a child, his mother's cassette player and early records from Bounty Killa, Sean Paul, and Beenie Man shaped everything that was to come.</p>
+      <p style="font-size:0.92rem; line-height:1.95; color:var(--text); margin-bottom:16px;">After migrating to the Bronx, Klassik built his craft in New York's Dancehall scene — forging relationships with DJs and producers, including Brooklyn-based producer Ricky Blaze. A second migration to Miami brought him into the orbit of Red Cafe, who opened doors to the city's party circuit and music infrastructure.</p>
+      <p style="font-size:0.92rem; line-height:1.95; color:var(--text); margin-bottom:28px;">His sound — Jamaican Dancehall fused with Soca, Calypso, and Hip-Hop — is singular. Commanding vocals over sweet soca energy. His breakout record "Too Much" with Marzville was followed by "Dansa," a record poised to go even further.</p>
+      <a href="klassik-frescobar.html" style="display:inline-flex; align-items:center; gap:8px; font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--neon); border-bottom:1px solid rgba(200,85,255,0.3); padding-bottom:3px;">Full Artist Page →</a>
+    </div>
+  </div>
+
   <!-- DJ ROSTER -->
   <section id="djs" style="padding:clamp(80px,10vw,120px) clamp(20px,4vw,60px); position:relative; z-index:1; background:var(--black); border-top:1px solid var(--border);">
     <div class="reveal" style="margin-bottom:clamp(40px,6vw,64px);">
@@ -1122,71 +1203,6 @@
       </div>
 
     </div>
-  </section>
-
-  <!-- FEATURED ARTIST SPOTLIGHT — KLASSIK FRESCOBAR -->
-  <section id="spotlight" style="padding:clamp(80px,10vw,120px) clamp(20px,4vw,60px); position:relative; z-index:1; background:var(--deep); border-top:1px solid var(--border);">
-
-    <div style="text-align:center; margin-bottom:60px;" class="reveal">
-      <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:var(--neon); margin-bottom:12px;">Featured Artist</div>
-      <h2 style="font-family:var(--display); font-size:clamp(2.5rem,6vw,5rem); letter-spacing:0.04em; color:var(--white); line-height:0.95;">KLASSIK FRESCOBAR</h2>
-      <div style="font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text); margin-top:10px;">Kingston, Jamaica · Miami, FL &nbsp;·&nbsp; Dancehall · Soca · Hip-Hop</div>
-    </div>
-
-    <!-- Bio + Video -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; margin-bottom:64px;" class="reveal">
-      <div>
-        <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--neon); margin-bottom:18px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:20px; height:1px; background:var(--neon);"></span>Biography</div>
-        <p style="font-size:0.92rem; line-height:1.95; color:var(--text); margin-bottom:18px;">
-          Klassik Frescobar's musical influence began in the early '90s in Kingston, Jamaica's Constant Spring Gardens. As a child, his mother's cassette player and early records from Bounty Killa, Sean Paul, and Beenie Man shaped everything that was to come.
-        </p>
-        <p style="font-size:0.92rem; line-height:1.95; color:var(--text); margin-bottom:18px;">
-          After migrating to the Bronx, Klassik built his craft in New York's Dancehall scene — forging relationships with DJs and producers, including Brooklyn-based producer Ricky Blaze. A second migration to Miami brought him into the orbit of Red Cafe, who opened doors to the city's party circuit and music infrastructure.
-        </p>
-        <p style="font-size:0.92rem; line-height:1.95; color:var(--text); margin-bottom:28px;">
-          His sound — Jamaican Dancehall fused with Soca, Calypso, and Hip-Hop — is singular. Commanding vocals over sweet soca energy. His breakout record "Too Much" with Marzville was followed by "Dansa," a record poised to go even further.
-        </p>
-        <a href="https://www.klassikfrescobar.com" target="_blank" style="display:inline-flex; align-items:center; gap:8px; font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--neon); border-bottom:1px solid rgba(200,85,255,0.3); padding-bottom:3px; transition:all 0.2s;">
-          Visit Official Site →
-        </a>
-      </div>
-
-      <!-- YouTube embed -->
-      <div>
-        <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--neon); margin-bottom:18px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:20px; height:1px; background:var(--neon);"></span>Latest Release</div>
-        <div style="position:relative; padding-bottom:56.25%; border-radius:8px; overflow:hidden; border:1px solid var(--border);">
-          <iframe
-            style="position:absolute; top:0; left:0; width:100%; height:100%;"
-            src="https://www.youtube.com/embed/kGp3T5zWDdE"
-            title="Klassik Frescobar — DANSA Visualizer"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        </div>
-        <div style="margin-top:16px; font-family:var(--display); font-size:1.4rem; letter-spacing:0.08em; color:var(--white);">DANSA</div>
-        <div style="font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text);">Official Visualizer · Klassik Frescobar</div>
-      </div>
-    </div>
-
-    <!-- Press -->
-    <div class="reveal">
-      <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--neon); margin-bottom:28px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:20px; height:1px; background:var(--neon);"></span>Press &amp; Features</div>
-      <div style="display:flex; flex-wrap:wrap; gap:12px;">
-        <a href="https://www.billboard.com" target="_blank" class="press-tag">Billboard</a>
-        <a href="https://thesource.com" target="_blank" class="press-tag">The Source</a>
-        <a href="https://www.hot97.com" target="_blank" class="press-tag">Hot 97</a>
-        <a href="https://flaunt.com" target="_blank" class="press-tag">Flaunt</a>
-        <a href="https://www.euroweeklynews.com" target="_blank" class="press-tag">Euro Weekly News</a>
-        <a href="https://www.influencive.com" target="_blank" class="press-tag">Influencive</a>
-        <a href="https://muziquemagazine.com" target="_blank" class="press-tag">Musique Magazine</a>
-        <a href="https://www.musictimes.com" target="_blank" class="press-tag">Music Times</a>
-        <a href="https://jamaica-gleaner.com" target="_blank" class="press-tag">Jamaica Gleaner</a>
-        <a href="https://jamaica-star.com" target="_blank" class="press-tag">Jamaica Star</a>
-        <a href="https://hiphopsince1987.com" target="_blank" class="press-tag">HipHopSince1987</a>
-      </div>
-    </div>
-
   </section>
 
   <!-- WHY JOIN -->
@@ -1325,7 +1341,9 @@
         }
       });
     }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
-    ['what', 'roster', 'djs', 'spotlight', 'join', 'contact'].forEach(id => {
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('bio-modal').classList.remove('open'); });
+
+    ['what', 'roster', 'spotlight', 'djs', 'join', 'contact'].forEach(id => {
       const el = document.getElementById(id);
       if (el) activeObserver.observe(el);
     });
