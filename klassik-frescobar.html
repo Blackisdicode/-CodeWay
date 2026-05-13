@@ -438,17 +438,34 @@
     .videos-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
 
     @media(max-width:900px) {
-      .videos-grid { grid-template-columns:1fr; }
-      .release-grid { grid-template-columns:1fr; gap:40px; }
-      .bio-grid { grid-template-columns:1fr; }
-      .bio-visual { display:none; }
+      .videos-grid    { grid-template-columns:1fr; }
+      .release-grid   { grid-template-columns:1fr; gap:40px; }
+      .bio-grid       { grid-template-columns:1fr; }
+      .bio-visual     { aspect-ratio:4/3; max-height:380px; display:flex; }
       .platforms-grid { grid-template-columns:1fr 1fr; }
-      .bf-row { grid-template-columns:1fr; }
+      .bf-row         { grid-template-columns:1fr; }
+      .hero-actions   { flex-direction:column; align-items:flex-start; gap:12px; }
+      .btn-neon, .btn-outline-neon { width:100%; text-align:center; justify-content:center; }
+      /* Press tags wrap fine already */
+      /* Sal Gason release section */
+      .release-info .track-title { font-size:clamp(2.5rem,10vw,4.5rem); }
+      /* Booking form section padding */
+      #booking { padding-left:clamp(16px,4vw,40px); padding-right:clamp(16px,4vw,40px); }
     }
-    @media(max-width:520px) {
-      .hero-actions { flex-direction:column; align-items:flex-start; }
+    @media(max-width:600px) {
+      .hero-title .line-gradient,
+      .hero-title .line-outline    { font-size:clamp(4rem,18vw,7rem); }
       .platforms-grid { grid-template-columns:1fr 1fr; gap:10px; }
-      .platform-btn { padding:24px 12px; gap:10px; }
+      .platform-btn   { padding:24px 12px; gap:10px; }
+      .bio-visual     { max-height:280px; }
+      /* Ticker font */
+      .ticker-item    { font-size:0.75rem; }
+      /* Section padding */
+      .section-pad    { padding-left:clamp(16px,4vw,32px) !important; padding-right:clamp(16px,4vw,32px) !important; }
+    }
+    @media(max-width:400px) {
+      .platforms-grid { grid-template-columns:1fr; }
+      .hero-eyebrow   { font-size:0.6rem; }
     }
   </style>
 </head>

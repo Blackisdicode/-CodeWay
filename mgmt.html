@@ -882,21 +882,37 @@
       #join { grid-template-columns:1fr; }
       .join-left { display:none; }
       .cf-row { grid-template-columns:1fr; }
-      .dj-roster-grid { grid-template-columns: 1fr !important; }
+      .dj-roster-grid { grid-template-columns:1fr 1fr !important; }
       #roster-banner { height: 70vh; }
       .rb-label-name { font-size: clamp(2rem,9vw,3.5rem); }
       .rb-label { bottom: 36px; left: 24px; }
       .rb-arrows { padding: 0 12px; }
       .rb-arrow { width: 36px; height: 36px; font-size: 0.9rem; }
+      /* Spotlight section inline grid override */
+      #spotlight > div:nth-child(2) { grid-template-columns:1fr !important; gap:40px !important; }
+      /* Roster marquee text size */
+      .roster-label { font-size:0.6rem; }
+      /* Hero actions */
+      .hero-actions { flex-direction:column; align-items:flex-start; gap:12px; }
+      .btn-neon, .btn-outline-neon { width:100%; text-align:center; justify-content:center; }
+      /* Bio modal full width on tablet */
+      #bio-modal > div:last-child { max-width:100%; margin:0 16px; padding:36px 24px; }
     }
 
     @media(max-width:600px) {
-      .hero-title { font-size:clamp(3.5rem,16vw,6rem); }
+      .hero-title { font-size:clamp(3.2rem,14vw,5.5rem); }
       .services-grid { grid-template-columns:1fr; }
       #roster-banner { height: 60vh; min-height: 380px; }
       .rb-label-name { font-size: clamp(1.8rem,10vw,3rem); }
       .rb-dots { bottom: 14px; }
       .rb-dot { width: 5px; height: 5px; }
+      .dj-roster-grid { grid-template-columns:1fr !important; }
+      /* Tighten section padding on phones */
+      [style*="padding:clamp(80px"] { padding-left: clamp(16px,4vw,32px) !important; padding-right: clamp(16px,4vw,32px) !important; }
+      /* Spotlight videos stack */
+      #spotlight > div:nth-child(2) > div:last-child { gap:24px !important; }
+      /* Booking hero */
+      .contact-title { font-size: clamp(2.5rem,12vw,4rem); }
     }
 
     /* PAGE FADE-IN */
