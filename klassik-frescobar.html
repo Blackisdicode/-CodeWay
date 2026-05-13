@@ -456,6 +456,13 @@
 
   <div class="toast" id="toast">Booking request received. We'll be in touch within 24 hours.</div>
 
+  <!-- Netlify form detection -->
+  <form name="booking-inquiry" data-netlify="true" hidden>
+    <input name="bf-name"/><input name="bf-email"/><input name="bf-phone"/>
+    <input name="bf-type"/><input name="bf-date"/><input name="bf-location"/>
+    <textarea name="bf-message"></textarea>
+  </form>
+
   <!-- NAV -->
   <nav id="navbar">
     <a href="codeway-management.html" class="nav-logo">CW<span class="accent">.</span>MGMT</a>
@@ -798,9 +805,24 @@
         valid = false;
       }
       if (!valid) return;
-      document.getElementById('toast').classList.add('show');
-      setTimeout(() => document.getElementById('toast').classList.remove('show'), 5000);
-      fields.forEach(f => { document.getElementById(f.id).value = ''; clearError(f.id); });
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'booking-inquiry',
+          'bf-name': document.getElementById('bf-name').value,
+          'bf-email': document.getElementById('bf-email').value,
+          'bf-phone': document.getElementById('bf-phone').value,
+          'bf-type': document.getElementById('bf-type').value,
+          'bf-date': document.getElementById('bf-date').value,
+          'bf-location': document.getElementById('bf-location').value,
+          'bf-message': document.getElementById('bf-message').value
+        }).toString()
+      }).finally(() => {
+        document.getElementById('toast').classList.add('show');
+        setTimeout(() => document.getElementById('toast').classList.remove('show'), 5000);
+        fields.forEach(f => { document.getElementById(f.id).value = ''; clearError(f.id); });
+      });
     }
   </script>
 

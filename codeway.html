@@ -247,6 +247,12 @@
 
   <div class="toast" id="toast">Message received. We'll be in touch shortly.</div>
 
+  <!-- Netlify form detection -->
+  <form name="contact-inquiry" data-netlify="true" hidden>
+    <input name="fname"/><input name="lname"/><input name="email"/>
+    <input name="company"/><input name="interest"/><textarea name="message"></textarea>
+  </form>
+
   <nav id="navbar">
     <div class="nav-logo"><img src="CW logo.PNG" alt="Code Way INC" style="height:28px; filter:brightness(0) invert(1); vertical-align:middle;"/></div>
     <ul class="nav-links">
@@ -503,9 +509,23 @@
         valid = false;
       }
       if (!valid) return;
-      document.getElementById('toast').classList.add('show');
-      setTimeout(() => document.getElementById('toast').classList.remove('show'), 4000);
-      fields.forEach(f => { document.getElementById(f.id).value = ''; clearError(f.id); });
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'contact-inquiry',
+          fname: document.getElementById('fname').value,
+          lname: document.getElementById('lname').value,
+          email: document.getElementById('email').value,
+          company: document.getElementById('company').value,
+          interest: document.getElementById('interest').value,
+          message: document.getElementById('message').value
+        }).toString()
+      }).finally(() => {
+        document.getElementById('toast').classList.add('show');
+        setTimeout(() => document.getElementById('toast').classList.remove('show'), 4000);
+        fields.forEach(f => { document.getElementById(f.id).value = ''; clearError(f.id); });
+      });
     }
   </script>
 </body>

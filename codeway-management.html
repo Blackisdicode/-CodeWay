@@ -904,6 +904,12 @@
 
   <div class="toast" id="toast">🎤 We'll be in touch. Let's build something legendary.</div>
 
+  <!-- Netlify form detection -->
+  <form name="management-inquiry" data-netlify="true" hidden>
+    <input name="cf-name"/><input name="cf-email"/>
+    <input name="cf-genre"/><input name="cf-link"/><textarea name="cf-message"></textarea>
+  </form>
+
   <!-- NAV -->
   <nav id="navbar">
     <div class="nav-logo">CW<span class="accent">.</span>MGMT</div>
@@ -1343,9 +1349,22 @@
         valid = false;
       }
       if (!valid) return;
-      document.getElementById('toast').classList.add('show');
-      setTimeout(() => document.getElementById('toast').classList.remove('show'), 5000);
-      fields.forEach(f => { document.getElementById(f.id).value = ''; clearError(f.id); });
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'management-inquiry',
+          'cf-name': document.getElementById('cf-name').value,
+          'cf-email': document.getElementById('cf-email').value,
+          'cf-genre': document.getElementById('cf-genre').value,
+          'cf-link': document.getElementById('cf-link').value,
+          'cf-message': document.getElementById('cf-message').value
+        }).toString()
+      }).finally(() => {
+        document.getElementById('toast').classList.add('show');
+        setTimeout(() => document.getElementById('toast').classList.remove('show'), 5000);
+        fields.forEach(f => { document.getElementById(f.id).value = ''; clearError(f.id); });
+      });
     }
   </script>
 
