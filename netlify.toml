@@ -5,10 +5,10 @@
 
 [[redirects]]
   from = "/mgmt"
-  to = "/mgmt.html"
-  status = 200
+  to = "https://itscodeway.com"
+  status = 301
 
 [[redirects]]
   from = "/codeway-management"
-  to = "/mgmt"
+  to = "https://itscodeway.com"
   status = 301
