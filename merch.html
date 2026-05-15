@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Merch | Code Way Management</title>
+  <meta name="description" content="Official Code Way Management merchandise. Rep the culture."/>
+  <meta property="og:title" content="Merch | Code Way Management"/>
+  <meta property="og:description" content="Official Code Way Management merchandise. Rep the culture."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://itscodeway.com/cw-logo.png"/>
+  <!-- HubSpot Tracking -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/246126930.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --black:  #06060a;
+      --deep:   #0d0d14;
+      --purple: #2a1a4e;
+      --violet: #6b21d6;
+      --neon:   #c855ff;
+      --pink:   #ff3d8a;
+      --gold:   #ffd166;
+      --white:  #f0ecff;
+      --text:   #a09ab8;
+      --border: #1e1a2e;
+      --display: 'Bebas Neue', sans-serif;
+      --serif:   'Instrument Serif', Georgia, serif;
+      --sans:    'Space Grotesk', sans-serif;
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      overflow-x: hidden;
+      animation: pageFadeIn 0.5s ease forwards;
+    }
+
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 20% 10%, rgba(107,33,214,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 80% 80%, rgba(255,61,138,0.10) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 60% at 70% 20%, rgba(200,85,255,0.08) 0%, transparent 50%);
+      pointer-events: none; z-index: 0;
+      animation: meshShift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes meshShift  { from { opacity:0.7; } to { opacity:1; } }
+    @keyframes pageFadeIn { from { opacity:0; }   to { opacity:1; } }
+
+    a { color:inherit; text-decoration:none; }
+
+    /* NAV */
+    nav {
+      position: fixed; top:0; left:0; right:0; z-index:200;
+      padding: 0 clamp(20px,4vw,60px); height:68px;
+      display: flex; align-items:center; justify-content:space-between;
+      transition: background 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(6,6,10,0.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+    }
+    .nav-logo { position:relative; z-index:1; height:26px; width:90px; }
+    .nav-logo img { position:absolute; top:0; left:0; }
+    .swap-a { animation: swapA 9s ease-in-out infinite; }
+    .swap-b { animation: swapB 9s ease-in-out infinite; opacity:0; }
+    @keyframes swapA { 0%,40%{opacity:1} 50%,92%{opacity:0} 100%{opacity:1} }
+    @keyframes swapB { 0%,40%{opacity:0} 50%,92%{opacity:1} 100%{opacity:0} }
+
+    .nav-right { display:flex; align-items:center; gap:20px; position:relative; z-index:1; }
+    .nav-back {
+      font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase;
+      color:var(--text); display:flex; align-items:center; gap:6px; transition:color 0.2s;
+    }
+    .nav-back:hover { color:var(--white); }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--violet), var(--pink));
+      color: var(--white); padding:9px 22px; border-radius:40px;
+      font-size:0.72rem; font-weight:500; letter-spacing:0.08em;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { opacity:0.85; transform:translateY(-1px); }
+
+    .hamburger {
+      display:none; flex-direction:column; justify-content:center; gap:5px;
+      width:36px; height:36px; cursor:pointer; background:none; border:none;
+      padding:4px; z-index:201;
+    }
+    .hamburger span {
+      display:block; width:22px; height:1.5px; background:var(--white);
+      transition:transform 0.3s ease, opacity 0.3s ease; transform-origin:center;
+    }
+    .hamburger.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+    .mobile-nav {
+      position:fixed; inset:0; z-index:200;
+      background:rgba(6,6,10,0.97); backdrop-filter:blur(20px);
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px;
+      transform:translateY(-100%); transition:transform 0.4s cubic-bezier(0.77,0,0.175,1);
+    }
+    .mobile-nav.open { transform:translateY(0); }
+    .mobile-nav a {
+      font-family:var(--display); font-size:clamp(2rem,8vw,3rem);
+      letter-spacing:0.06em; color:var(--white); transition:color 0.2s;
+    }
+    .mobile-nav a:hover { color:var(--neon); }
+    .mobile-nav .mobile-back { font-family:var(--sans); font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text); }
+    .mobile-nav .mobile-cta {
+      margin-top:6px; background:linear-gradient(135deg,var(--violet),var(--pink));
+      color:var(--white); padding:13px 36px; border-radius:40px;
+      font-family:var(--sans); font-size:0.78rem; font-weight:500; letter-spacing:0.1em;
+    }
+    .mobile-divider { width:40px; height:1px; background:var(--border); }
+
+    @media(max-width:900px) {
+      .hamburger { display:flex; }
+      .nav-right  { display:none; }
+    }
+
+    /* HERO */
+    .merch-hero {
+      min-height: 60vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 clamp(20px,4vw,60px) clamp(48px,6vw,80px);
+      padding-top: 68px;
+      position: relative; overflow: hidden;
+    }
+    .merch-hero-bg {
+      position: absolute; top:50%; left:50%;
+      transform: translate(-50%,-52%);
+      font-family: var(--display);
+      font-size: clamp(18vw,26vw,32vw);
+      letter-spacing: 0.04em; color: transparent;
+      -webkit-text-stroke: 1px rgba(107,33,214,0.18);
+      white-space: nowrap; pointer-events:none; user-select:none;
+      z-index: 0;
+    }
+    .merch-hero-content { position:relative; z-index:1; }
+    .merch-eyebrow {
+      font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase;
+      color:var(--neon); margin-bottom:14px;
+      display:flex; align-items:center; gap:12px;
+    }
+    .merch-eyebrow::before { content:''; display:block; width:24px; height:1px; background:var(--neon); }
+    .merch-title {
+      font-family: var(--display);
+      font-size: clamp(4rem,10vw,9rem);
+      letter-spacing: 0.04em; color: var(--white); line-height: 0.9;
+      margin-bottom: 20px;
+    }
+    .merch-sub {
+      font-size: 0.9rem; color: var(--text); max-width: 480px; line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .merch-hero-cta {
+      display: inline-flex; align-items:center; gap:10px;
+      background: linear-gradient(135deg, var(--violet), var(--pink));
+      color: var(--white); padding:14px 36px; border-radius:40px;
+      font-family: var(--sans); font-size:0.78rem; font-weight:500;
+      letter-spacing:0.1em; text-transform:uppercase;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .merch-hero-cta:hover { opacity:0.85; transform:translateY(-2px); }
+
+    /* PRODUCTS GRID */
+    #products {
+      padding: clamp(60px,8vw,100px) clamp(20px,4vw,60px);
+      position: relative; z-index:1;
+    }
+    .products-header {
+      display:flex; align-items:flex-end; justify-content:space-between;
+      margin-bottom: 48px; flex-wrap:wrap; gap:16px;
+    }
+    .products-eyebrow {
+      font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase;
+      color:var(--neon); margin-bottom:12px;
+      display:flex; align-items:center; gap:12px;
+    }
+    .products-eyebrow::before { content:''; display:block; width:24px; height:1px; background:var(--neon); }
+    .products-title {
+      font-family:var(--display); font-size:clamp(2.5rem,5vw,4rem);
+      letter-spacing:0.04em; color:var(--white); line-height:1;
+    }
+    .shop-all-link {
+      font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase;
+      color:var(--neon); border-bottom:1px solid rgba(200,85,255,0.3);
+      padding-bottom:3px; transition:border-color 0.2s;
+      white-space:nowrap;
+    }
+    .shop-all-link:hover { border-color:var(--neon); }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    /* PRODUCT CARD */
+    .product-card {
+      background: var(--deep);
+      border: 1px solid var(--border);
+      border-radius: 12px; overflow:hidden;
+      transition: border-color 0.3s, transform 0.25s;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      border-color: rgba(200,85,255,0.5);
+      transform: translateY(-5px);
+    }
+    .product-img {
+      width:100%; aspect-ratio: 1/1; overflow:hidden;
+      background: linear-gradient(135deg, #0d0d14 0%, #1a0a3a 50%, #0d0d14 100%);
+      display:flex; align-items:center; justify-content:center;
+      position:relative;
+    }
+    .product-img img {
+      width:100%; height:100%; object-fit:cover; display:block;
+      transition: transform 0.4s ease;
+    }
+    .product-card:hover .product-img img { transform:scale(1.04); }
+    .product-img-placeholder {
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      gap:12px; padding:40px;
+    }
+    .product-img-placeholder img { width:80px; opacity:0.25; filter:brightness(0) invert(1); }
+    .product-img-placeholder span {
+      font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase;
+      color:rgba(200,85,255,0.4);
+    }
+    .product-badge {
+      position:absolute; top:12px; left:12px;
+      background:linear-gradient(135deg,var(--violet),var(--pink));
+      color:var(--white); font-size:0.58rem; font-weight:600;
+      letter-spacing:0.12em; text-transform:uppercase;
+      padding:4px 12px; border-radius:20px;
+    }
+    .product-info { padding:20px 24px 28px; }
+    .product-type {
+      font-size:0.6rem; letter-spacing:0.18em; text-transform:uppercase;
+      color:var(--neon); margin-bottom:8px;
+    }
+    .product-name {
+      font-family:var(--display); font-size:1.5rem; letter-spacing:0.06em;
+      color:var(--white); margin-bottom:6px; line-height:1;
+    }
+    .product-desc {
+      font-size:0.75rem; color:var(--text); line-height:1.6; margin-bottom:20px;
+    }
+    .product-footer { display:flex; align-items:center; justify-content:space-between; }
+    .product-price {
+      font-family:var(--sans); font-size:1rem; font-weight:500; color:var(--white);
+    }
+    .product-cta {
+      background:linear-gradient(135deg,var(--violet),var(--pink));
+      color:var(--white); padding:9px 22px; border-radius:40px;
+      font-size:0.68rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
+      transition:opacity 0.2s;
+    }
+    .product-cta:hover { opacity:0.85; }
+
+    /* FOURTHWALL EMBED SECTION */
+    #store-embed {
+      padding: 0 clamp(20px,4vw,60px) clamp(60px,8vw,100px);
+      position: relative; z-index:1;
+    }
+    .embed-inner {
+      border-top: 1px solid var(--border);
+      padding-top: clamp(40px,6vw,80px);
+      text-align:center;
+    }
+    .embed-eyebrow {
+      font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase;
+      color:var(--neon); margin-bottom:16px;
+    }
+    .embed-title {
+      font-family:var(--display); font-size:clamp(2rem,4vw,3.5rem);
+      letter-spacing:0.04em; color:var(--white); line-height:1; margin-bottom:16px;
+    }
+    .embed-sub { font-size:0.88rem; color:var(--text); margin-bottom:36px; line-height:1.7; }
+    .embed-shop-btn {
+      display:inline-flex; align-items:center; gap:10px;
+      background:linear-gradient(135deg,var(--violet),var(--pink));
+      color:var(--white); padding:15px 42px; border-radius:40px;
+      font-family:var(--sans); font-size:0.8rem; font-weight:500; letter-spacing:0.1em;
+      text-transform:uppercase; transition:opacity 0.2s, transform 0.2s;
+    }
+    .embed-shop-btn:hover { opacity:0.85; transform:translateY(-2px); }
+
+    /* FOOTER */
+    footer {
+      padding: 40px clamp(20px,4vw,60px);
+      border-top: 1px solid var(--border);
+      display:flex; align-items:center; justify-content:space-between;
+      flex-wrap:wrap; gap:16px; position:relative; z-index:1;
+    }
+    .footer-logo { position:relative; height:22px; width:90px; }
+    .footer-logo img { position:absolute; top:0; left:0; }
+    .footer-links { display:flex; gap:24px; list-style:none; flex-wrap:wrap; }
+    .footer-links a { font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); transition:color 0.2s; }
+    .footer-links a:hover { color:var(--white); }
+    .footer-copy { font-size:0.7rem; color:#3a3a3a; }
+
+    .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+
+    @media (max-width:600px) {
+      .products-grid { grid-template-columns:1fr 1fr; gap:14px; }
+      .product-info { padding:14px 16px 20px; }
+    }
+    @media (max-width:400px) {
+      .products-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <img src="cw-logo.png" class="swap-a" alt="Code Way Management" style="height:26px; filter:brightness(0) invert(1);"/>
+      <img src="bidc-logo.png" class="swap-b" alt="Black Is De Code" style="width:90px; height:26px; object-fit:contain;"/>
+    </div>
+    <div class="nav-right">
+      <a href="/" class="nav-back">← Back to Management</a>
+      <!-- REPLACE href with your Fourthwall store URL once live -->
+      <a href="https://codeway.fourthwall.com" target="_blank" class="nav-cta">Shop Now</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="/">Management</a>
+    <a href="/merch">Merch</a>
+    <div class="mobile-divider"></div>
+    <a href="/" class="mobile-back">← Code Way Management</a>
+    <!-- REPLACE href with your Fourthwall store URL once live -->
+    <a href="https://codeway.fourthwall.com" target="_blank" class="mobile-cta">Shop Now</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="merch-hero">
+    <div class="merch-hero-bg">MERCH</div>
+    <div class="merch-hero-content">
+      <div class="merch-eyebrow">Official Store</div>
+      <h1 class="merch-title">REP THE<br/>CULTURE.</h1>
+      <p class="merch-sub">Official Code Way Management merchandise. Every piece is a statement. Fulfilled worldwide — wear what you believe in.</p>
+      <!-- REPLACE href with your Fourthwall store URL once live -->
+      <a href="https://codeway.fourthwall.com" target="_blank" class="merch-hero-cta">Shop All Products →</a>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+    <div class="products-header reveal">
+      <div>
+        <div class="products-eyebrow">Drop 001</div>
+        <h2 class="products-title">THE<br/>COLLECTION</h2>
+      </div>
+      <!-- REPLACE href with your Fourthwall store URL once live -->
+      <a href="https://codeway.fourthwall.com" target="_blank" class="shop-all-link">View Full Shop →</a>
+    </div>
+
+    <div class="products-grid">
+
+      <!-- PRODUCT CARD: TEE -->
+      <!-- REPLACE: swap placeholder div for <img src="fourthwall-product-mockup.jpg"/> once live -->
+      <a href="https://codeway.fourthwall.com" target="_blank" class="product-card reveal">
+        <div class="product-img">
+          <div class="product-img-placeholder">
+            <img src="cw-logo.png" alt=""/>
+            <span>Coming Soon</span>
+          </div>
+          <div class="product-badge">New</div>
+        </div>
+        <div class="product-info">
+          <div class="product-type">Tee</div>
+          <div class="product-name">CODE WAY TEE</div>
+          <div class="product-desc">Premium heavyweight tee. Unisex fit, available in all sizes.</div>
+          <div class="product-footer">
+            <span class="product-price">From $35</span>
+            <span class="product-cta">Shop Now</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- PRODUCT CARD: HOODIE -->
+      <a href="https://codeway.fourthwall.com" target="_blank" class="product-card reveal">
+        <div class="product-img">
+          <div class="product-img-placeholder">
+            <img src="cw-logo.png" alt=""/>
+            <span>Coming Soon</span>
+          </div>
+          <div class="product-badge">New</div>
+        </div>
+        <div class="product-info">
+          <div class="product-type">Hoodie</div>
+          <div class="product-name">CODE WAY HOODIE</div>
+          <div class="product-desc">Midweight fleece pullover. Made to move, built to last.</div>
+          <div class="product-footer">
+            <span class="product-price">From $65</span>
+            <span class="product-cta">Shop Now</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- PRODUCT CARD: HAT -->
+      <a href="https://codeway.fourthwall.com" target="_blank" class="product-card reveal">
+        <div class="product-img">
+          <div class="product-img-placeholder">
+            <img src="cw-logo.png" alt=""/>
+            <span>Coming Soon</span>
+          </div>
+          <div class="product-badge">New</div>
+        </div>
+        <div class="product-info">
+          <div class="product-type">Headwear</div>
+          <div class="product-name">CODE WAY HAT</div>
+          <div class="product-desc">Structured 6-panel cap. One size fits most.</div>
+          <div class="product-footer">
+            <span class="product-price">From $30</span>
+            <span class="product-cta">Shop Now</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- PRODUCT CARD: BIDC TEE -->
+      <a href="https://codeway.fourthwall.com" target="_blank" class="product-card reveal">
+        <div class="product-img">
+          <div class="product-img-placeholder">
+            <img src="bidc-logo.png" alt="" style="filter:none; opacity:0.2;"/>
+            <span>Coming Soon</span>
+          </div>
+          <div class="product-badge">New</div>
+        </div>
+        <div class="product-info">
+          <div class="product-type">Tee</div>
+          <div class="product-name">BIDC TEE</div>
+          <div class="product-desc">Black Is De Code. Statement piece. Heavy cotton, oversized fit.</div>
+          <div class="product-footer">
+            <span class="product-price">From $38</span>
+            <span class="product-cta">Shop Now</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- STORE LINK / FOURTHWALL EMBED -->
+  <!-- When your Fourthwall store is live, you can replace this section with Fourthwall product embed scripts -->
+  <section id="store-embed">
+    <div class="embed-inner reveal">
+      <div class="embed-eyebrow">Fulfilled by Fourthwall</div>
+      <h2 class="embed-title">MORE IN<br/>THE SHOP</h2>
+      <p class="embed-sub">Full catalog, sizing guides, and worldwide shipping available in the store.</p>
+      <!-- REPLACE href with your Fourthwall store URL once live -->
+      <a href="https://codeway.fourthwall.com" target="_blank" class="embed-shop-btn">Open Full Store →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <img src="cw-logo.png" class="swap-a" alt="Code Way Management" style="height:22px; filter:brightness(0) invert(1); opacity:0.85;"/>
+      <img src="bidc-logo.png" class="swap-b" alt="Black Is De Code" style="width:90px; height:22px; object-fit:contain; opacity:0.85;"/>
+    </div>
+    <ul class="footer-links">
+      <li><a href="/">Management</a></li>
+      <li><a href="/#roster">Roster</a></li>
+      <li><a href="/#contact">Bookings</a></li>
+      <li><a href="/#inquiries">Inquiries</a></li>
+      <li><a href="https://codeway.fourthwall.com" target="_blank">Shop →</a></li>
+    </ul>
+    <div class="footer-copy">© 2026 Code Way Management · A Code Way INC Company</div>
+  </footer>
+
+  <script>
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive:true });
+
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileNav.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileNav.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
