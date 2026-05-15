@@ -1003,6 +1003,87 @@
       .dj-roster-grid { grid-template-columns: 1fr !important; }
     }
 
+    /* ── LOGO SWAP ── */
+    @keyframes swapA {
+      0%, 40%  { opacity:1; }
+      50%, 92% { opacity:0; }
+      100%     { opacity:1; }
+    }
+    @keyframes swapB {
+      0%, 40%  { opacity:0; }
+      50%, 92% { opacity:1; }
+      100%     { opacity:0; }
+    }
+    .swap-a { animation: swapA 9s ease-in-out infinite; }
+    .swap-b { animation: swapB 9s ease-in-out infinite; opacity:0; }
+
+    /* ── SPONSOR TOGGLE ── */
+    .sponsor-section { margin-bottom:32px; text-align:left; }
+    .sponsor-header {
+      display:flex; align-items:center; gap:14px;
+      padding:14px 0; border-bottom:1px solid var(--border);
+    }
+    .sponsor-header-label { font-size:0.78rem; letter-spacing:0.08em; color:var(--white); font-family:var(--sans); }
+    .sponsor-yn { display:flex; gap:8px; margin-left:auto; }
+    .syn-btn {
+      padding:5px 18px; border-radius:20px; font-size:0.68rem; font-weight:500;
+      letter-spacing:0.1em; text-transform:uppercase; cursor:pointer;
+      border:1px solid var(--border); background:transparent; color:var(--text);
+      transition:all 0.2s; font-family:var(--sans);
+    }
+    .syn-btn.active-yes { background:var(--violet); border-color:var(--violet); color:var(--white); }
+    .syn-btn.active-no  { background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.2); color:var(--white); }
+    .sponsor-body {
+      overflow:hidden; max-height:0; opacity:0;
+      transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+    }
+    .sponsor-body.open { max-height:160px; opacity:1; padding-top:14px; }
+    .sponsor-body textarea {
+      width:100%; background:rgba(255,255,255,0.04); border:1px solid var(--border);
+      color:var(--white); padding:12px 14px; border-radius:8px; font-family:var(--sans);
+      font-size:0.85rem; outline:none; resize:vertical; min-height:72px;
+      transition:border-color 0.2s; box-sizing:border-box;
+    }
+    .sponsor-body textarea:focus { border-color:var(--violet); }
+
+    /* ── INQUIRIES SECTION ── */
+    #inquiries {
+      padding: clamp(60px,8vw,100px) clamp(20px,4vw,60px);
+      position:relative; z-index:1; border-top:1px solid var(--border);
+    }
+    .inq-inner { max-width:680px; margin:0 auto; }
+    .inq-eyebrow {
+      font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase;
+      color:var(--neon); margin-bottom:16px;
+      display:flex; align-items:center; gap:12px;
+    }
+    .inq-eyebrow::before { content:''; display:block; width:24px; height:1px; background:var(--neon); }
+    .inq-title {
+      font-family:var(--display); font-size:clamp(2.5rem,6vw,4.5rem);
+      letter-spacing:0.04em; color:var(--white); line-height:1; margin-bottom:16px;
+    }
+    .inq-sub { font-size:0.88rem; color:var(--text); margin-bottom:36px; line-height:1.75; }
+    .inq-form { display:flex; flex-direction:column; gap:16px; }
+    .inq-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .inq-group { display:flex; flex-direction:column; gap:6px; }
+    .inq-label { font-size:0.64rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--neon); }
+    .inq-input, .inq-textarea {
+      background:rgba(255,255,255,0.04); border:1px solid var(--border);
+      color:var(--white); padding:12px 16px; border-radius:8px;
+      font-family:var(--sans); font-size:0.85rem; outline:none; width:100%;
+      transition:border-color 0.2s; box-sizing:border-box;
+    }
+    .inq-input:focus, .inq-textarea:focus { border-color:var(--violet); }
+    .inq-textarea { resize:vertical; min-height:100px; }
+    .inq-submit {
+      align-self:flex-start; background:linear-gradient(135deg,var(--violet),var(--pink));
+      color:var(--white); border:none; padding:13px 36px; border-radius:40px;
+      font-family:var(--sans); font-size:0.75rem; font-weight:500; letter-spacing:0.1em;
+      text-transform:uppercase; cursor:pointer; transition:opacity 0.2s, transform 0.2s;
+    }
+    .inq-submit:hover { opacity:0.85; transform:translateY(-1px); }
+    @media (max-width:600px) { .inq-row { grid-template-columns:1fr; } }
+
   </style>
 </head>
 <body>
@@ -1010,6 +1091,11 @@
   <div class="toast" id="toast">🎤 We'll be in touch. Let's build something legendary.</div>
 
   <!-- Netlify form detection -->
+  <form name="contact-inquiry" data-netlify="true" hidden>
+    <input name="inq-name"/><input name="inq-organization"/>
+    <input name="inq-email"/><input name="inq-phone"/>
+    <textarea name="inq-message"></textarea>
+  </form>
   <form name="promoter-booking" data-netlify="true" hidden>
     <input name="cf-name"/><input name="cf-email"/><input name="cf-phone"/>
     <input name="cf-performer"/><input name="cf-event-name"/>
@@ -1020,13 +1106,17 @@
 
   <!-- NAV -->
   <nav id="navbar">
-    <div class="nav-logo"><img src="cw-logo.png" alt="Code Way Management" style="height:26px; filter:brightness(0) invert(1); vertical-align:middle;"/></div>
+    <div class="nav-logo" style="position:relative; height:26px; width:90px;">
+      <img src="cw-logo.png" class="swap-a" alt="Code Way Management" style="height:26px; filter:brightness(0) invert(1); position:absolute; top:0; left:0;"/>
+      <img src="bidc-logo.png" class="swap-b" alt="Black Is De Code" style="width:90px; height:26px; object-fit:contain; position:absolute; top:0; left:0;"/>
+    </div>
     <ul class="nav-links">
       <li><a href="#what">Services</a></li>
       <li><a href="#roster">Roster</a></li>
       <li><a href="#spotlight">Artists</a></li>
       <li><a href="#djs">DJs</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact">Bookings</a></li>
+      <li><a href="#inquiries">Inquiries</a></li>
     </ul>
     <div class="nav-right">
       <a href="https://codewayinc.com" class="nav-back">← Code Way INC</a>
@@ -1042,7 +1132,8 @@
     <a href="#roster">Roster</a>
     <a href="#spotlight">Artists</a>
     <a href="#djs">DJs</a>
-    <a href="#contact">Book a Performer</a>
+    <a href="#contact">Bookings</a>
+    <a href="#inquiries">Inquiries</a>
     <div class="mobile-divider"></div>
     <a href="klassik-frescobar.html">Klassik Frescobar</a>
     <a href="https://codewayinc.com" class="mobile-back">← Code Way INC</a>
@@ -1435,22 +1526,76 @@
       <h2 class="contact-title">BRING THE<br/>ENERGY.</h2>
       <p class="contact-sub">Promoters — fill out the form below to book an artist or DJ from our roster. We'll be in touch within 48 hours.</p>
 
-      <div class="contact-form" style="text-align:center; padding:48px 0;">
-        <a href="https://tally.so/r/WOKOEJ" target="_blank" class="cf-submit" style="display:inline-block; text-decoration:none; cursor:pointer;">Open Booking Form →</a>
-        <p style="margin-top:20px; font-size:0.75rem; color:var(--muted); letter-spacing:0.05em;">Opens in a new tab · We respond within 48 hours</p>
+      <div class="contact-form" style="max-width:540px; margin:0 auto; padding:40px 0;">
+        <div class="sponsor-section">
+          <div class="sponsor-header">
+            <span class="sponsor-header-label">Do you have event sponsors?</span>
+            <div class="sponsor-yn">
+              <button class="syn-btn" id="syn-yes" onclick="setSponsor('yes')">Yes</button>
+              <button class="syn-btn" id="syn-no" onclick="setSponsor('no')">No</button>
+            </div>
+          </div>
+          <div class="sponsor-body" id="sponsor-body">
+            <textarea id="cf-sponsors-visible" placeholder="List your sponsors or partners…"></textarea>
+          </div>
+        </div>
+        <div style="text-align:center;">
+          <a href="https://tally.so/r/WOKOEJ" target="_blank" class="cf-submit" style="display:inline-block; text-decoration:none; cursor:pointer;">Open Booking Form →</a>
+          <p style="margin-top:20px; font-size:0.75rem; color:var(--muted); letter-spacing:0.05em;">Opens in a new tab · We respond within 48 hours</p>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- INQUIRIES -->
+  <section id="inquiries">
+    <div class="inq-inner reveal">
+      <div class="inq-eyebrow">Get In Touch</div>
+      <h2 class="inq-title">CONTACT<br/>US.</h2>
+      <p class="inq-sub">Not a booking? Reach out for partnerships, press, sponsorships, or general inquiries. We'll get back to you within 48 hours.</p>
+      <form class="inq-form" onsubmit="handleInquirySubmit(event)">
+        <div class="inq-row">
+          <div class="inq-group">
+            <label class="inq-label">Full Name</label>
+            <input class="inq-input" id="inq-name" name="inq-name" type="text" placeholder="Your name" required/>
+          </div>
+          <div class="inq-group">
+            <label class="inq-label">Organization</label>
+            <input class="inq-input" id="inq-organization" name="inq-organization" type="text" placeholder="Company / brand"/>
+          </div>
+        </div>
+        <div class="inq-row">
+          <div class="inq-group">
+            <label class="inq-label">Email</label>
+            <input class="inq-input" id="inq-email" name="inq-email" type="email" placeholder="your@email.com" required/>
+          </div>
+          <div class="inq-group">
+            <label class="inq-label">Phone Number</label>
+            <input class="inq-input" id="inq-phone" name="inq-phone" type="tel" placeholder="+1 (000) 000-0000"/>
+          </div>
+        </div>
+        <div class="inq-group">
+          <label class="inq-label">How Can We Add Value To You?</label>
+          <textarea class="inq-textarea" id="inq-message" name="inq-message" placeholder="Tell us about your goals, needs, or how you see us working together…" required></textarea>
+        </div>
+        <button class="inq-submit" type="submit">Send Message →</button>
+      </form>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-logo"><img src="cw-logo.png" alt="Code Way Management" style="height:22px; filter:brightness(0) invert(1); vertical-align:middle; opacity:0.85;"/></div>
+    <div class="footer-logo" style="position:relative; height:22px; width:90px;">
+      <img src="cw-logo.png" class="swap-a" alt="Code Way Management" style="height:22px; filter:brightness(0) invert(1); opacity:0.85; position:absolute; top:0; left:0;"/>
+      <img src="bidc-logo.png" class="swap-b" alt="Black Is De Code" style="width:90px; height:22px; object-fit:contain; opacity:0.85; position:absolute; top:0; left:0;"/>
+    </div>
     <ul class="footer-links">
       <li><a href="#what">Services</a></li>
       <li><a href="#roster">Roster</a></li>
       <li><a href="#spotlight">Artists</a></li>
       <li><a href="#djs">DJs</a></li>
-      <li><a href="#contact">Book a Performer</a></li>
+      <li><a href="#contact">Bookings</a></li>
+      <li><a href="#inquiries">Inquiries</a></li>
       <li><a href="klassik-frescobar.html">Klassik Frescobar →</a></li>
       <li><a href="https://codewayinc.com">Code Way INC →</a></li>
     </ul>
@@ -1543,7 +1688,7 @@
     }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('bio-modal').classList.remove('open'); });
 
-    ['what', 'roster', 'spotlight', 'djs', 'join', 'contact'].forEach(id => {
+    ['what', 'roster', 'spotlight', 'djs', 'join', 'contact', 'inquiries'].forEach(id => {
       const el = document.getElementById(id);
       if (el) activeObserver.observe(el);
     });
@@ -1577,6 +1722,37 @@
       const err = el.parentNode.querySelector('.field-error');
       if (err) err.remove();
       el.style.borderColor = '';
+    }
+
+    // Sponsor yes/no toggle
+    function setSponsor(val) {
+      document.getElementById('syn-yes').classList.toggle('active-yes', val === 'yes');
+      document.getElementById('syn-no').classList.toggle('active-no',  val === 'no');
+      document.getElementById('sponsor-body').classList.toggle('open',  val === 'yes');
+    }
+
+    // Inquiry form submission
+    function handleInquirySubmit(e) {
+      e.preventDefault();
+      const data = {
+        'form-name':       'contact-inquiry',
+        'inq-name':        document.getElementById('inq-name').value.trim(),
+        'inq-organization':document.getElementById('inq-organization').value.trim(),
+        'inq-email':       document.getElementById('inq-email').value.trim(),
+        'inq-phone':       document.getElementById('inq-phone').value.trim(),
+        'inq-message':     document.getElementById('inq-message').value.trim()
+      };
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data).toString()
+      }).finally(() => {
+        const t = document.getElementById('toast');
+        t.textContent = '✉️ Message received. We\'ll be in touch.';
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 5000);
+        e.target.reset();
+      });
     }
 
     // Form submit with full validation
