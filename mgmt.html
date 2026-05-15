@@ -11,6 +11,8 @@
   <meta property="og:image" content="https://itscodeway.com/cw-logo.png"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
+  <!-- HubSpot Tracking -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/246126930.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet"/>
@@ -1557,26 +1559,26 @@
         <div class="inq-row">
           <div class="inq-group">
             <label class="inq-label">Full Name</label>
-            <input class="inq-input" id="inq-name" name="inq-name" type="text" placeholder="Your name" required/>
+            <input class="inq-input" id="inq-name" name="firstname" type="text" placeholder="Your name" required/>
           </div>
           <div class="inq-group">
             <label class="inq-label">Organization</label>
-            <input class="inq-input" id="inq-organization" name="inq-organization" type="text" placeholder="Company / brand"/>
+            <input class="inq-input" id="inq-organization" name="company" type="text" placeholder="Company / brand"/>
           </div>
         </div>
         <div class="inq-row">
           <div class="inq-group">
             <label class="inq-label">Email</label>
-            <input class="inq-input" id="inq-email" name="inq-email" type="email" placeholder="your@email.com" required/>
+            <input class="inq-input" id="inq-email" name="email" type="email" placeholder="your@email.com" required/>
           </div>
           <div class="inq-group">
             <label class="inq-label">Phone Number</label>
-            <input class="inq-input" id="inq-phone" name="inq-phone" type="tel" placeholder="+1 (000) 000-0000"/>
+            <input class="inq-input" id="inq-phone" name="phone" type="tel" placeholder="+1 (000) 000-0000"/>
           </div>
         </div>
         <div class="inq-group">
           <label class="inq-label">How Can We Add Value To You?</label>
-          <textarea class="inq-textarea" id="inq-message" name="inq-message" placeholder="Tell us about your goals, needs, or how you see us working together…" required></textarea>
+          <textarea class="inq-textarea" id="inq-message" name="message" placeholder="Tell us about your goals, needs, or how you see us working together…" required></textarea>
         </div>
         <button class="inq-submit" type="submit">Send Message →</button>
       </form>
@@ -1731,28 +1733,26 @@
       document.getElementById('sponsor-body').classList.toggle('open',  val === 'yes');
     }
 
-    // Inquiry form submission
+    // Inquiry form submission — pushes contact into HubSpot via tracking API
     function handleInquirySubmit(e) {
       e.preventDefault();
-      const data = {
-        'form-name':       'contact-inquiry',
-        'inq-name':        document.getElementById('inq-name').value.trim(),
-        'inq-organization':document.getElementById('inq-organization').value.trim(),
-        'inq-email':       document.getElementById('inq-email').value.trim(),
-        'inq-phone':       document.getElementById('inq-phone').value.trim(),
-        'inq-message':     document.getElementById('inq-message').value.trim()
-      };
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data).toString()
-      }).finally(() => {
-        const t = document.getElementById('toast');
-        t.textContent = '✉️ Message received. We\'ll be in touch.';
-        t.classList.add('show');
-        setTimeout(() => t.classList.remove('show'), 5000);
-        e.target.reset();
-      });
+      const name    = document.getElementById('inq-name').value.trim();
+      const email   = document.getElementById('inq-email').value.trim();
+      const phone   = document.getElementById('inq-phone').value.trim();
+      const company = document.getElementById('inq-organization').value.trim();
+      const message = document.getElementById('inq-message').value.trim();
+      if (!name || !email || !message) return;
+
+      // Push contact identity + page view into HubSpot
+      var _hsq = window._hsq = window._hsq || [];
+      _hsq.push(['identify', { firstname: name, email: email, phone: phone, company: company, message: message }]);
+      _hsq.push(['trackPageView']);
+
+      const t = document.getElementById('toast');
+      t.textContent = '✉️ Message received. We\'ll be in touch.';
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 5000);
+      e.target.reset();
     }
 
     // Form submit with full validation
