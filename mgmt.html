@@ -11,6 +11,7 @@
   <meta property="og:image" content="https://itscodeway.com/cw-logo.png"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
+  <link rel="icon" href="/cw-logo.png" type="image/png"/>
   <!-- HubSpot Tracking -->
   <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/246126930.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -941,6 +942,17 @@
     /* PAGE FADE-IN */
     @keyframes pageFadeIn { from { opacity:0; } to { opacity:1; } }
 
+    /* ROSTER METRICS */
+    @keyframes livePulse {
+      0%, 100% { opacity:1; transform:scale(1); }
+      50%       { opacity:0.35; transform:scale(0.75); }
+    }
+    .metric-card { transition: border-color 0.3s, transform 0.3s; }
+    @media (max-width:640px) {
+      #metrics-grid { grid-template-columns:1fr !important; }
+      #metrics-totals-bar { flex-direction:column; gap:24px; text-align:center; }
+    }
+
     /* ACTIVE NAV */
     .nav-links a.active { color: var(--neon) !important; }
 
@@ -1117,6 +1129,7 @@
       <li><a href="#roster">Roster</a></li>
       <li><a href="#spotlight">Artists</a></li>
       <li><a href="#djs">DJs</a></li>
+      <li><a href="#roster-metrics">Reach</a></li>
       <li><a href="#events">Events</a></li>
       <li><a href="#contact">Bookings</a></li>
       <li><a href="#inquiries">Inquiries</a></li>
@@ -1458,7 +1471,7 @@
       <!-- Sal Infrared -->
       <div style="background:var(--deep); border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:border-color 0.3s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(200,85,255,0.5)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
         <div style="width:100%; aspect-ratio:1/1; overflow:hidden;">
-          <img src="sal2.png" alt="Sal Infrared" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;"/>
+          <video src="sal-infrared-1.mp4" poster="sal2.png" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;"></video>
         </div>
         <div style="padding:28px 32px 36px;">
           <div style="font-family:var(--display); font-size:1.9rem; letter-spacing:0.06em; color:var(--white); margin-bottom:6px;">SAL INFRARED</div>
@@ -1488,6 +1501,71 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ROSTER METRICS -->
+  <section id="roster-metrics" style="padding:0; background:var(--black); border-top:1px solid var(--border); position:relative; z-index:1; overflow:hidden;">
+
+    <!-- Live Stats Ticker -->
+    <div style="background:#09090f; border-bottom:1px solid var(--border); overflow:hidden; padding:11px 0; position:relative;">
+      <div id="metrics-ticker-wrap" style="display:flex; white-space:nowrap; animation:ticker 80s linear infinite;">
+        <span id="metrics-ticker-inner" style="display:inline-block; padding-right:80px; font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--text);">Loading stats&hellip;</span>
+        <span id="metrics-ticker-inner2" style="display:inline-block; padding-right:80px; font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--text);"></span>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div style="padding:clamp(80px,10vw,120px) clamp(20px,4vw,60px);">
+      <div class="reveal">
+
+        <!-- Header -->
+        <div style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:20px; margin-bottom:clamp(48px,7vw,72px);">
+          <div>
+            <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--neon); margin-bottom:16px; display:flex; align-items:center; gap:12px;">
+              <span style="display:block; width:22px; height:1px; background:var(--neon);"></span>
+              Roster Reach
+              <span style="display:inline-flex; align-items:center; gap:5px; background:rgba(0,200,100,0.1); border:1px solid rgba(0,200,100,0.28); border-radius:20px; padding:3px 11px; font-size:0.58rem; color:#00c864; letter-spacing:0.14em;">
+                <span style="width:6px; height:6px; border-radius:50%; background:#00c864; display:inline-block; animation:livePulse 2s ease-in-out infinite;"></span>
+                LIVE
+              </span>
+            </div>
+            <h2 style="font-family:var(--display); font-size:clamp(2.8rem,7vw,6rem); letter-spacing:0.03em; color:var(--white); line-height:0.9;">THE<br/>NUMBERS.</h2>
+            <p style="font-size:0.88rem; color:var(--text); margin-top:18px; max-width:440px; line-height:1.65;">Real reach. Real results. Our roster&rsquo;s collective impact across Spotify, Meta, and TikTok &mdash; refreshed daily.</p>
+          </div>
+          <div style="text-align:right; padding-bottom:4px;">
+            <div id="metrics-last-updated" style="font-size:0.65rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--text); opacity:0.55;">Updated: &mdash;</div>
+            <div style="font-size:0.7rem; color:var(--text); margin-top:5px; opacity:0.35;">30-day aggregate &middot; All platforms</div>
+          </div>
+        </div>
+
+        <!-- Artist Cards -->
+        <div id="metrics-grid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:24px; margin-bottom:40px;">
+          <!-- Injected by JS -->
+        </div>
+
+        <!-- Total Reach Bar -->
+        <div class="reveal" id="metrics-totals-bar" style="background:linear-gradient(135deg,rgba(107,33,214,0.14) 0%,rgba(200,85,255,0.07) 100%); border:1px solid rgba(200,85,255,0.18); border-radius:14px; padding:32px clamp(24px,4vw,48px); display:flex; flex-wrap:wrap; gap:28px; align-items:center; justify-content:space-between;">
+          <div style="font-family:var(--display); font-size:clamp(0.95rem,2vw,1.25rem); letter-spacing:0.07em; color:var(--white);">COMBINED ROSTER REACH</div>
+          <div style="display:flex; flex-wrap:wrap; gap:36px;">
+            <div style="text-align:center;">
+              <div style="font-family:var(--display); font-size:clamp(2rem,4vw,3.2rem); color:#1db954; letter-spacing:0.04em; line-height:1;" id="total-spotify">&mdash;</div>
+              <div style="font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--text); margin-top:6px;">Spotify Listeners</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-family:var(--display); font-size:clamp(2rem,4vw,3.2rem); color:#e1306c; letter-spacing:0.04em; line-height:1;" id="total-meta">&mdash;</div>
+              <div style="font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--text); margin-top:6px;">Meta Views / 30d</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-family:var(--display); font-size:clamp(2rem,4vw,3.2rem); color:#ff0050; letter-spacing:0.04em; line-height:1;" id="total-tiktok">&mdash;</div>
+              <div style="font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--text); margin-top:6px;">TikTok Views / 30d</div>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size:0.65rem; letter-spacing:0.06em; color:var(--text); opacity:0.35; margin-top:18px; text-align:center;">Placeholder figures shown &mdash; live API data coming soon. <a href="#contact" style="color:var(--neon); opacity:0.9; text-decoration:underline; text-underline-offset:3px;">Book or partner with us</a>.</p>
+
+      </div>
     </div>
   </section>
 
@@ -1531,6 +1609,17 @@
       <div class="events-list" id="events-sal">
         <div style="padding:28px 24px; background:var(--black); border:1px solid var(--border); border-radius:10px; display:flex; align-items:center; gap:14px; color:var(--text); font-size:0.8rem; letter-spacing:0.06em;">
           <span style="font-size:1.2rem; opacity:0.5;">📅</span> No upcoming events scheduled — check back soon.
+        </div>
+      </div>
+      <!-- Sal Infrared Live Visuals -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin-top:16px;">
+        <div style="border:1px solid var(--border); border-radius:10px; overflow:hidden; background:var(--black);">
+          <video src="sal-infrared-1.mp4" controls playsinline preload="metadata" style="width:100%; aspect-ratio:9/16; object-fit:cover; display:block; background:#000;"></video>
+          <div style="padding:10px 16px; font-size:0.65rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--text);">Sal Infrared — Live Set</div>
+        </div>
+        <div style="border:1px solid var(--border); border-radius:10px; overflow:hidden; background:var(--black);">
+          <video src="sal-reggae-bash2.mp4" controls playsinline preload="metadata" style="width:100%; aspect-ratio:9/16; object-fit:cover; display:block; background:#000;"></video>
+          <div style="padding:10px 16px; font-size:0.65rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--text);">Sal Infrared — Reggae Bash</div>
         </div>
       </div>
     </div>
@@ -1578,6 +1667,42 @@
         </div>
         <div style="padding:22px 26px 28px;">
           <div style="font-family:var(--display); font-size:1.35rem; letter-spacing:0.05em; color:var(--white); margin-bottom:6px;">CODE WAY TEE</div>
+          <div style="font-size:0.8rem; color:var(--text); margin-bottom:18px;">$25.00</div>
+          <div style="display:inline-flex; align-items:center; gap:8px; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--neon);">Shop Now ↗</div>
+        </div>
+      </a>
+
+      <!-- Code Way Shirt — Tropical Text -->
+      <a href="https://code-way-shop.fourthwall.com" target="_blank" style="text-decoration:none; display:block; background:var(--deep); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color 0.3s, transform 0.25s;" onmouseover="this.style.borderColor='rgba(200,85,255,0.55)';this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+        <div style="width:100%; aspect-ratio:1/1; overflow:hidden; background:#fff; display:flex; align-items:center; justify-content:center; padding:24px;">
+          <img src="shirt-tropical-text.png" alt="Code Way Tropical Shirt" style="width:100%; height:100%; object-fit:contain; display:block; transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/>
+        </div>
+        <div style="padding:22px 26px 28px;">
+          <div style="font-family:var(--display); font-size:1.35rem; letter-spacing:0.05em; color:var(--white); margin-bottom:6px;">CODE WAY SHIRT — TROPICAL</div>
+          <div style="font-size:0.8rem; color:var(--text); margin-bottom:18px;">$25.00</div>
+          <div style="display:inline-flex; align-items:center; gap:8px; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--neon);">Shop Now ↗</div>
+        </div>
+      </a>
+
+      <!-- Code Way Shirt — Dark Text -->
+      <a href="https://code-way-shop.fourthwall.com" target="_blank" style="text-decoration:none; display:block; background:var(--deep); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color 0.3s, transform 0.25s;" onmouseover="this.style.borderColor='rgba(200,85,255,0.55)';this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+        <div style="width:100%; aspect-ratio:1/1; overflow:hidden; background:#fff; display:flex; align-items:center; justify-content:center; padding:24px;">
+          <img src="shirt-dark-text.png" alt="Code Way Dark Shirt" style="width:100%; height:100%; object-fit:contain; display:block; transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/>
+        </div>
+        <div style="padding:22px 26px 28px;">
+          <div style="font-family:var(--display); font-size:1.35rem; letter-spacing:0.05em; color:var(--white); margin-bottom:6px;">CODE WAY SHIRT — DARK</div>
+          <div style="font-size:0.8rem; color:var(--text); margin-bottom:18px;">$25.00</div>
+          <div style="display:inline-flex; align-items:center; gap:8px; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--neon);">Shop Now ↗</div>
+        </div>
+      </a>
+
+      <!-- Code Way Shirt — Crow Banner -->
+      <a href="https://code-way-shop.fourthwall.com" target="_blank" style="text-decoration:none; display:block; background:var(--deep); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color 0.3s, transform 0.25s;" onmouseover="this.style.borderColor='rgba(200,85,255,0.55)';this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+        <div style="width:100%; aspect-ratio:1/1; overflow:hidden; background:#fff; display:flex; align-items:center; justify-content:center; padding:24px;">
+          <img src="shirt-crow-banner.png" alt="Code Way Crow Banner Shirt" style="width:100%; height:100%; object-fit:contain; display:block; transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/>
+        </div>
+        <div style="padding:22px 26px 28px;">
+          <div style="font-family:var(--display); font-size:1.35rem; letter-spacing:0.05em; color:var(--white); margin-bottom:6px;">CODE WAY SHIRT — CROW</div>
           <div style="font-size:0.8rem; color:var(--text); margin-bottom:18px;">$25.00</div>
           <div style="display:inline-flex; align-items:center; gap:8px; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--neon);">Shop Now ↗</div>
         </div>
@@ -1908,6 +2033,208 @@
         fields.forEach(f => { document.getElementById(f.id).value = ''; clearError(f.id); });
       });
     }
+  </script>
+
+  <!-- ROSTER METRICS ENGINE -->
+  <script>
+  (function() {
+    // ─── STATIC FALLBACK DATA ───────────────────────────────────────────────
+    // The frontend first tries to fetch live data from /api/metrics (Netlify Function).
+    // If that fails or credentials aren't configured yet, these numbers are shown.
+    var FALLBACK = {
+      updated: new Date().toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'}),
+      artists: [
+        { id:'klassik', name:'KLASSIK FRESCOBAR', role:'International Artist', accent:'#c855ff', spotify:87400,  meta:2400000, tiktok:1100000 },
+        { id:'djkali',  name:'DJ KALI',           role:'DJ / Producer',        accent:'#00c8ff', spotify:12000,  meta:890000,  tiktok:540000  },
+        { id:'sal',     name:'SAL INFRARED',       role:'DJ / Performer',       accent:'#ff9b45', spotify:8500,   meta:420000,  tiktok:280000  },
+        { id:'djprime', name:'DJ PRIME',           role:'DJ / Media Personality',accent:'#ffd166',spotify:15000,  meta:650000,  tiktok:380000  }
+      ]
+    };
+    // Accent colours (not returned by API, keyed by artist id)
+    var ACCENTS = { klassik:'#c855ff', djkali:'#00c8ff', sal:'#ff9b45', djprime:'#ffd166' };
+
+    // Merge live API response with fallback artist metadata
+    function mergeStats(apiData) {
+      return {
+        updated: apiData.updated || FALLBACK.updated,
+        artists: FALLBACK.artists.map(function(a) {
+          var live = (apiData.artists || {})[a.id] || {};
+          return {
+            id:      a.id,
+            name:    a.name,
+            role:    a.role,
+            accent:  a.accent,
+            spotify: live.spotify || a.spotify,
+            meta:    live.meta    || a.meta,
+            tiktok:  live.tiktok  || a.tiktok,
+            _live:   live._sources || {}
+          };
+        })
+      };
+    }
+
+    var STATS = FALLBACK; // will be replaced by live data if fetch succeeds
+
+    // ─── HELPERS ─────────────────────────────────────────────────────────────
+    function fmt(n) {
+      if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+      if (n >= 1000)    return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+      return n.toLocaleString();
+    }
+
+    function animCounter(el, target, duration) {
+      var start = performance.now();
+      function tick(now) {
+        var p = Math.min((now - start) / duration, 1);
+        var ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(Math.round(ease * target));
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = fmt(target);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    // ─── TICKER ──────────────────────────────────────────────────────────────
+    function buildTicker(stats) {
+      stats = stats || FALLBACK;
+      var parts = [];
+      stats.artists.forEach(function(a) {
+        parts.push(
+          a.name +
+          '  ·  ' + fmt(a.spotify) + ' SPOTIFY' +
+          '  ·  ' + fmt(a.meta) + ' META VIEWS' +
+          '  ·  ' + fmt(a.tiktok) + ' TIKTOK VIEWS'
+        );
+      });
+      var text = parts.join('  ―  ');
+      var t1 = document.getElementById('metrics-ticker-inner');
+      var t2 = document.getElementById('metrics-ticker-inner2');
+      if (t1) t1.textContent = text;
+      if (t2) t2.textContent = text;
+    }
+
+    // ─── CARD HTML ───────────────────────────────────────────────────────────
+    function cardHTML(a) {
+      return '<div class="metric-card reveal" style="background:var(--deep); border:1px solid var(--border); border-radius:14px; overflow:hidden;" onmouseover="this.style.borderColor=\'rgba(200,85,255,0.35)\'; this.style.transform=\'translateY(-3px)\'" onmouseout="this.style.borderColor=\'var(--border)\'; this.style.transform=\'translateY(0)\'">' +
+
+        // Header
+        '<div style="padding:22px 22px 18px; border-bottom:1px solid var(--border); background:linear-gradient(135deg,rgba(107,33,214,0.12) 0%,transparent 80%);">' +
+          '<div style="font-size:0.58rem; letter-spacing:0.18em; text-transform:uppercase; color:' + a.accent + '; margin-bottom:5px;">' + a.role + '</div>' +
+          '<div style="font-family:var(--display); font-size:1.55rem; letter-spacing:0.05em; color:var(--white);">' + a.name + '</div>' +
+        '</div>' +
+
+        // Stats: 2-col top
+        '<div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border);">' +
+
+          // Spotify
+          '<div style="background:var(--deep); padding:18px 16px;">' +
+            '<div style="display:flex; align-items:center; gap:6px; margin-bottom:8px;">' +
+              '<svg width="13" height="13" viewBox="0 0 24 24" fill="#1db954"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>' +
+              '<span style="font-size:0.58rem; letter-spacing:0.15em; text-transform:uppercase; color:#1db954;">Spotify</span>' +
+            '</div>' +
+            '<div class="m-counter" data-val="' + a.spotify + '" style="font-family:var(--display); font-size:2rem; color:var(--white); letter-spacing:0.04em; line-height:1;">—</div>' +
+            '<div style="font-size:0.58rem; color:var(--text); margin-top:5px; letter-spacing:0.07em;">Monthly Listeners</div>' +
+          '</div>' +
+
+          // Meta / Instagram
+          '<div style="background:var(--deep); padding:18px 16px;">' +
+            '<div style="display:flex; align-items:center; gap:6px; margin-bottom:8px;">' +
+              '<svg width="13" height="13" viewBox="0 0 24 24"><defs><linearGradient id="ig' + a.id + '" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="50%" stop-color="#dc2743"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><path fill="url(#ig' + a.id + ')" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>' +
+              '<span style="font-size:0.58rem; letter-spacing:0.15em; text-transform:uppercase; background:linear-gradient(90deg,#e1306c,#f58529); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Meta</span>' +
+            '</div>' +
+            '<div class="m-counter" data-val="' + a.meta + '" style="font-family:var(--display); font-size:2rem; color:var(--white); letter-spacing:0.04em; line-height:1;">—</div>' +
+            '<div style="font-size:0.58rem; color:var(--text); margin-top:5px; letter-spacing:0.07em;">Views &middot; 30 Days</div>' +
+          '</div>' +
+
+          // TikTok (full width)
+          '<div style="background:var(--deep); padding:18px 20px; grid-column:1/-1; border-top:1px solid var(--border);">' +
+            '<div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">' +
+              '<div style="display:flex; align-items:center; gap:6px;">' +
+                '<svg width="13" height="13" viewBox="0 0 24 24" fill="#ff0050"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>' +
+                '<span style="font-size:0.58rem; letter-spacing:0.15em; text-transform:uppercase; color:#ff0050;">TikTok</span>' +
+              '</div>' +
+              '<div style="display:flex; align-items:baseline; gap:10px;">' +
+                '<div class="m-counter" data-val="' + a.tiktok + '" style="font-family:var(--display); font-size:2rem; color:var(--white); letter-spacing:0.04em; line-height:1;">—</div>' +
+                '<div style="font-size:0.58rem; color:var(--text); letter-spacing:0.07em;">Views &middot; 30 Days</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+
+        '</div>' + // /stats grid
+      '</div>'; // /card
+    }
+
+    // ─── RENDER ───────────────────────────────────────────────────────────────
+    function render(stats) {
+      var grid = document.getElementById('metrics-grid');
+      if (!grid) return;
+
+      grid.innerHTML = stats.artists.map(cardHTML).join('');
+
+      var upd = document.getElementById('metrics-last-updated');
+      if (upd) upd.textContent = 'Updated: ' + stats.updated;
+
+      buildTicker(stats);
+
+      var totals = stats.artists.reduce(function(acc, a) {
+        return { spotify: acc.spotify + a.spotify, meta: acc.meta + a.meta, tiktok: acc.tiktok + a.tiktok };
+      }, { spotify: 0, meta: 0, tiktok: 0 });
+
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.querySelectorAll('.m-counter').forEach(function(el) {
+            animCounter(el, parseInt(el.dataset.val, 10), 1800);
+          });
+          io.unobserve(entry.target);
+        });
+      }, { threshold: 0.25 });
+      document.querySelectorAll('.metric-card').forEach(function(c) { io.observe(c); });
+
+      var totalsBar = document.getElementById('metrics-totals-bar');
+      if (totalsBar) {
+        var tio = new IntersectionObserver(function(entries) {
+          if (!entries[0].isIntersecting) return;
+          tio.disconnect();
+          animCounter(document.getElementById('total-spotify'), totals.spotify, 2200);
+          animCounter(document.getElementById('total-meta'),    totals.meta,    2200);
+          animCounter(document.getElementById('total-tiktok'),  totals.tiktok,  2200);
+        }, { threshold: 0.3 });
+        tio.observe(totalsBar);
+      }
+    }
+
+    // ─── INIT — try live API, fall back to static ──────────────────────────
+    function init() {
+      // Render immediately with fallback so page never feels empty
+      render(FALLBACK);
+
+      // Then try to fetch live data from the Netlify Function
+      fetch('/api/metrics', { cache: 'force-cache' })
+        .then(function(r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .then(function(data) {
+          var live = mergeStats(data);
+          STATS = live;
+          // Re-render with live numbers (resets counters to 0 then counts up again)
+          render(live);
+          // Show a subtle "live" indicator update
+          var upd = document.getElementById('metrics-last-updated');
+          if (upd) upd.title = 'Live data from Spotify & Meta APIs';
+        })
+        .catch(function() {
+          // Fallback already rendered — nothing to do
+        });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
   </script>
 
 </body>
