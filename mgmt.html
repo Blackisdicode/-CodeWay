@@ -1202,33 +1202,23 @@
       </div>
     </div>
 
-    <!-- Slide 5b: Sal Infrared Reggae Bash video -->
-    <div class="rb-slide" data-type="video">
-      <video src="sal-reggae-bash2.mp4" muted playsinline preload="none" id="rbv-sal2"></video>
-      <div class="rb-overlay"></div>
-      <div class="rb-label">
-        <div class="rb-label-name">SAL<br/>INFRARED</div>
-        <div class="rb-label-role">Reggae Bash</div>
-      </div>
-    </div>
-
-    <!-- Slide 6: DJ Prime video -->
-    <div class="rb-slide" data-type="video">
-      <video src="prime-vid-2.mp4" muted playsinline preload="none" id="rbv-prime"></video>
-      <div class="rb-overlay"></div>
-      <div class="rb-label">
-        <div class="rb-label-name">DJ<br/>PRIME</div>
-        <div class="rb-label-role">DJ · Media Personality</div>
-      </div>
-    </div>
-
-    <!-- Slide 7: DJ Prime photo -->
+    <!-- Slide 6: DJ Prime photo -->
     <div class="rb-slide" data-type="image">
       <img src="prime1.jpg" alt="DJ Prime"/>
       <div class="rb-overlay"></div>
       <div class="rb-label">
         <div class="rb-label-name"><a href="https://open.spotify.com/artist/18QglUrNr3pUVMKlYXEylF?si=CxbMOP2pS8iQcrw02P4pvA" target="_blank"><img src="prime-logo.png" alt="DJ Prime" style="height:clamp(40px,7vw,90px); filter:brightness(0) invert(1); display:block; margin-bottom:4px;"/></a></div>
         <div class="rb-label-role">DJ · Media Personality</div>
+      </div>
+    </div>
+
+    <!-- Slide 7: DJ Judgement -->
+    <div class="rb-slide" data-type="image">
+      <img src="dj-judgement.jpg" alt="DJ Judgement"/>
+      <div class="rb-overlay"></div>
+      <div class="rb-label">
+        <div class="rb-label-name"><img src="dj-judgement-logo.jpg" alt="DJ Judgement" style="height:clamp(40px,7vw,90px); display:block; margin-bottom:4px; mix-blend-mode:screen;"/></div>
+        <div class="rb-label-role">DJ · Selector · Vibes | Passion | Energy</div>
       </div>
     </div>
 
@@ -1513,7 +1503,7 @@
       <div style="display:flex; flex-direction:column; gap:32px;">
         <div>
           <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:20px; height:1px; background:var(--gold);"></span>Soca Bad Gyal · Artist · Performer</div>
-          <p style="font-size:0.92rem; color:var(--text); line-height:1.9; margin:0;">Born in Germany and raised in the heart of Trinidad, Nessa Preppy is the Caribbean's most electric new force in soca. She left Germany at just 5 years old — arriving in Arima, Trinidad with her Trinidadian mother, German father and siblings — and the island claimed her soul instantly. From Carnival energy to steel pan rhythms, Trinidad didn't just shape Nessa; it made her. As a songwriter, vocalist, and electrifying performer, she's carved her own lane on the Caribbean music circuit with raw talent, risqué confidence, and undeniable star power. She doesn't just perform — she commands every room, every stage, every crowd. CodeWay's Trinidadian Soca Bad Gyal is just getting started, and the culture is watching.</p>
+          <p style="font-size:0.92rem; color:var(--text); line-height:1.9; margin:0;">Born in Germany and raised in the heart of Trinidad, Nessa Preppy has been making quite a name for herself on the Caribbean music circuit. She left Germany at just 5 years old — arriving in Arima, Trinidad with her Trinidadian mother, German father and siblings — and the island claimed her soul for good. From Carnival energy to steel pan rhythms, Trinidad didn't just shape Nessa; it made her. As a seasoned songwriter, vocalist, and electrifying performer, she's long carved her own lane with raw talent, risqué confidence, and undeniable star power. She doesn't just perform — she commands every room, every stage, every crowd. CodeWay's Trinidadian Soca Bad Gyal, and the culture already knows.</p>
         </div>
         <div>
           <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--neon); margin-bottom:14px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:20px; height:1px; background:var(--neon);"></span>Latest Release</div>
@@ -1629,7 +1619,7 @@
         </div>
         <div style="padding:28px 32px 36px;">
           <!-- Logo: mix-blend-mode:screen makes black bg invisible on dark site -->
-          <img src="dj-judgement-logo.png" alt="DJ Judgement" style="height:56px; width:auto; display:block; margin-bottom:10px; mix-blend-mode:screen;"/>
+          <img src="dj-judgement-logo.jpg" alt="DJ Judgement" style="height:56px; width:auto; display:block; margin-bottom:10px; mix-blend-mode:screen;"/>
           <div style="font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--neon); margin-bottom:16px;">DJ · Selector · Vibes | Passion | Energy</div>
           <div style="display:flex; flex-direction:column; gap:10px; margin-top:4px;">
             <a href="https://www.youtube.com/@dj.judgement514" target="_blank" style="display:flex; align-items:center; justify-content:center; background:rgba(255,0,0,0.1); border:1px solid rgba(255,0,0,0.35); color:#ff4444; padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:background 0.2s;">▶ YouTube</a>
@@ -1913,6 +1903,17 @@
           <div class="cf-group">
             <label for="cf-organization">Organization</label>
             <input type="text" id="cf-organization" name="Organization" placeholder="Company / Agency / Promoter"/>
+          </div>
+        </div>
+
+        <div class="cf-row">
+          <div class="cf-group">
+            <label for="cf-email">Email *</label>
+            <input type="email" id="cf-email" name="Email" placeholder="your@email.com" required/>
+          </div>
+          <div class="cf-group">
+            <label for="cf-phone">Contact Number *</label>
+            <input type="tel" id="cf-phone" name="Contact Number" placeholder="+1 (000) 000-0000" required/>
           </div>
         </div>
 
