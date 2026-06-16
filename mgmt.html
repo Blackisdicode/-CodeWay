@@ -22,14 +22,14 @@
     :root {
       --black:  #06060a;
       --deep:   #0d0d14;
-      --purple: #2a1a4e;
-      --violet: #6b21d6;
-      --neon:   #c855ff;
-      --pink:   #ff3d8a;
+      --purple: #14100a;
+      --violet: #8B6914;
+      --neon:   #ffd166;
+      --pink:   #C9A027;
       --gold:   #ffd166;
       --white:  #f0ecff;
-      --text:   #a09ab8;
-      --border: #1e1a2e;
+      --text:   #918270;
+      --border: #1e1c0c;
 
       --display: 'Bebas Neue', sans-serif;
       --serif:   'Instrument Serif', Georgia, serif;
@@ -54,7 +54,7 @@
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(ellipse 60% 40% at 20% 10%, rgba(107,33,214,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 20% 10%, rgba(180,140,0,0.15) 0%, transparent 60%),
         radial-gradient(ellipse 50% 50% at 80% 80%, rgba(255,61,138,0.10) 0%, transparent 55%),
         radial-gradient(ellipse 40% 60% at 70% 20%, rgba(200,85,255,0.08) 0%, transparent 50%);
       pointer-events: none;
@@ -117,7 +117,7 @@
     .nav-back:hover { color: var(--white); }
 
     .nav-cta {
-      background: linear-gradient(135deg, var(--violet), var(--pink));
+      background: linear-gradient(135deg, #8B6914, #ffd166);
       color: var(--white);
       padding: 9px 22px;
       border-radius: 40px;
@@ -180,13 +180,13 @@
       padding: 0 20px; z-index: 3; pointer-events: none;
     }
     .rb-arrow {
-      pointer-events: auto; background: rgba(6,6,10,0.5); border: 1px solid rgba(200,85,255,0.3);
+      pointer-events: auto; background: rgba(6,6,10,0.5); border: 1px solid rgba(255,209,102,0.3);
       color: var(--white); width: 44px; height: 44px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.1rem; cursor: pointer; transition: background 0.2s, border-color 0.2s;
       backdrop-filter: blur(8px);
     }
-    .rb-arrow:hover { background: rgba(107,33,214,0.5); border-color: var(--neon); }
+    .rb-arrow:hover { background: rgba(180,140,0,0.5); border-color: var(--neon); }
 
     /* HERO */
     #hero {
@@ -209,7 +209,7 @@
       font-size: clamp(12vw, 18vw, 22vw);
       letter-spacing: 0.04em;
       color: transparent;
-      -webkit-text-stroke: 1px rgba(107,33,214,0.2);
+      -webkit-text-stroke: 1px rgba(180,140,0,0.2);
       white-space: nowrap;
       pointer-events: none;
       user-select: none;
@@ -270,8 +270,8 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: rgba(107,33,214,0.25);
-      border: 1px solid rgba(200,85,255,0.3);
+      background: rgba(180,140,0,0.2);
+      border: 1px solid rgba(255,209,102,0.3);
       border-radius: 40px;
       padding: 6px 16px;
       font-size: 0.68rem;
@@ -305,7 +305,7 @@
 
     .hero-title .line-2 {
       display: block;
-      background: linear-gradient(90deg, var(--neon), var(--pink));
+      background: linear-gradient(90deg, #ffd166, #C9A027);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -313,7 +313,7 @@
 
     .hero-title .line-3 {
       display: block;
-      -webkit-text-stroke: 1px rgba(240,236,255,0.4);
+      -webkit-text-stroke: 1px rgba(244,242,234,0.4);
       color: transparent;
     }
 
@@ -352,12 +352,12 @@
       cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
       display: inline-block;
-      box-shadow: 0 0 30px rgba(107,33,214,0.4);
+      box-shadow: 0 0 30px rgba(180,140,0,0.4);
     }
 
     .btn-neon:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 50px rgba(200,85,255,0.5);
+      box-shadow: 0 0 50px rgba(255,209,102,0.5);
     }
 
     .btn-outline-neon {
@@ -369,7 +369,7 @@
       font-size: 0.8rem;
       font-weight: 500;
       letter-spacing: 0.08em;
-      border: 1px solid rgba(200,85,255,0.4);
+      border: 1px solid rgba(255,209,102,0.4);
       cursor: pointer;
       transition: border-color 0.2s, color 0.2s;
       display: inline-block;
@@ -434,7 +434,7 @@
       transition: opacity 0.4s;
     }
 
-    .service-card:hover { background: #0f0f1a; }
+    .service-card:hover { background: #0f0f08; }
     .service-card:hover::after { opacity: 1; }
 
     .service-icon {
@@ -524,7 +524,7 @@
       font-size: 1.2rem;
       color: var(--white);
       flex-shrink: 0;
-      border: 1px solid rgba(200,85,255,0.3);
+      border: 1px solid rgba(255,209,102,0.3);
     }
 
     .artist-info { min-width: 120px; }
@@ -568,9 +568,9 @@
     .join-visual {
       aspect-ratio: 3/4;
       max-height: 580px;
-      background: linear-gradient(160deg, var(--purple) 0%, #1a0a2e 50%, var(--black) 100%);
+      background: linear-gradient(160deg, var(--purple) 0%, #12100a 50%, var(--black) 100%);
       border-radius: 8px;
-      border: 1px solid rgba(107,33,214,0.4);
+      border: 1px solid rgba(180,140,0,0.4);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -597,7 +597,7 @@
       font-family: var(--display);
       font-size: clamp(3rem,8vw,7rem);
       color: transparent;
-      -webkit-text-stroke: 1px rgba(200,85,255,0.5);
+      -webkit-text-stroke: 1px rgba(255,209,102,0.5);
       text-align: center;
       line-height: 0.9;
       letter-spacing: 0.04em;
@@ -605,8 +605,8 @@
     }
 
     @keyframes glowPulse {
-      from { -webkit-text-stroke-color: rgba(200,85,255,0.3); text-shadow: none; }
-      to   { -webkit-text-stroke-color: rgba(200,85,255,0.8); text-shadow: 0 0 60px rgba(200,85,255,0.15); }
+      from { -webkit-text-stroke-color: rgba(255,209,102,0.3); text-shadow: none; }
+      to   { -webkit-text-stroke-color: rgba(255,209,102,0.8); text-shadow: 0 0 60px rgba(255,209,102,0.15); }
     }
 
     .join-visual-badge {
@@ -691,8 +691,8 @@
       width: 34px;
       height: 34px;
       border-radius: 6px;
-      background: rgba(107,33,214,0.2);
-      border: 1px solid rgba(107,33,214,0.4);
+      background: rgba(180,140,0,0.2);
+      border: 1px solid rgba(180,140,0,0.4);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -718,7 +718,7 @@
       position: absolute;
       font-family: var(--display);
       font-size: 20vw;
-      color: rgba(107,33,214,0.04);
+      color: rgba(180,140,0,0.05);
       top: 50%;
       left: 50%;
       transform: translate(-50%,-50%);
@@ -795,8 +795,8 @@
     .cf-group input:focus,
     .cf-group select:focus,
     .cf-group textarea:focus {
-      border-color: rgba(200,85,255,0.6);
-      background: rgba(107,33,214,0.08);
+      border-color: rgba(255,209,102,0.6);
+      background: rgba(180,140,0,0.08);
     }
 
     .cf-group select option { background: var(--deep); }
@@ -804,7 +804,7 @@
 
     .cf-submit {
       width: 100%;
-      background: linear-gradient(135deg, var(--violet), var(--pink));
+      background: linear-gradient(135deg, #8B6914, #ffd166);
       color: var(--white);
       border: none;
       padding: 16px;
@@ -817,7 +817,7 @@
       border-radius: 6px;
       transition: opacity 0.2s, transform 0.2s;
       margin-top: 8px;
-      box-shadow: 0 8px 30px rgba(107,33,214,0.3);
+      box-shadow: 0 8px 30px rgba(180,140,0,0.3);
     }
 
     .cf-submit:hover { opacity: 0.88; transform: translateY(-1px); }
@@ -865,7 +865,7 @@
 
     .toast {
       position:fixed; bottom:32px; right:32px;
-      background:linear-gradient(135deg,var(--violet),var(--pink));
+      background:linear-gradient(135deg,#8B6914,#ffd166);
       color:var(--white);
       padding:14px 24px;
       font-size:0.8rem; font-weight:500;
@@ -873,7 +873,7 @@
       transform:translateY(80px); opacity:0;
       transition:all 0.3s ease;
       z-index:999;
-      box-shadow:0 8px 30px rgba(107,33,214,0.4);
+      box-shadow:0 8px 30px rgba(180,140,0,0.4);
     }
 
     .toast.show { transform:translateY(0); opacity:1; }
@@ -997,7 +997,7 @@
       font-family:var(--display); font-size:clamp(2rem,8vw,3rem);
       letter-spacing:0.06em; color:var(--white); transition:color 0.2s;
     }
-    .mobile-nav a:hover { color:var(--neon); }
+    .mobile-nav a:hover { color:var(--gold); }
     .mobile-nav .mobile-back {
       font-family:var(--sans); font-size:0.7rem;
       letter-spacing:0.12em; text-transform:uppercase; color:var(--text);
@@ -1104,19 +1104,7 @@
 
   <div class="toast" id="toast">🎤 We'll be in touch. Let's build something legendary.</div>
 
-  <!-- Netlify form detection -->
-  <form name="contact-inquiry" data-netlify="true" hidden>
-    <input name="inq-name"/><input name="inq-organization"/>
-    <input name="inq-email"/><input name="inq-phone"/>
-    <textarea name="inq-message"></textarea>
-  </form>
-  <form name="promoter-booking" data-netlify="true" hidden>
-    <input name="cf-name"/><input name="cf-email"/><input name="cf-phone"/>
-    <input name="cf-performer"/><input name="cf-event-name"/>
-    <input name="cf-event-date"/><input name="cf-event-location"/>
-    <input name="cf-capacity"/><input name="cf-sponsors"/>
-    <textarea name="cf-message"></textarea>
-  </form>
+  <!-- Forms send to codewaybiz@gmail.com via formsubmit.co -->
 
   <!-- NAV -->
   <nav id="navbar">
@@ -1128,8 +1116,9 @@
       <li><a href="#what">Services</a></li>
       <li><a href="#roster">Roster</a></li>
       <li><a href="#spotlight">Artists</a></li>
+      <li><a href="#nessa-preppy">Nessa</a></li>
       <li><a href="#djs">DJs</a></li>
-      <li><a href="#roster-metrics">Reach</a></li>
+      <li><a href="#roster-metrics">Numbers</a></li>
       <li><a href="#events">Events</a></li>
       <li><a href="#contact">Bookings</a></li>
       <li><a href="#inquiries">Inquiries</a></li>
@@ -1148,6 +1137,7 @@
     <a href="#what">Services</a>
     <a href="#roster">Roster</a>
     <a href="#spotlight">Artists</a>
+    <a href="#nessa-preppy">Nessa Preppy</a>
     <a href="#djs">DJs</a>
     <a href="#events">Events</a>
     <a href="#contact">Bookings</a>
@@ -1329,16 +1319,31 @@
           <div class="artist-info"><div class="artist-name">KLASSIK FRESCOBAR</div><div class="artist-genre">International Artist</div></div>
         </div>
         <div class="artist-pill">
-          <div class="artist-avatar" style="background:linear-gradient(135deg,#3d1a6e,#c855ff)">DK</div>
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#3d2e0a,#ffd166)">DK</div>
           <div class="artist-info"><div class="artist-name">DJ KALI</div><div class="artist-genre">DJ · Producer</div></div>
         </div>
         <div class="artist-pill">
-          <div class="artist-avatar" style="background:linear-gradient(135deg,#6e1a4a,#ff3d8a)">SI</div>
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#5a3d0a,#C9A027)">SI</div>
           <div class="artist-info"><div class="artist-name">SAL INFRARED</div><div class="artist-genre">DJ · Performer</div></div>
         </div>
         <div class="artist-pill">
-          <div class="artist-avatar" style="background:linear-gradient(135deg,#1a3d6e,#55b8ff)">P1</div>
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#3d3000,#55b8ff)">P1</div>
           <div class="artist-info"><div class="artist-name"><a href="https://open.spotify.com/artist/18QglUrNr3pUVMKlYXEylF?si=CxbMOP2pS8iQcrw02P4pvA" target="_blank" style="color:inherit; text-decoration:none;">DJ PRIME</a></div><div class="artist-genre">DJ · Media Personality</div></div>
+        </div>
+        <!-- DJ Judgement -->
+        <div class="artist-pill">
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#1a1a00,#8B6914)">DJ</div>
+          <div class="artist-info"><div class="artist-name">DJ JUDGEMENT</div><div class="artist-genre">DJ · Selector</div></div>
+        </div>
+        <!-- DJ Blackout -->
+        <div class="artist-pill">
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#0a0a0a,#4a3800)">DB</div>
+          <div class="artist-info"><div class="artist-name">DJ BLACKOUT</div><div class="artist-genre">DJ · Performer</div></div>
+        </div>
+        <!-- Nessa Preppy -->
+        <div class="artist-pill">
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#3d2e0a,#ffd166)">NP</div>
+          <div class="artist-info"><div class="artist-name">NESSA PREPPY</div><div class="artist-genre">Artist</div></div>
         </div>
         <!-- Duplicate for seamless loop -->
         <div class="artist-pill">
@@ -1346,16 +1351,28 @@
           <div class="artist-info"><div class="artist-name">KLASSIK FRESCOBAR</div><div class="artist-genre">International Artist</div></div>
         </div>
         <div class="artist-pill">
-          <div class="artist-avatar" style="background:linear-gradient(135deg,#3d1a6e,#c855ff)">DK</div>
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#3d2e0a,#ffd166)">DK</div>
           <div class="artist-info"><div class="artist-name">DJ KALI</div><div class="artist-genre">DJ · Producer</div></div>
         </div>
         <div class="artist-pill">
-          <div class="artist-avatar" style="background:linear-gradient(135deg,#6e1a4a,#ff3d8a)">SI</div>
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#5a3d0a,#C9A027)">SI</div>
           <div class="artist-info"><div class="artist-name">SAL INFRARED</div><div class="artist-genre">DJ · Performer</div></div>
         </div>
         <div class="artist-pill">
-          <div class="artist-avatar" style="background:linear-gradient(135deg,#1a3d6e,#55b8ff)">P1</div>
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#3d3000,#55b8ff)">P1</div>
           <div class="artist-info"><div class="artist-name"><a href="https://open.spotify.com/artist/18QglUrNr3pUVMKlYXEylF?si=CxbMOP2pS8iQcrw02P4pvA" target="_blank" style="color:inherit; text-decoration:none;">DJ PRIME</a></div><div class="artist-genre">DJ · Media Personality</div></div>
+        </div>
+        <div class="artist-pill">
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#1a1a00,#8B6914)">DJ</div>
+          <div class="artist-info"><div class="artist-name">DJ JUDGEMENT</div><div class="artist-genre">DJ · Selector</div></div>
+        </div>
+        <div class="artist-pill">
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#0a0a0a,#4a3800)">DB</div>
+          <div class="artist-info"><div class="artist-name">DJ BLACKOUT</div><div class="artist-genre">DJ · Performer</div></div>
+        </div>
+        <div class="artist-pill">
+          <div class="artist-avatar" style="background:linear-gradient(135deg,#3d2e0a,#ffd166)">NP</div>
+          <div class="artist-info"><div class="artist-name">NESSA PREPPY</div><div class="artist-genre">Artist</div></div>
         </div>
       </div>
     </div>
@@ -1377,11 +1394,11 @@
 
       <!-- Left: Photo + Buttons -->
       <div>
-        <div style="border-radius:10px; overflow:hidden; border:1px solid rgba(107,33,214,0.4); margin-bottom:24px; box-shadow:0 0 60px rgba(107,33,214,0.25);">
+        <div style="border-radius:10px; overflow:hidden; border:1px solid rgba(180,140,0,0.4); margin-bottom:24px; box-shadow:0 0 60px rgba(180,140,0,0.2);">
           <img src="klassik.jpg" alt="Klassik Frescobar" style="width:100%; display:block; object-fit:cover;"/>
         </div>
         <div style="display:flex; flex-direction:column; gap:12px;">
-          <button onclick="document.getElementById('bio-modal').classList.add('open')" style="display:flex; align-items:center; justify-content:center; gap:8px; background:rgba(107,33,214,0.15); border:1px solid rgba(107,33,214,0.5); color:var(--white); padding:13px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; cursor:pointer; width:100%; transition:background 0.2s, border-color 0.2s;" onmouseover="this.style.background='rgba(107,33,214,0.3)';this.style.borderColor='var(--violet)'" onmouseout="this.style.background='rgba(107,33,214,0.15)';this.style.borderColor='rgba(107,33,214,0.5)'">About Klassik</button>
+          <button onclick="document.getElementById('bio-modal').classList.add('open')" style="display:flex; align-items:center; justify-content:center; gap:8px; background:rgba(180,140,0,0.15); border:1px solid rgba(180,140,0,0.5); color:var(--white); padding:13px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; cursor:pointer; width:100%; transition:background 0.2s, border-color 0.2s;" onmouseover="this.style.background='rgba(180,140,0,0.3)';this.style.borderColor='var(--violet)'" onmouseout="this.style.background='rgba(180,140,0,0.15)';this.style.borderColor='rgba(180,140,0,0.5)'">About Klassik</button>
           <a href="https://open.spotify.com/album/7j4ueLwRTBuiF34gfcPyo5?si=R0QwXYjjRhGoepICoJObPQ" target="_blank" style="display:flex; align-items:center; justify-content:center; gap:8px; background:linear-gradient(135deg,var(--violet),var(--pink)); color:var(--white); padding:13px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; width:100%; box-sizing:border-box; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">▶ Listen — Sal Gason EP 2</a>
         </div>
       </div>
@@ -1435,16 +1452,82 @@
   <!-- BIO MODAL -->
   <div id="bio-modal" style="display:none; position:fixed; inset:0; z-index:9000; align-items:center; justify-content:center; padding:24px;">
     <div onclick="document.getElementById('bio-modal').classList.remove('open')" style="position:absolute; inset:0; background:rgba(6,6,10,0.85); backdrop-filter:blur(6px);"></div>
-    <div style="position:relative; background:var(--deep); border:1px solid rgba(107,33,214,0.5); border-radius:12px; max-width:600px; width:100%; padding:48px 44px; max-height:90vh; overflow-y:auto;">
+    <div style="position:relative; background:var(--deep); border:1px solid rgba(180,140,0,0.5); border-radius:12px; max-width:600px; width:100%; padding:48px 44px; max-height:90vh; overflow-y:auto;">
       <button onclick="document.getElementById('bio-modal').classList.remove('open')" style="position:absolute; top:20px; right:24px; background:none; border:none; color:var(--text); font-size:1.4rem; cursor:pointer; line-height:1;" aria-label="Close">✕</button>
       <div style="font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--neon); margin-bottom:16px;">Biography</div>
       <div style="font-family:var(--display); font-size:2rem; letter-spacing:0.06em; color:var(--white); line-height:1; margin-bottom:28px;">KLASSIK<br/>FRESCOBAR</div>
       <p style="font-size:0.92rem; line-height:1.95; color:var(--text); margin-bottom:16px;">Klassik Frescobar's musical influence began in the early '90s in Kingston, Jamaica's Constant Spring Gardens. As a child, his mother's cassette player and early records from Bounty Killa, Sean Paul, and Beenie Man shaped everything that was to come.</p>
       <p style="font-size:0.92rem; line-height:1.95; color:var(--text); margin-bottom:16px;">After migrating to the Bronx, Klassik built his craft in New York's Dancehall scene — forging relationships with DJs and producers, including Brooklyn-based producer Ricky Blaze. A second migration to Miami brought him into the orbit of Red Cafe, who opened doors to the city's party circuit and music infrastructure.</p>
       <p style="font-size:0.92rem; line-height:1.95; color:var(--text); margin-bottom:28px;">His sound — Jamaican Dancehall fused with Soca, Calypso, and Hip-Hop — is singular. Commanding vocals over sweet soca energy. His breakout record "Too Much" with Marzville was followed by "Dansa," a record poised to go even further.</p>
-      <a href="klassik-frescobar.html" style="display:inline-flex; align-items:center; gap:8px; font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--neon); border-bottom:1px solid rgba(200,85,255,0.3); padding-bottom:3px;">Full Artist Page →</a>
+      <a href="klassik-frescobar.html" style="display:inline-flex; align-items:center; gap:8px; font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--neon); border-bottom:1px solid rgba(255,209,102,0.3); padding-bottom:3px;">Full Artist Page →</a>
     </div>
   </div>
+
+  <!-- NESSA PREPPY SPOTLIGHT -->
+  <section id="nessa-preppy" style="padding:clamp(80px,10vw,120px) clamp(20px,4vw,60px); position:relative; z-index:1; background:var(--black); border-top:1px solid var(--border);">
+
+    <div style="text-align:center; margin-bottom:60px;" class="reveal">
+      <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:20px;">Featured Artist</div>
+      <div style="margin-bottom:20px;">
+        <!-- White pill preserves the pink heart in the logo -->
+        <img src="nessa-preppy-logo.PNG" alt="Nessa Preppy" style="height:110px; width:auto; display:inline-block; background:#fff; padding:10px 24px; border-radius:16px;"/>
+      </div>
+    </div>
+
+    <!-- Photo + Videos -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; margin-bottom:64px; max-width:1100px; margin-left:auto; margin-right:auto;" class="reveal">
+
+      <!-- Left: Photo + Buttons -->
+      <div>
+        <div style="border-radius:10px; overflow:hidden; border:1px solid rgba(180,140,0,0.4); margin-bottom:24px; box-shadow:0 0 60px rgba(180,140,0,0.15);">
+          <img src="nessa-preppy.jpg" alt="Nessa Preppy" style="width:100%; display:block; object-fit:cover; object-position:center top;"/>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="https://open.spotify.com/artist/17pN02mO1kZSkaic9K3ipT?si=yFXrQ4iRRAGWeuPkg-jPUA" target="_blank" style="display:flex; align-items:center; justify-content:center; gap:8px; background:rgba(29,185,84,0.12); border:1px solid rgba(29,185,84,0.5); color:#1db954; padding:13px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; width:100%; box-sizing:border-box; transition:background 0.2s;" onmouseover="this.style.background='rgba(29,185,84,0.25)'" onmouseout="this.style.background='rgba(29,185,84,0.12)'">▶ Listen on Spotify</a>
+          <a href="https://www.instagram.com/nessapreppy" target="_blank" style="display:flex; align-items:center; justify-content:center; gap:8px; background:rgba(225,48,108,0.12); border:1px solid rgba(225,48,108,0.5); color:#e1306c; padding:13px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; width:100%; box-sizing:border-box; transition:background 0.2s;" onmouseover="this.style.background='rgba(225,48,108,0.25)'" onmouseout="this.style.background='rgba(225,48,108,0.12)'">↗ @nessapreppy</a>
+          <a href="#contact" style="display:flex; align-items:center; justify-content:center; gap:8px; background:linear-gradient(135deg,#8B6914,#ffd166); color:#000; padding:13px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; width:100%; box-sizing:border-box; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Book Nessa Preppy</a>
+        </div>
+      </div>
+
+      <!-- Right: Info -->
+      <div style="display:flex; flex-direction:column; gap:20px; justify-content:center; padding-top:16px;">
+        <div>
+          <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:20px; height:1px; background:var(--gold);"></span>Artist · Performer</div>
+          <p style="font-size:0.95rem; color:var(--text); line-height:1.8; margin:0;">A rising voice with star power and undeniable presence. Nessa Preppy brings authenticity, energy, and crossover appeal to every stage.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Metrics -->
+    <div class="reveal" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; max-width:960px; margin:0 auto;">
+
+      <div style="background:var(--deep); border:1px solid var(--border); border-radius:12px; padding:24px 22px;">
+        <div style="font-size:0.58rem; letter-spacing:0.16em; text-transform:uppercase; color:#1db954; margin-bottom:8px;">Spotify Monthly Listeners</div>
+        <div style="font-family:var(--display); font-size:2.2rem; color:var(--white); line-height:1;">— <span style="font-size:1rem; color:var(--text); font-family:var(--sans);">coming soon</span></div>
+      </div>
+
+      <div style="background:var(--deep); border:1px solid var(--border); border-radius:12px; padding:24px 22px;">
+        <div style="font-size:0.58rem; letter-spacing:0.16em; text-transform:uppercase; color:#fc3c44; margin-bottom:8px;">Apple Music Streams</div>
+        <div style="font-family:var(--display); font-size:2.2rem; color:var(--white); line-height:1;">— <span style="font-size:1rem; color:var(--text); font-family:var(--sans);">coming soon</span></div>
+      </div>
+
+      <div style="background:var(--deep); border:1px solid var(--border); border-radius:12px; padding:24px 22px;">
+        <div style="font-size:0.58rem; letter-spacing:0.16em; text-transform:uppercase; color:#e1306c; margin-bottom:8px;">Instagram Impressions</div>
+        <div style="font-family:var(--display); font-size:2.2rem; color:var(--white); line-height:1;">— <span style="font-size:1rem; color:var(--text); font-family:var(--sans);">30 days</span></div>
+      </div>
+
+      <div style="background:var(--deep); border:1px solid var(--border); border-radius:12px; padding:24px 22px;">
+        <div style="font-size:0.58rem; letter-spacing:0.16em; text-transform:uppercase; color:#ff0050; margin-bottom:8px;">TikTok Impressions</div>
+        <div style="font-family:var(--display); font-size:2.2rem; color:var(--white); line-height:1;">— <span style="font-size:1rem; color:var(--text); font-family:var(--sans);">30 days</span></div>
+      </div>
+
+      <div style="background:var(--deep); border:1px solid var(--border); border-radius:12px; padding:24px 22px;">
+        <div style="font-size:0.58rem; letter-spacing:0.16em; text-transform:uppercase; color:#ff0000; margin-bottom:8px;">YouTube Impressions</div>
+        <div style="font-family:var(--display); font-size:2.2rem; color:var(--white); line-height:1;">— <span style="font-size:1rem; color:var(--text); font-family:var(--sans);">30 days</span></div>
+      </div>
+
+    </div>
+  </section>
 
   <!-- DJ ROSTER -->
   <section id="djs" style="padding:clamp(80px,10vw,120px) clamp(20px,4vw,60px); position:relative; z-index:1; background:var(--black); border-top:1px solid var(--border);">
@@ -1452,40 +1535,59 @@
       <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--neon); margin-bottom:16px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:22px; height:1px; background:var(--neon);"></span>Performing DJs</div>
       <h2 style="font-family:var(--display); font-size:clamp(2.5rem,6vw,5.5rem); letter-spacing:0.03em; color:var(--white); line-height:0.95;">DJ<br/>ROSTER</h2>
     </div>
-    <div class="dj-roster-grid reveal" style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+    <div class="dj-roster-grid reveal" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:24px;">
 
       <!-- DJ Kali -->
-      <div style="background:var(--deep); border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:border-color 0.3s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(200,85,255,0.5)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+      <div style="background:var(--deep); border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:border-color 0.3s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(255,209,102,0.5)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
         <div style="width:100%; aspect-ratio:1/1; overflow:hidden;">
           <img src="kali1.jpg" alt="DJ Kali" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;"/>
         </div>
         <div style="padding:28px 32px 36px;">
-          <div style="font-family:var(--display); font-size:1.9rem; letter-spacing:0.06em; color:var(--white); margin-bottom:6px;">DJ KALI</div>
+          <!-- DJ Kali logo — white/color on black: screen removes bg -->
+          <img src="dj-kali-logo.png" alt="DJ Kali Logo" style="height:60px; width:auto; display:block; margin-bottom:14px; mix-blend-mode:screen;"/>
           <div style="font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--neon); margin-bottom:16px;">DJ · Producer</div>
-          <a href="https://www.instagram.com/djkalli__" target="_blank" style="display:inline-flex; align-items:center; gap:6px; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); margin-bottom:28px; transition:color 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--text)'">↗ @djkalli__</a>
+          <a href="https://www.instagram.com/djkalli__" target="_blank" style="display:inline-flex; align-items:center; gap:6px; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); margin-bottom:20px; transition:color 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--text)'">↗ @djkalli__</a>
           <br/>
-          <a href="#contact" style="display:inline-block; background:linear-gradient(135deg,var(--violet),var(--pink)); color:var(--white); padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.1em; margin-top:4px; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Book DJ Kali</a>
+          <a href="#contact" style="display:inline-block; background:linear-gradient(135deg,#8B6914,#ffd166); color:#000; padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; margin-top:4px; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Book DJ Kali</a>
         </div>
       </div>
 
       <!-- Sal Infrared -->
-      <div style="background:var(--deep); border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:border-color 0.3s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(200,85,255,0.5)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
-        <div style="width:100%; aspect-ratio:1/1; overflow:hidden;">
-          <video src="sal-infrared-1.mp4" poster="sal2.png" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;"></video>
+      <div style="background:var(--deep); border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:border-color 0.3s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(255,209,102,0.5)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+        <div style="width:100%; aspect-ratio:1/1; overflow:hidden; position:relative; background:#000;">
+          <!-- Sal Infrared art — mix-blend-mode:screen makes black bg transparent -->
+          <img src="sal-infrared-art.png" alt="Sal Infrared" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block; mix-blend-mode:screen;"/>
         </div>
         <div style="padding:28px 32px 36px;">
+          <!-- Logo: invert black→white then screen removes the bg -->
+          <img src="sal-infrared-logo.png" alt="Sal Infrared Logo" style="height:52px; width:auto; display:block; margin-bottom:12px; filter:invert(1); mix-blend-mode:screen;"/>
           <div style="font-family:var(--display); font-size:1.9rem; letter-spacing:0.06em; color:var(--white); margin-bottom:6px;">SAL INFRARED</div>
           <div style="font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--neon); margin-bottom:16px;">DJ · Performer</div>
-          <a href="https://www.instagram.com/salinfrared" target="_blank" style="display:inline-flex; align-items:center; gap:6px; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); margin-bottom:28px; transition:color 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--text)'">↗ @salinfrared</a>
-          <div style="display:flex; flex-direction:column; gap:10px; margin-top:4px;">
-            <a href="https://www.salinfrared.net/salinfrared" target="_blank" style="display:flex; align-items:center; justify-content:center; background:rgba(107,33,214,0.15); border:1px solid rgba(107,33,214,0.5); color:var(--white); padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:background 0.2s, border-color 0.2s;" onmouseover="this.style.background='rgba(107,33,214,0.3)';this.style.borderColor='var(--violet)'" onmouseout="this.style.background='rgba(107,33,214,0.15)';this.style.borderColor='rgba(107,33,214,0.5)'">About Sal Infrared</a>
-            <a href="#contact" style="display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--violet),var(--pink)); color:var(--white); padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.1em; text-decoration:none; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Book Sal Infrared</a>
+          <a href="https://www.instagram.com/salinfrared" target="_blank" style="display:inline-flex; align-items:center; gap:6px; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); margin-bottom:20px; transition:color 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--text)'">↗ @salinfrared</a>
+          <!-- Videos -->
+          <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:20px;">
+            <div>
+              <div style="font-size:0.55rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">Latest Release</div>
+              <div style="position:relative; padding-bottom:56.25%; border-radius:6px; overflow:hidden; border:1px solid var(--border);">
+                <iframe style="position:absolute; top:0; left:0; width:100%; height:100%;" src="https://www.youtube.com/embed/JJzsU_-F4ug" title="Sal Infrared" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div>
+              <div style="font-size:0.55rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">Featured Set</div>
+              <div style="position:relative; padding-bottom:56.25%; border-radius:6px; overflow:hidden; border:1px solid var(--border);">
+                <iframe style="position:absolute; top:0; left:0; width:100%; height:100%;" src="https://www.youtube.com/embed/xSMiTivB7nU" title="Sal Infrared" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <a href="https://www.salinfrared.net/salinfrared" target="_blank" style="display:flex; align-items:center; justify-content:center; background:rgba(180,140,0,0.15); border:1px solid rgba(180,140,0,0.5); color:var(--white); padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:background 0.2s, border-color 0.2s;" onmouseover="this.style.background='rgba(180,140,0,0.3)';this.style.borderColor='var(--violet)'" onmouseout="this.style.background='rgba(180,140,0,0.15)';this.style.borderColor='rgba(180,140,0,0.5)'">About Sal Infrared</a>
+            <a href="#contact" style="display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#8B6914,#ffd166); color:#000; padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-decoration:none; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Book Sal Infrared</a>
           </div>
         </div>
       </div>
 
       <!-- DJ Prime -->
-      <div style="background:var(--deep); border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:border-color 0.3s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(200,85,255,0.5)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+      <div style="background:var(--deep); border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:border-color 0.3s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(255,209,102,0.5)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
         <div style="width:100%; aspect-ratio:1/1; overflow:hidden;">
           <img src="prime1.jpg" alt="DJ Prime" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;"/>
         </div>
@@ -1495,8 +1597,41 @@
           <a href="https://www.instagram.com/dj_prime_1" target="_blank" style="display:inline-flex; align-items:center; gap:6px; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); margin-bottom:28px; transition:color 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--text)'">↗ @dj_prime_1</a>
           <br/>
           <div style="display:flex; flex-direction:column; gap:10px; margin-top:4px;">
-            <a href="https://open.spotify.com/artist/18QglUrNr3pUVMKlYXEylF?si=CxbMOP2pS8iQcrw02P4pvA" target="_blank" style="display:flex; align-items:center; justify-content:center; background:rgba(107,33,214,0.15); border:1px solid rgba(107,33,214,0.5); color:var(--white); padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:background 0.2s, border-color 0.2s;" onmouseover="this.style.background='rgba(107,33,214,0.3)';this.style.borderColor='var(--violet)'" onmouseout="this.style.background='rgba(107,33,214,0.15)';this.style.borderColor='rgba(107,33,214,0.5)'">▶ Listen on Spotify</a>
-            <a href="#contact" style="display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--violet),var(--pink)); color:var(--white); padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.1em; text-decoration:none; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Book DJ Prime</a>
+            <a href="https://open.spotify.com/artist/18QglUrNr3pUVMKlYXEylF?si=M1e0u9b7TdWG8r_AfJlYBg" target="_blank" style="display:flex; align-items:center; justify-content:center; background:rgba(27,185,84,0.1); border:1px solid rgba(27,185,84,0.35); color:#1db954; padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:background 0.2s;">▶ Spotify</a>
+            <a href="https://www.youtube.com/@djprimeofficial" target="_blank" style="display:flex; align-items:center; justify-content:center; background:rgba(255,0,0,0.1); border:1px solid rgba(255,0,0,0.35); color:#ff4444; padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:background 0.2s;">▶ YouTube</a>
+            <a href="https://on.soundcloud.com/CnJCi1YlIkJ8voM8d2" target="_blank" style="display:flex; align-items:center; justify-content:center; background:rgba(255,85,0,0.1); border:1px solid rgba(255,85,0,0.35); color:#ff5500; padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:background 0.2s;">▶ SoundCloud</a>
+            <a href="#contact" style="display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#8B6914,#ffd166); color:#000; padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-decoration:none; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Book DJ Prime</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- DJ Judgement -->
+      <div style="background:var(--deep); border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:border-color 0.3s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(255,209,102,0.5)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+        <div style="width:100%; aspect-ratio:1/1; overflow:hidden; position:relative; background:#111;">
+          <img src="dj-judgement.jpg" alt="DJ Judgement" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;"/>
+        </div>
+        <div style="padding:28px 32px 36px;">
+          <!-- Logo: mix-blend-mode:screen makes black bg invisible on dark site -->
+          <img src="dj-judgement-logo.png" alt="DJ Judgement" style="height:56px; width:auto; display:block; margin-bottom:10px; mix-blend-mode:screen;"/>
+          <div style="font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--neon); margin-bottom:16px;">DJ · Selector · Vibes | Passion | Energy</div>
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:4px;">
+            <a href="https://www.youtube.com/@dj.judgement514" target="_blank" style="display:flex; align-items:center; justify-content:center; background:rgba(255,0,0,0.1); border:1px solid rgba(255,0,0,0.35); color:#ff4444; padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:background 0.2s;">▶ YouTube</a>
+            <a href="https://www.djjudgement.com" target="_blank" style="display:flex; align-items:center; justify-content:center; background:rgba(255,209,102,0.08); border:1px solid rgba(255,209,102,0.3); color:var(--gold); padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:background 0.2s;">↗ djjudgement.com</a>
+            <a href="#contact" style="display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#8B6914,#ffd166); color:#000; padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-decoration:none; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Book DJ Judgement</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- DJ Blackout -->
+      <div style="background:var(--deep); border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:border-color 0.3s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(255,209,102,0.5)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+        <div style="width:100%; aspect-ratio:1/1; overflow:hidden; background:#040404; display:flex; align-items:center; justify-content:center;">
+          <div style="font-family:var(--display); font-size:6rem; color:rgba(255,209,102,0.1); letter-spacing:0.1em;">DB</div>
+        </div>
+        <div style="padding:28px 32px 36px;">
+          <div style="font-family:var(--display); font-size:1.9rem; letter-spacing:0.06em; color:var(--white); margin-bottom:6px;">DJ BLACKOUT</div>
+          <div style="font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--neon); margin-bottom:16px;">DJ · Performer</div>
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:4px;">
+            <a href="#contact" style="display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#8B6914,#ffd166); color:#000; padding:11px 28px; border-radius:40px; font-family:var(--sans); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-decoration:none; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Book DJ Blackout</a>
           </div>
         </div>
       </div>
@@ -1530,8 +1665,8 @@
                 LIVE
               </span>
             </div>
-            <h2 style="font-family:var(--display); font-size:clamp(2.8rem,7vw,6rem); letter-spacing:0.03em; color:var(--white); line-height:0.9;">THE<br/>NUMBERS.</h2>
-            <p style="font-size:0.88rem; color:var(--text); margin-top:18px; max-width:440px; line-height:1.65;">Real reach. Real results. Our roster&rsquo;s collective impact across Spotify, Meta, and TikTok &mdash; refreshed daily.</p>
+            <h2 style="font-family:var(--display); font-size:clamp(2.8rem,7vw,6rem); letter-spacing:0.03em; color:var(--white); line-height:0.9;">THIS WEEK'S<br/>NUMBERS.</h2>
+            <p style="font-size:0.88rem; color:var(--text); margin-top:18px; max-width:440px; line-height:1.65;">Real reach. Real results. Our roster's collective impact across Spotify, Apple Music, Instagram, TikTok, and YouTube &mdash; updated weekly.</p>
           </div>
           <div style="text-align:right; padding-bottom:4px;">
             <div id="metrics-last-updated" style="font-size:0.65rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--text); opacity:0.55;">Updated: &mdash;</div>
@@ -1545,7 +1680,7 @@
         </div>
 
         <!-- Total Reach Bar -->
-        <div class="reveal" id="metrics-totals-bar" style="background:linear-gradient(135deg,rgba(107,33,214,0.14) 0%,rgba(200,85,255,0.07) 100%); border:1px solid rgba(200,85,255,0.18); border-radius:14px; padding:32px clamp(24px,4vw,48px); display:flex; flex-wrap:wrap; gap:28px; align-items:center; justify-content:space-between;">
+        <div class="reveal" id="metrics-totals-bar" style="background:linear-gradient(135deg,rgba(180,140,0,0.14) 0%,rgba(255,209,102,0.07) 100%); border:1px solid rgba(255,209,102,0.18); border-radius:14px; padding:32px clamp(24px,4vw,48px); display:flex; flex-wrap:wrap; gap:28px; align-items:center; justify-content:space-between;">
           <div style="font-family:var(--display); font-size:clamp(0.95rem,2vw,1.25rem); letter-spacing:0.07em; color:var(--white);">COMBINED ROSTER REACH</div>
           <div style="display:flex; flex-wrap:wrap; gap:36px;">
             <div style="text-align:center;">
@@ -1563,7 +1698,7 @@
           </div>
         </div>
 
-        <p style="font-size:0.65rem; letter-spacing:0.06em; color:var(--text); opacity:0.35; margin-top:18px; text-align:center;">Placeholder figures shown &mdash; live API data coming soon. <a href="#contact" style="color:var(--neon); opacity:0.9; text-decoration:underline; text-underline-offset:3px;">Book or partner with us</a>.</p>
+        <p style="font-size:0.65rem; letter-spacing:0.06em; color:var(--text); opacity:0.35; margin-top:18px; text-align:center;">Figures updated weekly. <a href="#contact" style="color:var(--gold); opacity:0.9; text-decoration:underline; text-underline-offset:3px;">Book or partner with us</a>.</p>
 
       </div>
     </div>
@@ -1581,10 +1716,10 @@
       <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--neon); margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:10px;"><span style="display:block; width:14px; height:1px; background:var(--neon);"></span>Klassik Frescobar</div>
       <div class="events-list" id="events-klassik">
         <!-- Event cards will go here. Template:
-        <div class="event-card" style="display:grid; grid-template-columns:80px 1fr auto; align-items:center; gap:20px; padding:20px 24px; background:var(--black); border:1px solid var(--border); border-radius:10px; margin-bottom:12px; transition:border-color 0.25s;" onmouseover="this.style.borderColor='rgba(200,85,255,0.4)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div class="event-card" style="display:grid; grid-template-columns:80px 1fr auto; align-items:center; gap:20px; padding:20px 24px; background:var(--black); border:1px solid var(--border); border-radius:10px; margin-bottom:12px; transition:border-color 0.25s;" onmouseover="this.style.borderColor='rgba(255,209,102,0.4)'" onmouseout="this.style.borderColor='var(--border)'">
           <div style="text-align:center;"><div style="font-family:var(--display); font-size:1.8rem; color:var(--white); line-height:1;">01</div><div style="font-size:0.6rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--text);">Jan 2026</div></div>
           <div><div style="font-size:1rem; font-weight:600; color:var(--white); margin-bottom:4px;">Event Name</div><div style="font-size:0.75rem; color:var(--text);">Venue · City, Country</div></div>
-          <a href="#" target="_blank" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--neon); border:1px solid rgba(200,85,255,0.4); padding:8px 18px; border-radius:40px; white-space:nowrap; transition:background 0.2s;" onmouseover="this.style.background='rgba(200,85,255,0.1)'" onmouseout="this.style.background='transparent'">Info →</a>
+          <a href="#" target="_blank" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--neon); border:1px solid rgba(255,209,102,0.4); padding:8px 18px; border-radius:40px; white-space:nowrap; transition:background 0.2s;" onmouseover="this.style.background='rgba(255,209,102,0.1)'" onmouseout="this.style.background='transparent'">Info →</a>
         </div>
         -->
         <div style="padding:28px 24px; background:var(--black); border:1px solid var(--border); border-radius:10px; display:flex; align-items:center; gap:14px; color:var(--text); font-size:0.8rem; letter-spacing:0.06em;">
@@ -1643,13 +1778,13 @@
         <div style="font-size:0.65rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--neon); margin-bottom:16px; display:flex; align-items:center; gap:10px;"><span style="display:block; width:22px; height:1px; background:var(--neon);"></span>Official Merch</div>
         <h2 style="font-family:var(--display); font-size:clamp(2.5rem,6vw,5.5rem); letter-spacing:0.03em; color:var(--white); line-height:0.95;">REP THE<br/>CULTURE.</h2>
       </div>
-      <a href="/merch" style="font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--neon); border:1px solid rgba(200,85,255,0.4); padding:12px 26px; border-radius:40px; white-space:nowrap; transition:background 0.2s; text-decoration:none;" onmouseover="this.style.background='rgba(200,85,255,0.1)'" onmouseout="this.style.background='transparent'">View Full Shop →</a>
+      <a href="/merch" style="font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--neon); border:1px solid rgba(255,209,102,0.4); padding:12px 26px; border-radius:40px; white-space:nowrap; transition:background 0.2s; text-decoration:none;" onmouseover="this.style.background='rgba(255,209,102,0.1)'" onmouseout="this.style.background='transparent'">View Full Shop →</a>
     </div>
 
     <div class="reveal" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:24px;">
 
       <!-- Code Way Sweatshirt -->
-      <a href="https://code-way-shop.fourthwall.com/products/code-way-sweatshirt" target="_blank" style="text-decoration:none; display:block; background:var(--deep); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color 0.3s, transform 0.25s;" onmouseover="this.style.borderColor='rgba(200,85,255,0.55)';this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+      <a href="https://code-way-shop.fourthwall.com/products/code-way-sweatshirt" target="_blank" style="text-decoration:none; display:block; background:var(--deep); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color 0.3s, transform 0.25s;" onmouseover="this.style.borderColor='rgba(255,209,102,0.55)';this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
         <div style="width:100%; aspect-ratio:1/1; overflow:hidden; background:#111;">
           <img src="https://imgproxy.fourthwall.dev/WEAw04lplBDO4zXhgMnv1lyzVdcaDJemgpJD9EVRvO0/w:720/sm:1/enc/TOuSrz_MG8fVpcgX/HnFQtnh5oeKy4JLG/llYT9syuaRZ5mZW_/evl8GFpbkC_nQyn9/u7dibMEsTe2Td4ax/MbU3TXjgKnuTVbE9/G-UsVQJpQXOwmWZr/cbPhm_ia6l9zVuoP/z7hbfeMgNovvKpup/UOuodrRTCNv7uSQe/IIDsB228hO3uQIJh/xCO0lsxIgfnq-n-u/iS0EQBYt2McSIv9M/3eBl5nqvepJbk77L/Fh6fDNMXKuM.jpg" alt="Code Way Sweatshirt" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/>
         </div>
@@ -1661,7 +1796,7 @@
       </a>
 
       <!-- Code Way Tee -->
-      <a href="https://code-way-shop.fourthwall.com/products/code-way-tee" target="_blank" style="text-decoration:none; display:block; background:var(--deep); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color 0.3s, transform 0.25s;" onmouseover="this.style.borderColor='rgba(200,85,255,0.55)';this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+      <a href="https://code-way-shop.fourthwall.com/products/code-way-tee" target="_blank" style="text-decoration:none; display:block; background:var(--deep); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color 0.3s, transform 0.25s;" onmouseover="this.style.borderColor='rgba(255,209,102,0.55)';this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
         <div style="width:100%; aspect-ratio:1/1; overflow:hidden; background:#111;">
           <img src="https://imgproxy.fourthwall.dev/3itazYFQnL2ApvydhCraQJMB_qHE5kcR_Q77zduByx4/w:720/sm:1/enc/FqRBNuSvkwdeSTtC/xvEeFNWP0NEdu1Va/80orpd03CX9GUMu4/SVMpp_crm3qk2q4N/VXGnFhCRNoertI5V/C5ZGYSQW8TlxNmwR/4dvTqeIM6Rr0PisJ/H7VEwxhChZQ2epF4/Wxv0ULYx0_ye4KmR/KBMYsv9ct6NCE2Or/f36OX1TPeIXaj3uv/vTtY3Mye6gNdcD2N/NqBf3sfDXU0jqY7I/iFvGBTC-WgRjWOM6/-whdrVXi4is.jpg" alt="Code Way Tee" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/>
         </div>
@@ -1673,7 +1808,7 @@
       </a>
 
       <!-- Code Way Shirt — Tropical Text -->
-      <a href="https://code-way-shop.fourthwall.com" target="_blank" style="text-decoration:none; display:block; background:var(--deep); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color 0.3s, transform 0.25s;" onmouseover="this.style.borderColor='rgba(200,85,255,0.55)';this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+      <a href="https://code-way-shop.fourthwall.com" target="_blank" style="text-decoration:none; display:block; background:var(--deep); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color 0.3s, transform 0.25s;" onmouseover="this.style.borderColor='rgba(255,209,102,0.55)';this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
         <div style="width:100%; aspect-ratio:1/1; overflow:hidden; background:#fff; display:flex; align-items:center; justify-content:center; padding:24px;">
           <img src="shirt-tropical-text.png" alt="Code Way Tropical Shirt" style="width:100%; height:100%; object-fit:contain; display:block; transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/>
         </div>
@@ -1685,7 +1820,7 @@
       </a>
 
       <!-- Code Way Shirt — Dark Text -->
-      <a href="https://code-way-shop.fourthwall.com" target="_blank" style="text-decoration:none; display:block; background:var(--deep); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color 0.3s, transform 0.25s;" onmouseover="this.style.borderColor='rgba(200,85,255,0.55)';this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+      <a href="https://code-way-shop.fourthwall.com" target="_blank" style="text-decoration:none; display:block; background:var(--deep); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color 0.3s, transform 0.25s;" onmouseover="this.style.borderColor='rgba(255,209,102,0.55)';this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
         <div style="width:100%; aspect-ratio:1/1; overflow:hidden; background:#fff; display:flex; align-items:center; justify-content:center; padding:24px;">
           <img src="shirt-dark-text.png" alt="Code Way Dark Shirt" style="width:100%; height:100%; object-fit:contain; display:block; transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/>
         </div>
@@ -1697,7 +1832,7 @@
       </a>
 
       <!-- Code Way Shirt — Crow Banner -->
-      <a href="https://code-way-shop.fourthwall.com" target="_blank" style="text-decoration:none; display:block; background:var(--deep); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color 0.3s, transform 0.25s;" onmouseover="this.style.borderColor='rgba(200,85,255,0.55)';this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
+      <a href="https://code-way-shop.fourthwall.com" target="_blank" style="text-decoration:none; display:block; background:var(--deep); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color 0.3s, transform 0.25s;" onmouseover="this.style.borderColor='rgba(255,209,102,0.55)';this.style.transform='translateY(-5px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
         <div style="width:100%; aspect-ratio:1/1; overflow:hidden; background:#fff; display:flex; align-items:center; justify-content:center; padding:24px;">
           <img src="shirt-crow-banner.png" alt="Code Way Crow Banner Shirt" style="width:100%; height:100%; object-fit:contain; display:block; transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/>
         </div>
@@ -1757,19 +1892,63 @@
       <h2 class="contact-title">BRING THE<br/>ENERGY.</h2>
       <p class="contact-sub">Promoters — fill out the form below to book an artist or DJ from our roster. We'll be in touch within 48 hours.</p>
 
-      <div class="contact-form" style="max-width:640px; margin:0 auto; padding:40px 0;">
-        <iframe
-          id="JotFormIFrame-261654616888068"
-          title="Book a Performer - Code Way Management"
-          onload="window.parent.scrollTo(0,0)"
-          allowtransparency="true"
-          allow="geolocation; microphone; camera; fullscreen"
-          src="https://form.jotform.com/261654616888068"
-          frameborder="0"
-          style="width:100%; min-width:100%; height:900px; border:none;"
-          scrolling="yes"
-        ></iframe>
-      </div>
+      <form name="promoter-booking" method="POST" action="https://formsubmit.co/codewaybiz@gmail.com" class="contact-form" style="max-width:640px; margin:0 auto; padding:40px 0;">
+        <!-- FormSubmit config -->
+        <input type="hidden" name="_subject" value="New Booking Request — Code Way Management"/>
+        <input type="hidden" name="_captcha" value="false"/>
+        <input type="hidden" name="_template" value="table"/>
+        <input type="text" name="_honey" style="display:none"/>
+
+        <div class="cf-row">
+          <div class="cf-group">
+            <label for="cf-organizer">Organizer Name *</label>
+            <input type="text" id="cf-organizer" name="Organizer Name" placeholder="Your full name" required/>
+          </div>
+          <div class="cf-group">
+            <label for="cf-organization">Organization</label>
+            <input type="text" id="cf-organization" name="Organization" placeholder="Company / Agency / Promoter"/>
+          </div>
+        </div>
+
+        <div class="cf-row">
+          <div class="cf-group">
+            <label for="cf-event-date">Date of Event *</label>
+            <input type="date" id="cf-event-date" name="Date of Event" required/>
+          </div>
+          <div class="cf-group">
+            <label for="cf-country-state">Country &amp; State *</label>
+            <input type="text" id="cf-country-state" name="Country and State" placeholder="e.g. USA — Florida" required/>
+          </div>
+        </div>
+
+        <div class="cf-row">
+          <div class="cf-group">
+            <label for="cf-venue">Venue Name *</label>
+            <input type="text" id="cf-venue" name="Venue Name" placeholder="Venue or event space name" required/>
+          </div>
+          <div class="cf-group">
+            <label for="cf-capacity">Venue Capacity *</label>
+            <input type="number" id="cf-capacity" name="Venue Capacity" placeholder="Expected attendance" min="1" required/>
+          </div>
+        </div>
+
+        <!-- Sponsor toggle -->
+        <div class="sponsor-section">
+          <div class="sponsor-header">
+            <span class="sponsor-header-label">Do you have a sponsor?</span>
+            <div class="sponsor-yn">
+              <button type="button" id="syn-yes" class="syn-btn" onclick="setSponsor('yes')">Yes</button>
+              <button type="button" id="syn-no"  class="syn-btn active-no" onclick="setSponsor('no')">No</button>
+            </div>
+          </div>
+          <div class="sponsor-body" id="sponsor-body">
+            <textarea id="cf-sponsor-name" name="Sponsor Name(s)" placeholder="Who is your sponsor(s)?"></textarea>
+          </div>
+        </div>
+        <input type="hidden" id="cf-has-sponsor" name="Has Sponsor" value="No"/>
+
+        <button type="submit" class="cf-submit">Submit Booking Request</button>
+      </form>
     </div>
   </section>
 
@@ -1779,19 +1958,47 @@
       <div class="inq-eyebrow">Get In Touch</div>
       <h2 class="inq-title">CONTACT<br/>US.</h2>
       <p class="inq-sub">Not a booking? Reach out for partnerships, press, sponsorships, or general inquiries. We'll get back to you within 48 hours.</p>
-      <div class="inq-form" style="max-width:640px; margin:0 auto;">
-        <iframe
-          id="JotFormIFrame-261655542557060"
-          title="Contact Us - Code Way Management"
-          onload="window.parent.scrollTo(0,0)"
-          allowtransparency="true"
-          allow="geolocation; microphone; camera; fullscreen"
-          src="https://form.jotform.com/261655542557060"
-          frameborder="0"
-          style="width:100%; min-width:100%; height:800px; border:none;"
-          scrolling="yes"
-        ></iframe>
-      </div>
+      <form name="contact-inquiry" method="POST" action="https://formsubmit.co/codewaybiz@gmail.com" class="inq-form" style="max-width:640px; margin:0 auto;">
+        <!-- FormSubmit config -->
+        <input type="hidden" name="_subject" value="New Inquiry — Code Way Management"/>
+        <input type="hidden" name="_captcha" value="false"/>
+        <input type="hidden" name="_template" value="table"/>
+        <input type="text" name="_honey" style="display:none"/>
+
+        <div class="inq-row">
+          <div class="inq-group">
+            <label class="inq-label" for="inq-name">Name *</label>
+            <input class="inq-input" type="text" id="inq-name" name="Name" placeholder="Your full name" required/>
+          </div>
+          <div class="inq-group">
+            <label class="inq-label" for="inq-organization">Organization</label>
+            <input class="inq-input" type="text" id="inq-organization" name="Organization" placeholder="Company / Label / Brand"/>
+          </div>
+        </div>
+
+        <div class="inq-row">
+          <div class="inq-group">
+            <label class="inq-label" for="inq-phone">Phone Number</label>
+            <input class="inq-input" type="tel" id="inq-phone" name="Phone Number" placeholder="+1 (000) 000-0000"/>
+          </div>
+          <div class="inq-group">
+            <label class="inq-label" for="inq-email">Email *</label>
+            <input class="inq-input" type="email" id="inq-email" name="Email" placeholder="your@email.com" required/>
+          </div>
+        </div>
+
+        <div class="inq-group">
+          <label class="inq-label" for="inq-location">Country / State or Province</label>
+          <input class="inq-input" type="text" id="inq-location" name="Country State Province" placeholder="e.g. Canada — Ontario  ·  USA — New York"/>
+        </div>
+
+        <div class="inq-group">
+          <label class="inq-label" for="inq-message">Reason for Inquiring *</label>
+          <textarea class="inq-textarea" id="inq-message" name="Reason for Inquiring" rows="5" placeholder="Tell us what you're looking for..." required></textarea>
+        </div>
+
+        <button type="submit" class="inq-submit">Send Message</button>
+      </form>
     </div>
   </section>
 
@@ -1805,6 +2012,7 @@
       <li><a href="#what">Services</a></li>
       <li><a href="#roster">Roster</a></li>
       <li><a href="#spotlight">Artists</a></li>
+      <li><a href="#nessa-preppy">Nessa</a></li>
       <li><a href="#djs">DJs</a></li>
       <li><a href="#events">Events</a></li>
       <li><a href="#contact">Bookings</a></li>
@@ -1943,6 +2151,8 @@
       document.getElementById('syn-yes').classList.toggle('active-yes', val === 'yes');
       document.getElementById('syn-no').classList.toggle('active-no',  val === 'no');
       document.getElementById('sponsor-body').classList.toggle('open',  val === 'yes');
+      var hid = document.getElementById('cf-has-sponsor');
+      if (hid) hid.value = val === 'yes' ? 'Yes' : 'No';
     }
 
     // Inquiry form submission — pushes contact into HubSpot via tracking API
@@ -2025,14 +2235,14 @@
     var FALLBACK = {
       updated: new Date().toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'}),
       artists: [
-        { id:'klassik', name:'KLASSIK FRESCOBAR', role:'International Artist', accent:'#c855ff', spotify:87400,  meta:2400000, tiktok:1100000 },
+        { id:'klassik', name:'KLASSIK FRESCOBAR', role:'International Artist', accent:'#ffd166', spotify:87400,  meta:2400000, tiktok:1100000 },
         { id:'djkali',  name:'DJ KALI',           role:'DJ / Producer',        accent:'#00c8ff', spotify:12000,  meta:890000,  tiktok:540000  },
         { id:'sal',     name:'SAL INFRARED',       role:'DJ / Performer',       accent:'#ff9b45', spotify:8500,   meta:420000,  tiktok:280000  },
         { id:'djprime', name:'DJ PRIME',           role:'DJ / Media Personality',accent:'#ffd166',spotify:15000,  meta:650000,  tiktok:380000  }
       ]
     };
     // Accent colours (not returned by API, keyed by artist id)
-    var ACCENTS = { klassik:'#c855ff', djkali:'#00c8ff', sal:'#ff9b45', djprime:'#ffd166' };
+    var ACCENTS = { klassik:'#ffd166', djkali:'#00c8ff', sal:'#ff9b45', djprime:'#ffd166' };
 
     // Merge live API response with fallback artist metadata
     function mergeStats(apiData) {
@@ -2096,10 +2306,10 @@
 
     // ─── CARD HTML ───────────────────────────────────────────────────────────
     function cardHTML(a) {
-      return '<div class="metric-card reveal" style="background:var(--deep); border:1px solid var(--border); border-radius:14px; overflow:hidden;" onmouseover="this.style.borderColor=\'rgba(200,85,255,0.35)\'; this.style.transform=\'translateY(-3px)\'" onmouseout="this.style.borderColor=\'var(--border)\'; this.style.transform=\'translateY(0)\'">' +
+      return '<div class="metric-card reveal" style="background:var(--deep); border:1px solid var(--border); border-radius:14px; overflow:hidden;" onmouseover="this.style.borderColor=\'rgba(255,209,102,0.35)\'; this.style.transform=\'translateY(-3px)\'" onmouseout="this.style.borderColor=\'var(--border)\'; this.style.transform=\'translateY(0)\'">' +
 
         // Header
-        '<div style="padding:22px 22px 18px; border-bottom:1px solid var(--border); background:linear-gradient(135deg,rgba(107,33,214,0.12) 0%,transparent 80%);">' +
+        '<div style="padding:22px 22px 18px; border-bottom:1px solid var(--border); background:linear-gradient(135deg,rgba(180,140,0,0.12) 0%,transparent 80%);">' +
           '<div style="font-size:0.58rem; letter-spacing:0.18em; text-transform:uppercase; color:' + a.accent + '; margin-bottom:5px;">' + a.role + '</div>' +
           '<div style="font-family:var(--display); font-size:1.55rem; letter-spacing:0.05em; color:var(--white);">' + a.name + '</div>' +
         '</div>' +
