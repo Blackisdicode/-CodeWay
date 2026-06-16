@@ -1,4 +1,7 @@
 .github-token
 .netlify-token
-*.mp4
 site-deploy.zip
+# Allow specific compressed banner videos
+# Ignore large uncompressed originals
+prime vid 2.mp4
+sal-reggae-bash.mp4
