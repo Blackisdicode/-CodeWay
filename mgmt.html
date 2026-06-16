@@ -1197,7 +1197,7 @@
       <video src="sal-infrared-1.mp4" muted playsinline preload="none" id="rbv-sal"></video>
       <div class="rb-overlay"></div>
       <div class="rb-label">
-        <div class="rb-label-name"><img src="sal logo trans.PNG" alt="Sal Infrared" style="height:clamp(40px,7vw,90px); display:block; margin-bottom:4px;"/><div style="font-family:var(--display);font-size:clamp(1rem,2.5vw,1.8rem);color:var(--white);letter-spacing:0.08em;text-transform:uppercase;margin-top:6px;text-shadow:0 2px 8px rgba(0,0,0,0.9);">Sal Infrared</div></div>
+        <div class="rb-label-name"><img src="sal logo trans.PNG" alt="Sal Infrared" style="height:clamp(40px,7vw,90px); display:block; margin-bottom:4px; filter:brightness(0) invert(1);"/><div style="font-family:var(--display);font-size:clamp(1rem,2.5vw,1.8rem);color:var(--white);letter-spacing:0.08em;text-transform:uppercase;margin-top:6px;text-shadow:0 2px 8px rgba(0,0,0,0.9);">Sal Infrared</div></div>
         <div class="rb-label-role">DJ · Performer</div>
       </div>
     </div>
@@ -1234,7 +1234,7 @@
 
     <!-- Slide 9: Nessa Preppy — Warm Up Visual -->
     <div class="rb-slide" data-type="video">
-      <video src="nessa-warmup-yt.mp4" muted playsinline preload="none" id="rbv-nessa1"></video>
+      <video src="nessa-warmup-yt.mp4" muted playsinline preload="none" id="rbv-nessa1" data-start="16"></video>
       <div class="rb-overlay"></div>
       <div class="rb-label">
         <div class="rb-label-name"><img src="nessa-preppy-logo.PNG" alt="Nessa Preppy" style="height:clamp(40px,7vw,90px); display:block; margin-bottom:4px;"/><div style="font-family:var(--display);font-size:clamp(1rem,2.5vw,1.8rem);color:var(--white);letter-spacing:0.08em;text-transform:uppercase;margin-top:6px;text-shadow:0 2px 8px rgba(0,0,0,0.9);">Nessa Preppy</div></div>
@@ -1244,7 +1244,7 @@
 
     <!-- Slide 10: Nessa Preppy — Hot Gyal Visual -->
     <div class="rb-slide" data-type="video">
-      <video src="nessa-hotgyal-yt.mp4" muted playsinline preload="none" id="rbv-nessa2"></video>
+      <video src="nessa-hotgyal-yt.mp4" muted playsinline preload="none" id="rbv-nessa2" data-start="13"></video>
       <div class="rb-overlay"></div>
       <div class="rb-label">
         <div class="rb-label-name"><img src="nessa-preppy-logo.PNG" alt="Nessa Preppy" style="height:clamp(40px,7vw,90px); display:block; margin-bottom:4px;"/><div style="font-family:var(--display);font-size:clamp(1rem,2.5vw,1.8rem);color:var(--white);letter-spacing:0.08em;text-transform:uppercase;margin-top:6px;text-shadow:0 2px 8px rgba(0,0,0,0.9);">Nessa Preppy</div></div>
@@ -2097,10 +2097,11 @@
         const type = slide.dataset.type;
         if (type === 'video') {
           const v = slide.querySelector('video');
-          v.currentTime = 0;
+          const startAt = parseFloat(v.dataset.start || 0);
+          v.currentTime = startAt;
           v.play().catch(() => {});
           const onTime = () => {
-            if (v.currentTime >= 5) {
+            if (v.currentTime >= startAt + 5) {
               v.removeEventListener('timeupdate', onTime);
               goTo(current + 1);
             }
