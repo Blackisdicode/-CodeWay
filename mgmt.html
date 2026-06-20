@@ -311,6 +311,25 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 /* ===== header back-link ===== */
 .nav-back{font-size:12px;font-weight:600;color:var(--muted-3);letter-spacing:.02em;}
 .nav-back:hover{color:var(--gold);}
+
+/* ===== on the road / shows ===== */
+.shows{scroll-margin-top:90px;}
+.show-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;}
+.show-card{display:flex;gap:18px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;transition:border-color .15s ease,transform .15s ease;}
+.show-card:hover{border-color:#3a3320;transform:translateY(-3px);}
+.show-date{flex:0 0 60px;text-align:center;background:rgba(232,184,75,.1);border:1px solid #3a3320;border-radius:10px;padding:10px 4px;}
+.show-date .mon{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;}
+.show-date .day{font-family:'Anton',sans-serif;font-size:24px;line-height:1.1;color:var(--ink);display:block;}
+.show-body{flex:1;min-width:0;}
+.show-artist{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:5px;}
+.show-name{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:17px;line-height:1.15;margin-bottom:4px;}
+.show-loc{font-size:13px;color:var(--muted-2);margin-bottom:10px;}
+.show-link{font-size:12px;font-weight:700;color:var(--gold);border-bottom:1px solid rgba(232,184,75,.4);}
+.show-link:hover{border-bottom-color:var(--gold);}
+
+/* ===== spotify embed ===== */
+.spotify-wrap{border-radius:14px;overflow:hidden;background:var(--panel);border:1px solid var(--line);}
+.spotify-wrap iframe{display:block;width:100%;border:0;}
 </style>
 </head>
 <body>
@@ -325,6 +344,7 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
     <nav class="nav">
       <div class="nav-links" id="navLinks">
         <a href="#now" class="nav-vote">Vote ★</a>
+        <a href="#shows">Shows</a>
         <a href="#what">Services</a>
         <a href="#roster">Roster</a>
         <a href="#watch">Watch</a>
@@ -401,6 +421,49 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
           </a>
         </div>
         <div class="now-note">Voting closes August 10, 2026 · One vote per category, per day.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ON THE ROAD ===== -->
+<section class="section shows" id="shows">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Catch them live</div>
+        <h2 class="section-title">On The Road</h2>
+      </div>
+      <p class="metrics-note">Upcoming Klassik Frescobar dates — tickets and event info below.</p>
+    </div>
+
+    <div class="show-grid">
+      <div class="show-card">
+        <div class="show-date"><span class="mon">Jun</span><span class="day">27</span></div>
+        <div class="show-body">
+          <div class="show-artist">Klassik Frescobar</div>
+          <div class="show-name">Sumsplash Music Festival</div>
+          <div class="show-loc">Roatán, Honduras</div>
+          <a class="show-link" href="https://www.facebook.com/onpointwithgerene/photos/binroat%C3%A1n-comes-alive-for-the-3rd-annual-sumsplash-music-festival-2026-three-unf/1864050104644725/" target="_blank" rel="noopener">Event Info →</a>
+        </div>
+      </div>
+      <div class="show-card">
+        <div class="show-date"><span class="mon">Jul</span><span class="day">25</span></div>
+        <div class="show-body">
+          <div class="show-artist">Klassik Frescobar</div>
+          <div class="show-name">AG Fest</div>
+          <div class="show-loc">London, United Kingdom</div>
+          <a class="show-link" href="https://www.eventbrite.co.uk/e/ag-fest-2026-london-tickets-1981854666658" target="_blank" rel="noopener">Get Tickets →</a>
+        </div>
+      </div>
+      <div class="show-card">
+        <div class="show-date"><span class="mon">Aug</span><span class="day">22</span></div>
+        <div class="show-body">
+          <div class="show-artist">Klassik Frescobar</div>
+          <div class="show-name">Bazodee at Jamaica Day</div>
+          <div class="show-loc">Brampton, ON, Canada</div>
+          <a class="show-link" href="https://www.eventbrite.ca/e/bazodee-at-jamaica-day-2026-klassik-frescobar-tickets-1991889434920" target="_blank" rel="noopener">Get Tickets →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -622,6 +685,15 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
         <div class="video-frame"><iframe src="https://www.youtube.com/embed/xSMiTivB7nU?rel=0" title="Nessa Preppy — live" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
         <figcaption class="video-cap"><span class="video-artist">Nessa Preppy</span><span class="video-title">Live performance</span></figcaption>
       </figure>
+    </div>
+
+    <div class="roster-group-head" style="margin-top:54px;">
+      <h3 class="roster-group-title">Listen on Spotify</h3>
+      <span class="roster-line"></span>
+      <span class="roster-count">01</span>
+    </div>
+    <div class="spotify-wrap">
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO1kz7bQ?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="This Is Klassik Frescobar — Spotify playlist"></iframe>
     </div>
 
     <div class="roster-group-head" style="margin-top:54px;">
