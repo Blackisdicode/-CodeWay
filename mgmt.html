@@ -328,7 +328,10 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .show-link:hover{border-bottom-color:var(--gold);}
 
 /* ===== spotify embed ===== */
-.spotify-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;}
+.spotify-search-wrap{display:flex;flex-direction:column;gap:14px;}
+.spotify-search{max-width:360px;}
+.spotify-chip-row{display:flex;gap:8px;flex-wrap:wrap;}
+.spotify-chip-row .who-chip.hidden{display:none;}
 .spotify-wrap{border-radius:14px;overflow:hidden;background:var(--panel);border:1px solid var(--line);}
 .spotify-wrap iframe{display:block;width:100%;border:0;}
 </style>
@@ -691,14 +694,16 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
     <div class="roster-group-head" style="margin-top:54px;">
       <h3 class="roster-group-title">Listen on Spotify</h3>
       <span class="roster-line"></span>
-      <span class="roster-count">02</span>
+      <span class="roster-count" id="spotifyCount">02</span>
     </div>
-    <div class="spotify-grid">
-      <div class="spotify-wrap">
-        <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO1kz7bQ?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="This Is Klassik Frescobar — Spotify playlist"></iframe>
+    <div class="spotify-search-wrap">
+      <input type="text" id="spotifySearch" class="input spotify-search" placeholder="Search artists &amp; DJs…" />
+      <div class="spotify-chip-row" id="spotifyChips">
+        <button type="button" class="who-chip active" data-playlist="37i9dQZF1DZ06evO1kz7bQ">Klassik Frescobar</button>
+        <button type="button" class="who-chip" data-playlist="37i9dQZF1DZ06evO0Bi5Wy">Nessa Preppy</button>
       </div>
       <div class="spotify-wrap">
-        <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO0Bi5Wy?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="This Is Nessa Preppy — Spotify playlist"></iframe>
+        <iframe id="spotifyFrame" src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO1kz7bQ?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify playlist"></iframe>
       </div>
     </div>
 
@@ -1214,6 +1219,33 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
       ph.classList.contains('playing') ? stop() : play();
     });
   });
+
+  // ---- Spotify search + chip switcher ----
+  var spotifySearch = document.getElementById('spotifySearch');
+  var spotifyChips = document.getElementById('spotifyChips');
+  var spotifyFrame = document.getElementById('spotifyFrame');
+  var spotifyCount = document.getElementById('spotifyCount');
+  if (spotifyChips) {
+    spotifyChips.addEventListener('click', function (e) {
+      var btn = e.target.closest('.who-chip');
+      if (!btn) return;
+      spotifyChips.querySelectorAll('.who-chip').forEach(function (c) { c.classList.toggle('active', c === btn); });
+      var id = btn.dataset.playlist;
+      if (id && spotifyFrame) spotifyFrame.src = 'https://open.spotify.com/embed/playlist/' + id + '?utm_source=generator';
+    });
+  }
+  if (spotifySearch && spotifyChips) {
+    spotifySearch.addEventListener('input', function () {
+      var q = spotifySearch.value.trim().toLowerCase();
+      var visible = 0;
+      spotifyChips.querySelectorAll('.who-chip').forEach(function (c) {
+        var match = c.textContent.toLowerCase().indexOf(q) !== -1;
+        c.classList.toggle('hidden', !match);
+        if (match) visible++;
+      });
+      if (spotifyCount) spotifyCount.textContent = String(visible).padStart(2, '0');
+    });
+  }
 })();
 </script>
 </body>
