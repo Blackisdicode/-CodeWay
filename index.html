@@ -102,7 +102,7 @@
     },
     {
       "@type": "Person",
-      "name": "DJ Kali",
+      "name": "DJ Kalli",
       "jobTitle": "DJ & Producer",
       "nationality": "St. Lucian",
       "homeLocation": { "@type": "Place", "name": "Brooklyn, New York" },
@@ -419,6 +419,15 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .ftr-col h5{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-3);margin:0 0 14px;font-weight:700;}
 .ftr-col a{display:block;font-size:14px;color:var(--muted);margin-bottom:10px;}
 .ftr-col a:hover{color:var(--gold);}
+@media(max-width:600px){
+  .ftr-cols{gap:0;flex-direction:column;width:100%;}
+  .ftr-col{border-top:1px solid var(--line);padding:0;}
+  .ftr-col h5{cursor:pointer;padding:16px 0;margin:0;display:flex;justify-content:space-between;align-items:center;}
+  .ftr-col h5::after{content:'＋';font-size:16px;font-weight:400;color:var(--muted-3);}
+  .ftr-col.ftr-open h5::after{content:'－';}
+  .ftr-col .ftr-links{display:none;padding-bottom:12px;}
+  .ftr-col.ftr-open .ftr-links{display:block;}
+}
 .ftr-base{margin-top:48px;padding-top:24px;border-top:1px solid var(--line-soft);display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:12px;color:var(--muted-3);flex-wrap:wrap;gap:12px;}
 
 /* ===== responsive ===== */
@@ -560,7 +569,7 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
   </video>
   <div class="hero-bg"></div>
   <div class="wrap hero-in">
-    <div class="kicker"><span class="dot"></span>For promoters · venues · sponsors</div>
+
     <h1>Code Way — where culture <span class="hot">moves the world.</span></h1>
     <p class="hero-sub">Soca, dancehall, and the DJs who run the party — we perform worldwide. Tell us your date, we respond within 48 hours.</p>
     <div class="hero-ctas">
@@ -672,7 +681,7 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
         <div class="card-photo" data-vid="https://pub-906fe7a0a3fd4553a070ed42c09c3d91.r2.dev/Dansa%20no%20sound.mp4"><span class="card-tag artist">Artist</span><img src="https://itscodeway.com/klassik.jpg" alt="Klassik Frescobar" loading="lazy" /><video class="card-vid" muted loop playsinline preload="none"></video><span class="card-play" aria-hidden="true">▶</span></div>
         <div class="card-body">
           <h3 class="card-name">Klassik Frescobar</h3>
-          <div class="card-role">International Artist · Jamaica 🇯🇲</div>
+          <div class="card-role">International Artist · Jamaica / Miami 🇯🇲</div>
           <div class="card-stats">
             <div><div class="stat-num"><a class="stat-link" href="https://open.spotify.com/artist/2kEIOdyvN8XjC6UqysNWJ4" target="_blank" rel="noopener">579K</a></div><div class="stat-label">Spotify / mo</div></div>
             <div><div class="stat-num"><a class="stat-link" href="https://instagram.com/klassikfresco" target="_blank" rel="noopener">139K</a></div><div class="stat-label">Instagram</div></div>
@@ -741,16 +750,16 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
       </article>
 
       <article class="card" data-type="dj">
-        <div class="card-photo"><span class="card-tag dj">DJ</span><img src="https://itscodeway.com/kali1.jpg" alt="DJ Kali" loading="lazy" /></div>
+        <div class="card-photo"><span class="card-tag dj">DJ</span><img src="https://itscodeway.com/kali1.jpg" alt="DJ Kalli" loading="lazy" /></div>
         <div class="card-body">
-          <h3 class="card-name">DJ Kali</h3>
+          <h3 class="card-name">DJ Kalli</h3>
           <div class="card-role">DJ · Producer · St. Lucia 🇱🇨 / Brooklyn, NY</div>
           <div class="card-stats">
             <div><div class="stat-num">Open</div><div class="stat-label">Format</div></div>
             <div><div class="stat-num"><a class="stat-link" href="https://instagram.com/djkalli__" target="_blank" rel="noopener">@djkalli__</a></div><div class="stat-label">Instagram</div></div>
           </div>
           <div class="card-actions">
-            <button class="btn btn-gold" data-book="DJ Kali">Book DJ Kali</button>
+            <button class="btn btn-gold" data-book="DJ Kalli">Book DJ Kalli</button>
             <a class="card-ig" href="https://instagram.com/djkalli__" target="_blank" rel="noopener" aria-label="Instagram">↗</a>
           </div>
         </div>
@@ -1004,7 +1013,7 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
           <div class="who-chips" id="whoChips">
             <button type="button" class="who-chip active" data-artist="Klassik Frescobar">Klassik Frescobar</button>
             <button type="button" class="who-chip" data-artist="Nessa Preppy">Nessa Preppy</button>
-            <button type="button" class="who-chip" data-artist="DJ Kali">DJ Kali</button>
+            <button type="button" class="who-chip" data-artist="DJ Kalli">DJ Kalli</button>
             <button type="button" class="who-chip" data-artist="Sal Infrared">Sal Infrared</button>
             <button type="button" class="who-chip" data-artist="DJ Prime">DJ Prime</button>
             <button type="button" class="who-chip" data-artist="DJ Judgement">DJ Judgement</button>
@@ -1084,7 +1093,7 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
         </div>
       </div>
       <div class="metric-row">
-        <div class="metric-who"><span class="metric-tag dj">DJ</span><h3>DJ Kali</h3><span class="metric-role">St. Lucia 🇱🇨 / Brooklyn, NY</span></div>
+        <div class="metric-who"><span class="metric-tag dj">DJ</span><h3>DJ Kalli</h3><span class="metric-role">St. Lucia 🇱🇨 / Brooklyn, NY</span></div>
         <div class="metric-figs">
           <div class="fig muted"><div class="fig-n">@djkalli__</div><div class="fig-l">Instagram</div></div>
           <div class="fig muted"><div class="fig-n">—</div><div class="fig-l">Followers · add</div></div>
@@ -1214,7 +1223,7 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
           Our flagship artist <strong style="color:var(--white);">Klassik Frescobar</strong> is one of the most recognized soca artists in the world right now — his viral hit <em>"Dansa"</em> has surpassed 15 million Spotify streams, entered charts across Europe and Africa, and earned him a slot at Notting Hill Carnival. Covered by Rolling Stone UK, Billboard Africa, and The Source.
         </p>
         <p style="color:var(--text);font-size:0.88rem;line-height:1.8;margin:0;">
-          <strong style="color:var(--white);">BRG Hollywood</strong> brings high-energy Caribbean vibes rooted in bouyon and soca. Our DJ roster — DJ Prime, Sal Infrared, and DJ Kali — are specialists in Caribbean music sets for carnivals, clubs, and major events internationally.
+          <strong style="color:var(--white);">BRG Hollywood</strong> brings high-energy Caribbean vibes rooted in bouyon and soca. Our DJ roster — DJ Prime, Sal Infrared, and DJ Kalli — are specialists in Caribbean music sets for carnivals, clubs, and major events internationally.
         </p>
       </div>
       <div style="display:flex;flex-direction:column;gap:24px;">
@@ -1250,16 +1259,20 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
     <div class="ftr-cols">
       <div class="ftr-col">
         <h5>Explore</h5>
-        <a href="#roster">Roster</a>
-        <a href="#featured">Metrics</a>
-        <a href="#why">Why Code Way</a>
-        <a href="klassik-frescobar.html">Klassik Frescobar</a>
+        <div class="ftr-links">
+          <a href="#roster">Roster</a>
+          <a href="#featured">Metrics</a>
+          <a href="#why">Why Code Way</a>
+          <a href="klassik-frescobar.html">Klassik Frescobar</a>
+        </div>
       </div>
       <div class="ftr-col">
         <h5>Book</h5>
-        <a href="#book">Book a performer</a>
-        <a href="#book">Sponsorship</a>
-        <a href="#book">Press &amp; other</a>
+        <div class="ftr-links">
+          <a href="#book">Book a performer</a>
+          <a href="#book">Sponsorship</a>
+          <a href="#book">Press &amp; other</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1282,6 +1295,14 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
       a.addEventListener('click', function () { navLinks.classList.remove('open'); });
     });
   }
+
+  // ---- mobile footer accordions ----
+  document.querySelectorAll('.ftr-col h5').forEach(function(h5) {
+    h5.addEventListener('click', function() {
+      var col = h5.closest('.ftr-col');
+      col.classList.toggle('ftr-open');
+    });
+  });
 
   // ---- reveal on scroll (merch section + any .reveal nodes) ----
   var reveals = document.querySelectorAll('.reveal');
