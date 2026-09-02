@@ -1,25 +1,29 @@
 User-agent: *
 Allow: /
 
+# Allow all AI crawlers
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: PerplexityBot
+User-agent: CCBot
 Allow: /
 
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: Google-Extended
+User-agent: Claude-Web
 Allow: /
 
 User-agent: anthropic-ai
 Allow: /
 
-User-agent: Bingbot
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Googlebot
 Allow: /
 
 Sitemap: https://itscodeway.com/sitemap.xml
