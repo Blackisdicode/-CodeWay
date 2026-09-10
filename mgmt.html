@@ -80,6 +80,27 @@
     },
     {
       "@type": "Person",
+      "name": "BRG Hollywood",
+      "jobTitle": "Caribbean Artist",
+      "homeLocation": { "@type": "Place", "name": "Los Angeles, California" },
+      "worksFor": { "@id": "https://itscodeway.com/#organization" },
+      "sameAs": [
+        "https://open.spotify.com/artist/1KKODhZL6H6AoHOaoOvxSh",
+        "https://instagram.com/brghollywood"
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Twin Sanity",
+      "jobTitle": "Caribbean Artist",
+      "worksFor": { "@id": "https://itscodeway.com/#organization" },
+      "sameAs": [
+        "https://open.spotify.com/artist/6BXDSuZj9ATCDfow7jAeXg",
+        "https://instagram.com/fysanity"
+      ]
+    },
+    {
+      "@type": "Person",
       "name": "DJ Prime",
       "jobTitle": "DJ & Media Personality",
       "homeLocation": { "@type": "Place", "name": "United Kingdom" },
@@ -654,6 +675,22 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
       </article>
 
       <article class="card" data-type="artist">
+        <div class="card-photo" data-vid="https://itscodeway.com/brg-pocket-rocket.mp4"><span class="card-tag artist">Artist</span><img src="https://itscodeway.com/brg-hollywood.jpg" alt="BRG Hollywood" loading="lazy" /><video class="card-vid" muted loop playsinline preload="none"></video><span class="card-play" aria-hidden="true">▶</span></div>
+        <div class="card-body">
+          <h3 class="card-name">BRG Hollywood</h3>
+          <div class="card-role">Caribbean Artist · Los Angeles 🇺🇸</div>
+          <div class="card-stats">
+            <div><div class="stat-num"><a class="stat-link" href="https://open.spotify.com/artist/1KKODhZL6H6AoHOaoOvxSh" target="_blank" rel="noopener">Spotify</a></div><div class="stat-label">Verified</div></div>
+            <div><div class="stat-num"><a class="stat-link" href="https://instagram.com/brghollywood" target="_blank" rel="noopener">@brghollywood</a></div><div class="stat-label">Instagram</div></div>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-gold" data-book="BRG Hollywood">Book BRG</button>
+            <a class="card-ig" href="https://instagram.com/brghollywood" target="_blank" rel="noopener" aria-label="Instagram">↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-type="artist">
         <div class="card-photo" data-vid="https://itscodeway.com/nessa-warmup-yt.mp4"><span class="card-tag artist">Artist</span><img src="https://itscodeway.com/nessa-preppy.jpg" alt="Nessa Preppy" loading="lazy" /><video class="card-vid" muted loop playsinline preload="none"></video><span class="card-play" aria-hidden="true">▶</span></div>
         <div class="card-body">
           <h3 class="card-name">Nessa Preppy</h3>
@@ -670,23 +707,17 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
       </article>
 
       <article class="card" data-type="artist">
-        <div class="card-photo" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;min-height:200px;"><span class="card-tag artist">Artist</span><span style="font-size:2.5rem;">🎤</span></div>
-        <div class="card-body">
-          <h3 class="card-name">BRG Hollywood</h3>
-          <div class="card-role">Caribbean Artist · Los Angeles 🇺🇸</div>
-          <div class="card-actions">
-            <button class="btn btn-gold" data-book="BRG Hollywood">Book BRG</button>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-type="artist">
-        <div class="card-photo" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;min-height:200px;"><span class="card-tag artist">Artist</span><span style="font-size:2.5rem;">🎤</span></div>
+        <div class="card-photo" data-vid="https://itscodeway.com/twin-sanity-live.mp4"><span class="card-tag artist">Artist</span><img src="https://itscodeway.com/twin-sanity.jpg" alt="Twin Sanity" loading="lazy" /><video class="card-vid" muted loop playsinline preload="none"></video><span class="card-play" aria-hidden="true">▶</span></div>
         <div class="card-body">
           <h3 class="card-name">Twin Sanity</h3>
           <div class="card-role">Caribbean Artist</div>
+          <div class="card-stats">
+            <div><div class="stat-num"><a class="stat-link" href="https://open.spotify.com/artist/6BXDSuZj9ATCDfow7jAeXg" target="_blank" rel="noopener">Spotify</a></div><div class="stat-label">Verified</div></div>
+            <div><div class="stat-num"><a class="stat-link" href="https://instagram.com/fysanity" target="_blank" rel="noopener">@fysanity</a></div><div class="stat-label">Instagram</div></div>
+          </div>
           <div class="card-actions">
             <button class="btn btn-gold" data-book="Twin Sanity">Book Twin Sanity</button>
+            <a class="card-ig" href="https://instagram.com/fysanity" target="_blank" rel="noopener" aria-label="Instagram">↗</a>
           </div>
         </div>
       </article>
@@ -864,12 +895,14 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
     <div class="roster-group-head" style="margin-top:54px;">
       <h3 class="roster-group-title">Listen on Spotify</h3>
       <span class="roster-line"></span>
-      <span class="roster-count" id="spotifyCount">03</span>
+      <span class="roster-count" id="spotifyCount">05</span>
     </div>
     <div class="spotify-search-wrap">
       <div class="spotify-chip-row" id="spotifyChips">
         <button type="button" class="who-chip active" data-embed="playlist/37i9dQZF1DZ06evO1kz7bQ">Klassik Frescobar</button>
         <button type="button" class="who-chip" data-embed="playlist/37i9dQZF1DZ06evO0Bi5Wy">Nessa Preppy</button>
+        <button type="button" class="who-chip" data-embed="artist/1KKODhZL6H6AoHOaoOvxSh">BRG Hollywood</button>
+        <button type="button" class="who-chip" data-embed="artist/6BXDSuZj9ATCDfow7jAeXg">Twin Sanity</button>
         <button type="button" class="who-chip" data-embed="artist/18QglUrNr3pUVMKlYXEylF">DJ Prime</button>
       </div>
       <div class="spotify-wrap">
@@ -1056,6 +1089,24 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
           <div class="fig"><div class="fig-n">90.4K</div><div class="fig-l">Spotify / mo</div></div>
           <div class="fig"><div class="fig-n">36K</div><div class="fig-l">YouTube</div></div>
           <div class="fig muted"><div class="fig-n">—</div><div class="fig-l">TikTok · add</div></div>
+        </div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-who"><span class="metric-tag artist">Artist</span><h3>BRG Hollywood</h3><span class="metric-role">Los Angeles, CA</span></div>
+        <div class="metric-figs">
+          <div class="fig muted"><div class="fig-n"><a class="stat-link" href="https://open.spotify.com/artist/1KKODhZL6H6AoHOaoOvxSh" target="_blank" rel="noopener">Verified</a></div><div class="fig-l">Spotify artist</div></div>
+          <div class="fig muted"><div class="fig-n"><a class="stat-link" href="https://instagram.com/brghollywood" target="_blank" rel="noopener">@brghollywood</a></div><div class="fig-l">Instagram</div></div>
+          <div class="fig muted"><div class="fig-n">—</div><div class="fig-l">Monthly listeners · add</div></div>
+          <div class="fig muted"><div class="fig-n">—</div><div class="fig-l">Followers · add</div></div>
+        </div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-who"><span class="metric-tag artist">Artist</span><h3>Twin Sanity</h3><span class="metric-role">Caribbean Artist</span></div>
+        <div class="metric-figs">
+          <div class="fig muted"><div class="fig-n"><a class="stat-link" href="https://open.spotify.com/artist/6BXDSuZj9ATCDfow7jAeXg" target="_blank" rel="noopener">Verified</a></div><div class="fig-l">Spotify artist</div></div>
+          <div class="fig muted"><div class="fig-n"><a class="stat-link" href="https://instagram.com/fysanity" target="_blank" rel="noopener">@fysanity</a></div><div class="fig-l">Instagram</div></div>
+          <div class="fig muted"><div class="fig-n">—</div><div class="fig-l">Monthly listeners · add</div></div>
+          <div class="fig muted"><div class="fig-n">—</div><div class="fig-l">Followers · add</div></div>
         </div>
       </div>
       <div class="metric-row">
