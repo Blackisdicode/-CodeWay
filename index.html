@@ -80,6 +80,18 @@
     },
     {
       "@type": "Person",
+      "name": "Tha Fatha",
+      "jobTitle": "Soca Artist",
+      "nationality": "Trinidadian",
+      "homeLocation": { "@type": "Place", "name": "Trinidad and Tobago" },
+      "worksFor": { "@id": "https://itscodeway.com/#organization" },
+      "sameAs": [
+        "https://open.spotify.com/artist/6Nnnxrya0GqNZ5KHDgktoh",
+        "https://instagram.com/thefatha"
+      ]
+    },
+    {
+      "@type": "Person",
       "name": "BRG Hollywood",
       "jobTitle": "Caribbean Artist",
       "homeLocation": { "@type": "Place", "name": "Los Angeles, California" },
@@ -655,7 +667,7 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
     <div class="roster-group-head">
       <h3 class="roster-group-title">Artists</h3>
       <span class="roster-line"></span>
-      <span class="roster-count">04</span>
+      <span class="roster-count">05</span>
     </div>
     <div class="roster-grid artists">
       <article class="card" data-type="artist">
@@ -702,6 +714,22 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
           <div class="card-actions">
             <button class="btn btn-gold" data-book="Nessa Preppy">Book Nessa</button>
             <a class="card-ig" href="https://instagram.com/nessapreppy" target="_blank" rel="noopener" aria-label="Instagram">↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-type="artist">
+        <div class="card-photo"><span class="card-tag artist">Artist</span><img src="https://itscodeway.com/tha-fatha.jpg" alt="Tha Fatha" loading="lazy" /></div>
+        <div class="card-body">
+          <h3 class="card-name">Tha Fatha</h3>
+          <div class="card-role">Soca Artist · Trinidad &amp; Tobago 🇹🇹</div>
+          <div class="card-stats">
+            <div><div class="stat-num"><a class="stat-link" href="https://open.spotify.com/artist/6Nnnxrya0GqNZ5KHDgktoh" target="_blank" rel="noopener">Spotify</a></div><div class="stat-label">Verified</div></div>
+            <div><div class="stat-num"><a class="stat-link" href="https://instagram.com/thefatha" target="_blank" rel="noopener">@thefatha</a></div><div class="stat-label">Instagram</div></div>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-gold" data-book="Tha Fatha">Book Tha Fatha</button>
+            <a class="card-ig" href="https://instagram.com/thefatha" target="_blank" rel="noopener" aria-label="Instagram">↗</a>
           </div>
         </div>
       </article>
@@ -871,7 +899,7 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
     <div class="roster-group-head">
       <h3 class="roster-group-title">Music videos</h3>
       <span class="roster-line"></span>
-      <span class="roster-count">05</span>
+      <span class="roster-count">06</span>
     </div>
     <div class="video-grid">
       <figure class="video-card">
@@ -894,18 +922,23 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
         <div class="video-frame"><iframe src="https://www.youtube.com/embed/y0gDxB42gsQ?rel=0" title="BRG Hollywood" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
         <figcaption class="video-cap"><span class="video-artist">BRG Hollywood</span><span class="video-title">Latest release</span></figcaption>
       </figure>
+      <figure class="video-card">
+        <div class="video-frame"><iframe src="https://www.youtube.com/embed/OLs4kNO-bNw?rel=0" title="Tha Fatha" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <figcaption class="video-cap"><span class="video-artist">Tha Fatha</span><span class="video-title">Latest release</span></figcaption>
+      </figure>
     </div>
 
     <div class="roster-group-head" style="margin-top:54px;">
       <h3 class="roster-group-title">Listen on Spotify</h3>
       <span class="roster-line"></span>
-      <span class="roster-count" id="spotifyCount">05</span>
+      <span class="roster-count" id="spotifyCount">06</span>
     </div>
     <div class="spotify-search-wrap">
       <div class="spotify-chip-row" id="spotifyChips">
         <button type="button" class="who-chip active" data-embed="playlist/37i9dQZF1DZ06evO1kz7bQ">Klassik Frescobar</button>
         <button type="button" class="who-chip" data-embed="playlist/37i9dQZF1DZ06evO0Bi5Wy">Nessa Preppy</button>
         <button type="button" class="who-chip" data-embed="artist/1KKODhZL6H6AoHOaoOvxSh">BRG Hollywood</button>
+        <button type="button" class="who-chip" data-embed="artist/6Nnnxrya0GqNZ5KHDgktoh">Tha Fatha</button>
         <button type="button" class="who-chip" data-embed="artist/6BXDSuZj9ATCDfow7jAeXg">Twin Sanity</button>
         <button type="button" class="who-chip" data-embed="artist/18QglUrNr3pUVMKlYXEylF">DJ Prime</button>
       </div>
@@ -1040,6 +1073,7 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
           <div class="who-chips" id="whoChips">
             <button type="button" class="who-chip active" data-artist="Klassik Frescobar">Klassik Frescobar</button>
             <button type="button" class="who-chip" data-artist="BRG Hollywood">BRG Hollywood</button>
+              <button type="button" class="who-chip" data-artist="Tha Fatha">Tha Fatha</button>
               <button type="button" class="who-chip" data-artist="Twin Sanity">Twin Sanity</button>
             <button type="button" class="who-chip" data-artist="Nessa Preppy">Nessa Preppy</button>
             <button type="button" class="who-chip" data-artist="DJ Kalli">DJ Kalli</button>
@@ -1101,6 +1135,15 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
           <div class="fig"><div class="fig-n">90.4K</div><div class="fig-l">Spotify / mo</div></div>
           <div class="fig"><div class="fig-n">36K</div><div class="fig-l">YouTube</div></div>
           <div class="fig muted"><div class="fig-n">—</div><div class="fig-l">TikTok · add</div></div>
+        </div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-who"><span class="metric-tag artist">Artist</span><h3>Tha Fatha</h3><span class="metric-role">Trinidad &amp; Tobago</span></div>
+        <div class="metric-figs">
+          <div class="fig muted"><div class="fig-n"><a class="stat-link" href="https://open.spotify.com/artist/6Nnnxrya0GqNZ5KHDgktoh" target="_blank" rel="noopener">Verified</a></div><div class="fig-l">Spotify artist</div></div>
+          <div class="fig muted"><div class="fig-n"><a class="stat-link" href="https://instagram.com/thefatha" target="_blank" rel="noopener">@thefatha</a></div><div class="fig-l">Instagram</div></div>
+          <div class="fig muted"><div class="fig-n">—</div><div class="fig-l">Monthly listeners · add</div></div>
+          <div class="fig muted"><div class="fig-n">—</div><div class="fig-l">Followers · add</div></div>
         </div>
       </div>
       <div class="metric-row">
