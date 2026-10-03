@@ -445,6 +445,20 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .video-grid.clips{grid-template-columns:repeat(2,1fr);max-width:620px;}
 @media(max-width:760px){.video-grid{grid-template-columns:1fr;}.video-grid.clips{max-width:none;}}
 
+/* ===== beat submissions ===== */
+.beats-wrap{max-width:660px;margin:0 auto;text-align:center;}
+.beats-heading{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:42px;letter-spacing:.02em;margin-bottom:14px;line-height:1;}
+.beats-sub{font-size:16px;color:var(--muted-2);line-height:1.65;margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;}
+.beats-rules{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 36px;}
+.beats-rule{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 16px;text-align:left;}
+.beats-rule-label{font-size:11px;color:var(--muted-3);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.beats-rule-val{font-family:'Anton',sans-serif;font-size:17px;line-height:1.2;}
+.beats-cta{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--gold-ink);font-family:'Anton',sans-serif;font-size:18px;letter-spacing:.03em;text-transform:uppercase;padding:18px 44px;border-radius:10px;text-decoration:none;transition:opacity .15s ease;}
+.beats-cta:hover{opacity:.88;}
+.beats-note{font-size:13px;color:var(--muted-3);margin-top:14px;}
+@media(max-width:760px){.beats-rules{grid-template-columns:1fr 1fr;}.beats-heading{font-size:32px;}}
+@media(max-width:520px){.beats-rules{grid-template-columns:1fr;}}
+
 /* ===== footer ===== */
 .ftr{border-top:1px solid var(--line-soft);padding:54px 0 60px;}
 .ftr-in{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;}
@@ -586,9 +600,11 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
         <a href="#why">Why Us</a>
         <a href="#faq">FAQ</a>
         <a href="https://codewaydistro.com">Distribute Your Music</a>
+        <a href="#beats">Submit a Beat</a>
         <a href="#book">Contact</a>
       </div>
       <a class="nav-back" href="https://codewayinc.com" target="_blank" rel="noopener">← Code Way INC</a>
+      <a class="btn btn-gold btn-sm" href="#beats">Submit a Beat</a>
       <button class="btn btn-gold btn-sm" onclick="goBook()">Book a Performer</button>
       <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
     </nav>
@@ -1045,6 +1061,23 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
         <summary>Can I sponsor an artist or event through Code Way Management?</summary>
         <p>Yes. Select "Sponsorship" on the booking form below and the team will follow up directly.</p>
       </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BEAT SUBMISSIONS ===== -->
+<section class="section" id="beats">
+  <div class="wrap">
+    <div class="beats-wrap">
+      <h2 class="beats-heading">Submit a Beat</h2>
+      <p class="beats-sub">Producers — upload your beats directly to our A&amp;R inbox. We listen to everything. If it's the right fit for one of our artists, we'll reach out.</p>
+      <div class="beats-rules">
+        <div class="beats-rule"><div class="beats-rule-label">Formats</div><div class="beats-rule-val">MP3 · WAV</div></div>
+        <div class="beats-rule"><div class="beats-rule-label">Genres</div><div class="beats-rule-val">Soca · Bouyon · Caribbean</div></div>
+        <div class="beats-rule"><div class="beats-rule-label">Response</div><div class="beats-rule-val">Within 7 Days</div></div>
+      </div>
+      <a class="beats-cta" href="https://drive.google.com/drive/folders/1L2GkK81TfqcuFBaPMAkFj3RtE990SHmq?usp=sharing" target="_blank" rel="noopener">Upload Your Beat →</a>
+      <p class="beats-note">Opens Google Drive in a new tab — drag and drop your file to submit.</p>
     </div>
   </div>
 </section>
